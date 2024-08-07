@@ -9,14 +9,18 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: logoColor,
-      body: const Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            LoginImageAndText(),
-            LoginInputs(),
-          ],
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(50),
+          margin: const EdgeInsets.symmetric(horizontal: 300),
+          color: logoColor,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LoginImageAndText(),
+              LoginInputs(),
+            ],
+          ),
         ),
       ),
     );
