@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/pages/login/login.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 class HomePage extends ConsumerWidget {
@@ -11,7 +12,7 @@ class HomePage extends ConsumerWidget {
     print('-------------- accessToken: $accessToken');
 
     return accessToken.isEmpty
-        ? const Center(child: Text('Login Page'))
+        ? const LoginPage()
         : const Center(child: Text('Dashboard'));
   }
 }
