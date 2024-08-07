@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:skar_super_admin/styles/theme/theme.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.light,
+      theme: AppTheme.lightTheme,
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Text('Skar Super Admin'),
+      ),
+    );
+  }
+}
