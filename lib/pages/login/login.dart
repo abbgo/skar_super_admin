@@ -13,7 +13,10 @@ class LoginPage extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(50),
           margin: const EdgeInsets.symmetric(horizontal: 300),
-          color: logoColor,
+          decoration: BoxDecoration(
+            color: logoColor,
+            borderRadius: const BorderRadius.all(Radius.circular(50)),
+          ),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
