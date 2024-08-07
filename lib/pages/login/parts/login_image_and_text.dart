@@ -8,15 +8,18 @@ class LoginImageAndText extends StatelessWidget {
   Widget build(BuildContext context) {
     var lang = AppLocalizations.of(context)!;
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Image.asset("assets/images/logo.jpg", fit: BoxFit.cover, height: 400),
-        Text(
-          '${lang.welcome} !',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 48),
-        ),
-      ],
+    return Container(
+      color: Colors.white,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset("assets/images/logo.jpg", fit: BoxFit.cover, height: 400),
+          Text(
+            '${lang.welcome} !',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 48),
+          ),
+        ],
+      ),
     );
   }
 }
