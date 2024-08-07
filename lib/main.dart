@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:skar_super_admin/pages/home.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/styles/theme/theme.dart';
 
@@ -25,20 +26,7 @@ class MyApp extends ConsumerWidget {
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
       locale: Locale(language),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Skar Super Admin'),
-      ),
+      home: const HomePage(),
     );
   }
 }
