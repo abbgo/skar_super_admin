@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/pages/login/parts/login_image_and_text.dart';
 import 'package:skar_super_admin/pages/login/parts/login_inputs.dart';
 import 'package:skar_super_admin/styles/colors.dart';
@@ -13,7 +14,7 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(50),
-          // margin: const EdgeInsets.symmetric(horizontal: 300),
+          width: screenProperties(context).width * .6,
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(50)),
