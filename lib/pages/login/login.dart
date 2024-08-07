@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/pages/login/parts/login_image_and_text.dart';
+import 'package:skar_super_admin/pages/login/parts/login_inputs.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -12,7 +13,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             LoginImageAndText(),
-            Text('Inputlar'),
+            LoginInputs(),
           ],
         ),
       ),
