@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/helpers/methods/navigators.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 class DrawerPart extends StatelessWidget {
   const DrawerPart({super.key});
@@ -17,8 +18,11 @@ class DrawerPart extends StatelessWidget {
             child: Image.asset("assets/images/logo.jpg"),
           ),
           ListTile(
-            leading: const Icon(Icons.home),
-            title: Text(lang.homepage),
+            leading: Icon(Icons.home, color: logoColor),
+            title: Text(
+              lang.homepage,
+              style: TextStyle(color: elevatedButtonColor),
+            ),
             onTap: () => goToDashboard(context),
           ),
         ],
