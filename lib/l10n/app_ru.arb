@@ -6,5 +6,6 @@
     "enterYourPassword":"Введите ваш пароль",
     "login":"Логин",
     "someErrorOccurred":"Произошла какая-то ошибка",
-    "userNotFound":"Пользователь не найден"
+    "userNotFound":"Пользователь не найден",
+    "homepage":"Домашняя страница"
 }

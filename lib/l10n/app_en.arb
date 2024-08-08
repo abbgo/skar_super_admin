@@ -6,5 +6,6 @@
     "enterYourPassword":"Enter your password",
     "login":"Login",
     "someErrorOccurred":"Some error occurred",
-    "userNotFound":"User not found"
+    "userNotFound":"User not found",
+    "homepage":"Homepage"
 }

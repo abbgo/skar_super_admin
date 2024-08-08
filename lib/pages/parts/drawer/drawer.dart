@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerPart extends StatelessWidget {
   const DrawerPart({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var lang = AppLocalizations.of(context)!;
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -13,25 +16,9 @@ class DrawerPart extends StatelessWidget {
             child: Image.asset("assets/images/logo.jpg"),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home'),
-            onTap: () {
-              // Navigate to Home
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () {
-              // Navigate to Settings
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.contact_mail),
-            title: Text('Contact'),
-            onTap: () {
-              // Navigate to Contact
-            },
+            leading: const Icon(Icons.home),
+            title: Text(lang.homepage),
+            onTap: () {},
           ),
         ],
       ),
