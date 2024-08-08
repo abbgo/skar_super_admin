@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/styles/theme/parts/app_bar_theme.dart';
+import 'package:skar_super_admin/styles/theme/parts/app_drawer_theme.dart';
 import 'package:skar_super_admin/styles/theme/parts/bottom_navigation_bar_theme.dart';
 import 'package:skar_super_admin/styles/theme/parts/card_theme.dart';
 import 'package:skar_super_admin/styles/theme/parts/checkbox_theme.dart';
@@ -33,5 +34,6 @@ class AppTheme {
     floatingActionButtonTheme:
         AppFloatingActionButtonTheme.lightFloatingActionButtonTheme,
     iconTheme: AppIconTheme.lightIconTheme,
+    drawerTheme: AppDrawerTheme.lightDrawerTheme,
   );
 }
