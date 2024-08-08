@@ -6,7 +6,7 @@ final adminApiServiceProvider =
     Provider<AdminApiService>((ref) => AdminApiService());
 
 var loginAdminProvider = FutureProvider.autoDispose
-    .family<ResultLoginAdmin, LoginShopOwnerParams>((ref, arg) async {
+    .family<ResultLoginAdmin, LoginAdminParams>((ref, arg) async {
   ResultLoginAdmin result = ResultLoginAdmin.defaultResult();
 
   try {
