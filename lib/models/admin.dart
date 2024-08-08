@@ -33,24 +33,24 @@ class Admin {
   }
 }
 
-class ResultLoginAdmin {
+class ResponseLoginAdmin {
   final Admin admin;
   final String accessToken;
 
-  const ResultLoginAdmin({
+  const ResponseLoginAdmin({
     required this.admin,
     required this.accessToken,
   });
 
-  factory ResultLoginAdmin.defaultResponse() {
-    return ResultLoginAdmin(
+  factory ResponseLoginAdmin.defaultResponse() {
+    return ResponseLoginAdmin(
       admin: Admin.defaultAdmin(),
       accessToken: '',
     );
   }
 
-  factory ResultLoginAdmin.fromJson(Map<String, dynamic> json) {
-    return ResultLoginAdmin(
+  factory ResponseLoginAdmin.fromJson(Map<String, dynamic> json) {
+    return ResponseLoginAdmin(
       admin: Admin.fromJson(json['admin']),
       accessToken: json['access_token'],
     );

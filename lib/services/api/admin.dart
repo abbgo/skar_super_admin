@@ -8,7 +8,7 @@ import 'package:skar_super_admin/models/admin.dart';
 
 class AdminApiService {
   // login admin ---------------------------------------------------------------
-  Future<ResultLoginAdmin> loginAdmin(
+  Future<ResponseLoginAdmin> loginAdmin(
     String phoneNumber,
     String password,
   ) async {
@@ -26,9 +26,9 @@ class AdminApiService {
       dynamic jsonData = json.decode(response.body);
 
       if (response.statusCode == 200 && jsonData['status']) {
-        return ResultLoginAdmin.fromJson(jsonData);
+        return ResponseLoginAdmin.fromJson(jsonData);
       }
-      return ResultLoginAdmin.defaultResponse();
+      return ResponseLoginAdmin.defaultResponse();
     } catch (e) {
       rethrow;
     }
