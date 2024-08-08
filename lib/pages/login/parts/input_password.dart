@@ -16,7 +16,7 @@ class InputPassword extends ConsumerWidget {
     bool passwordVisible = ref.watch(passwordVisibleProvider);
 
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxHeight: 100.0, minHeight: 100.0),
+      constraints: const BoxConstraints(maxHeight: 80, minHeight: 80),
       child: TextFormField(
         controller: ctrl,
         keyboardType: TextInputType.text,

@@ -39,7 +39,7 @@ class _LoginInputsState extends State<LoginInputs> {
         Form(
           key: formKey,
           child: SizedBox(
-            width: screenProperties(context).width * .15,
+            width: screenProperties(context).width * .16,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
