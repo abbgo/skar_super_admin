@@ -42,14 +42,19 @@ class LoginButton extends ConsumerWidget {
                 await ref.read(loginAdminProvider(params).future);
 
             if (result.error != '') {
-              if (context.mounted) showSomeErr(context);
+              if (context.mounted) {
+                showErrToast(
+                  context,
+                  lang.someErrorOccurred,
+                );
+              }
               ref.read(buttonPressProvider.notifier).state = false;
               return;
             }
 
             if (result.responseLoginAdmin != null) {
               if (result.responseLoginAdmin!.accessToken == '') {
-                if (context.mounted) showUserNotFound(context);
+                if (context.mounted) showErrToast(context, lang.userNotFound);
                 ref.read(buttonPressProvider.notifier).state = false;
                 return;
               }

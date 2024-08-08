@@ -1,28 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-void showSomeErr(BuildContext context) {
-  var snackBar = SnackBar(
-    content: Text(
-      AppLocalizations.of(context)!.someErrorOccurred,
-      style: const TextStyle(color: Colors.white),
-    ),
-    duration: const Duration(seconds: 3),
-    backgroundColor: Colors.red,
-  );
-
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-}
-
-void showUserNotFound(BuildContext context) {
-  var snackBar = SnackBar(
-    content: Text(
-      AppLocalizations.of(context)!.userNotFound,
-      style: const TextStyle(color: Colors.white),
-    ),
-    duration: const Duration(seconds: 3),
-    backgroundColor: Colors.red,
-  );
-
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-}
+void showErrToast(BuildContext context, String text) => Fluttertoast.showToast(
+      msg: text,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 3,
+      textColor: Colors.white,
+      fontSize: 16.0,
+      webPosition: "center",
+      webShowClose: true,
+      webBgColor: "red",
+    );
