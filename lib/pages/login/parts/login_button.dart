@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/providers/pages/login.dart';
+import 'package:skar_super_admin/services/api/admin.dart';
 
 class LoginButton extends ConsumerWidget {
   const LoginButton({
@@ -26,6 +27,12 @@ class LoginButton extends ConsumerWidget {
         onPressed: () async {
           if (formKey.currentState?.validate() == true) {
             ref.read(buttonPressProvider.notifier).state = true;
+
+            LoginAdminParams params = LoginAdminParams(
+              phoneNumber: '+993${phoneNumberCtrl.text}',
+              password: passwordCtrl.text,
+              context: context,
+            );
           }
         },
         child: buttonPress
