@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/pages/parts/drawer/drawer.dart';
 
 class ShopsPage extends StatelessWidget {
   const ShopsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Shops page'),
-      ),
+    return Scaffold(
+      appBar: AppBar(),
+      drawer: const DrawerPart(),
+      body: const Center(child: Text('Shops page')),
     );
   }
 }

@@ -20,7 +20,7 @@ class ShopsButton extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () => goToPage(context, const ShopsPage(), false),
+      onTap: () => goToPage(context, const ShopsPage(), true),
     );
   }
 }

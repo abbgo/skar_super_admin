@@ -8,8 +8,8 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Center(child: Text('Dashboard')),
       drawer: const DrawerPart(),
+      body: const Center(child: Text('Dashboard')),
     );
   }
 }
