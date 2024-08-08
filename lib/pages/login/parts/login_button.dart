@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skar_super_admin/helpers/methods/snackbars.dart';
+import 'package:skar_super_admin/models/admin.dart';
+import 'package:skar_super_admin/providers/api/admin.dart';
 import 'package:skar_super_admin/providers/pages/login.dart';
 import 'package:skar_super_admin/services/api/admin.dart';
 
@@ -33,6 +36,15 @@ class LoginButton extends ConsumerWidget {
               password: passwordCtrl.text,
               context: context,
             );
+
+            ResultLoginAdmin result =
+                await ref.read(loginAdminProvider(params).future);
+
+            if (result.error != '') {
+              if (context.mounted) showSomeErr(context);
+              ref.read(buttonPressProvider.notifier).state = false;
+              return;
+            }
           }
         },
         child: buttonPress

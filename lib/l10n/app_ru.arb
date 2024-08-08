@@ -4,5 +4,6 @@
     "enterYourCorrectPhoneNumber":"Пожалуйста, введите правильный номер телефона",
     "password":"Пароль",
     "enterYourPassword":"Введите ваш пароль",
-    "login":"Логин"
+    "login":"Логин",
+    "someErrorOccurred":"Произошла какая-то ошибка"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/helpers/input.dart';
+import 'package:skar_super_admin/helpers/methods/input.dart';
 import 'package:skar_super_admin/providers/pages/login.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
