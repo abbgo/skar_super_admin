@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/helpers/methods/snackbars.dart';
 import 'package:skar_super_admin/models/admin.dart';
 import 'package:skar_super_admin/providers/api/admin.dart';
+import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/login.dart';
 import 'package:skar_super_admin/services/api/admin.dart';
 
@@ -55,15 +56,9 @@ class LoginButton extends ConsumerWidget {
 
               ref.read(buttonPressProvider.notifier).state = false;
 
-              bool hasShopOwner = await ref.watch(hasShopOwnerProvider.future);
-              if (hasShopOwner) {
-                await deleteShopOwner();
-              }
-              await createShopOwner(result.responseLoginShopOwner!.shopOwner);
-
               await ref
                   .read(accessTokenProvider.notifier)
-                  .update(result.responseLoginShopOwner!.accessToken);
+                  .update(result.responseLoginAdmin!.accessToken);
             }
           }
         },
