@@ -24,43 +24,9 @@ class LoginButton extends ConsumerWidget {
       height: 40,
       child: ElevatedButton(
         onPressed: () async {
-          // if (formKey.currentState?.validate() == true) {
-          //   ref.read(buttonPressProvider.notifier).state = true;
-
-          //   LoginShopOwnerParams params = LoginShopOwnerParams(
-          //     phoneNumber: '+993${phoneNumberCtrl.text}',
-          //     password: passwordCtrl.text,
-          //     context: context,
-          //   );
-          //   ResultLoginShopOwner result =
-          //       await ref.read(loginShopOwnerProvider(params).future);
-
-          //   if (result.error != '') {
-          //     if (context.mounted) showSomeErr(context);
-          //     ref.read(buttonPressProvider.notifier).state = false;
-          //     return;
-          //   }
-
-          //   if (result.responseLoginShopOwner != null) {
-          //     if (result.responseLoginShopOwner!.accessToken == '') {
-          //       if (context.mounted) showUserNotFound(context);
-          //       ref.read(buttonPressProvider.notifier).state = false;
-          //       return;
-          //     }
-
-          //     ref.read(buttonPressProvider.notifier).state = false;
-
-          //     bool hasShopOwner = await ref.watch(hasShopOwnerProvider.future);
-          //     if (hasShopOwner) {
-          //       await deleteShopOwner();
-          //     }
-          //     await createShopOwner(result.responseLoginShopOwner!.shopOwner);
-
-          //     await ref
-          //         .read(accessTokenProvider.notifier)
-          //         .update(result.responseLoginShopOwner!.accessToken);
-          //   }
-          // }
+          if (formKey.currentState?.validate() == true) {
+            ref.read(buttonPressProvider.notifier).state = true;
+          }
         },
         child: buttonPress
             ? const SizedBox(
