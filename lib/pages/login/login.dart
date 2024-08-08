@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
-import 'package:skar_super_admin/pages/login/parts/login_image_and_text.dart';
 import 'package:skar_super_admin/pages/login/parts/login_inputs.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
@@ -19,10 +18,15 @@ class LoginPage extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              LoginImageAndText(),
+              Image.asset(
+                "assets/images/logo.jpg",
+                fit: BoxFit.cover,
+                width: screenProperties(context).width * .15,
+              ),
+              const SizedBox(width: 50),
               LoginInputs(),
             ],
           ),

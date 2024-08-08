@@ -1,3 +1,5 @@
 {
-    "welcome":"Welcome"
+    "welcome":"Welcome",
+    "phoneNumber":"Phone number",
+    "enterYourCorrectPhoneNumber":"Please enter your correct phone number"
 }
