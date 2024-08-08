@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skar_super_admin/helpers/methods/navigators.dart';
 
 class DrawerPart extends StatelessWidget {
   const DrawerPart({super.key});
@@ -18,7 +19,7 @@ class DrawerPart extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home),
             title: Text(lang.homepage),
-            onTap: () {},
+            onTap: () => goToDashboard(context),
           ),
         ],
       ),
