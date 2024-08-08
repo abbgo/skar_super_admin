@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class Admin {
   final String fullName, phoneNumber;
   final bool isSuperAdmin;
@@ -55,4 +57,21 @@ class ResponseLoginAdmin {
       accessToken: json['access_token'],
     );
   }
+}
+
+class ResultLoginAdmin extends Equatable {
+  final ResponseLoginAdmin? responseLoginAdmin;
+  final String error;
+
+  const ResultLoginAdmin({this.responseLoginAdmin, required this.error});
+
+  factory ResultLoginAdmin.defaultResult() {
+    return ResultLoginAdmin(
+      responseLoginAdmin: ResponseLoginAdmin.defaultResponse(),
+      error: '',
+    );
+  }
+
+  @override
+  List<Object?> get props => [responseLoginAdmin, error];
 }
