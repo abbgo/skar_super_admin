@@ -6,9 +6,9 @@ import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class InputPassword extends ConsumerWidget {
-  const InputPassword({super.key, required this.passwordCtrl});
+  const InputPassword({super.key, required this.ctrl});
 
-  final TextEditingController passwordCtrl;
+  final TextEditingController ctrl;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +18,7 @@ class InputPassword extends ConsumerWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxHeight: 100.0, minHeight: 100.0),
       child: TextFormField(
-        controller: passwordCtrl,
+        controller: ctrl,
         keyboardType: TextInputType.text,
         textAlignVertical: TextAlignVertical.center,
         cursorColor: elevatedButtonColor,

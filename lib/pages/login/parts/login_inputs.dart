@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
+import 'package:skar_super_admin/pages/login/parts/input_password.dart';
 import 'package:skar_super_admin/pages/login/parts/input_phone.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -8,6 +9,7 @@ class LoginInputs extends StatelessWidget {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController phoneNumberCtrl = TextEditingController();
+  final TextEditingController passwordCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class LoginInputs extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 InputPhone(ctrl: phoneNumberCtrl),
-                InputPhone(ctrl: phoneNumberCtrl),
+                InputPassword(ctrl: passwordCtrl),
               ],
             ),
           ),

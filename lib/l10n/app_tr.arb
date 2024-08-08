@@ -1,5 +1,7 @@
 {
     "welcome":"Hoş geldiňiz",
     "phoneNumber":"Telefon belgiňiz",
-    "enterYourCorrectPhoneNumber":"Telefon belgiňizi dogry giriziň"
+    "enterYourCorrectPhoneNumber":"Telefon belgiňizi dogry giriziň",
+    "password":"Açar sözi",
+    "enterYourPassword":"Açar sözi giriziň"
 }

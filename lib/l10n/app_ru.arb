@@ -1,5 +1,7 @@
 {
     "welcome":"Добро пожаловать",
     "phoneNumber":"Номер телефона",
-    "enterYourCorrectPhoneNumber":"Пожалуйста, введите правильный номер телефона"
+    "enterYourCorrectPhoneNumber":"Пожалуйста, введите правильный номер телефона",
+    "password":"Пароль",
+    "enterYourPassword":"Введите ваш пароль"
 }
