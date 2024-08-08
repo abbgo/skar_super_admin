@@ -1,24 +1,35 @@
 class Admin {
-  final String id;
-  final String fullName;
-  final String phoneNumber;
+  final String fullName, phoneNumber;
+  final bool isSuperAdmin;
 
-  Admin({required this.id, required this.fullName, required this.phoneNumber});
+  Admin({
+    required this.fullName,
+    required this.phoneNumber,
+    required this.isSuperAdmin,
+  });
 
   factory Admin.fromJson(Map<String, dynamic> json) {
     return Admin(
-      id: json['id'],
       fullName: json['full_name'],
       phoneNumber: json['phone_number'],
+      isSuperAdmin: json['is_super_admin'],
     );
   }
 
   factory Admin.defaultAdmin() {
-    return Admin(id: '', fullName: '', phoneNumber: '');
+    return Admin(
+      fullName: '',
+      phoneNumber: '',
+      isSuperAdmin: false,
+    );
   }
 
   Map<String, dynamic> toMap() {
-    return {'id': id, 'full_name': fullName, 'phone_number': phoneNumber};
+    return {
+      'full_name': fullName,
+      'phone_number': phoneNumber,
+      'is_super_admin': isSuperAdmin,
+    };
   }
 }
 
