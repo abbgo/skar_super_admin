@@ -17,7 +17,7 @@ class LoginImageAndText extends StatelessWidget {
           Image.asset(
             "assets/images/logo.jpg",
             fit: BoxFit.cover,
-            width: screenProperties(context).width * .3,
+            height: screenProperties(context).height * .4,
           ),
           Text(
             '${lang.welcome} !',
