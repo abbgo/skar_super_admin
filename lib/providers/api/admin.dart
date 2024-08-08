@@ -10,17 +10,12 @@ var loginAdminProvider = FutureProvider.autoDispose
   ResultLoginAdmin result = ResultLoginAdmin.defaultResult();
 
   try {
-    bool hasInternert =
-        await ref.read(checkInternetConnProvider(arg.context).future);
+    ResponseLoginAdmin responseLoginAdmin = await ref
+        .read(adminApiServiceProvider)
+        .loginAdmin(arg.phoneNumber, arg.password);
 
-    if (hasInternert) {
-      ResultLoginAdmin responseLoginShopOwner = await ref
-          .read(shopOwnerApiServiceProvider)
-          .loginShopOwner(arg.phoneNumber, arg.password);
-
-      result = ResultLoginAdmin(
-          error: '', responseLoginShopOwner: responseLoginShopOwner);
-    }
+    result =
+        ResultLoginAdmin(error: '', responseLoginAdmin: responseLoginAdmin);
   } catch (e) {
     result = ResultLoginAdmin(error: e.toString());
   }
