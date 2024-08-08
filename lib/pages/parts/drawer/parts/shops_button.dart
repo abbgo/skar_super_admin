@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/helpers/methods/navigators.dart';
+import 'package:skar_super_admin/pages/shops/shops.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -19,7 +20,7 @@ class ShopsButton extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () => goToDashboard(context),
+      onTap: () => goToPage(context, const ShopsPage(), false),
     );
   }
 }
