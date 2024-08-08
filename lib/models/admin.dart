@@ -25,14 +25,6 @@ class Admin {
       isSuperAdmin: false,
     );
   }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'full_name': fullName,
-      'phone_number': phoneNumber,
-      'is_super_admin': isSuperAdmin,
-    };
-  }
 }
 
 class ResponseLoginAdmin {
