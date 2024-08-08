@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                 width: screenProperties(context).width * .15,
               ),
               const SizedBox(width: 50),
-              LoginInputs(),
+              const LoginInputs(),
             ],
           ),
         ),
