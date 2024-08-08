@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/pages/dashboard/dashboard.dart';
 import 'package:skar_super_admin/pages/login/login.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
@@ -11,8 +12,6 @@ class HomePage extends ConsumerWidget {
     String accessToken = ref.watch(accessTokenProvider);
     print('-------------- accessToken: $accessToken');
 
-    return accessToken.isEmpty
-        ? const LoginPage()
-        : const Center(child: Text('Dashboard'));
+    return accessToken.isEmpty ? const LoginPage() : const Dashboard();
   }
 }
