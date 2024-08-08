@@ -3,5 +3,6 @@
     "phoneNumber":"Phone number",
     "enterYourCorrectPhoneNumber":"Please enter your correct phone number",
     "password":"Password",
-    "enterYourPassword":"Enter your password"
+    "enterYourPassword":"Enter your password",
+    "login":"Login"
 }

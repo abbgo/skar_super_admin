@@ -3,6 +3,7 @@ import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/pages/login/parts/input_password.dart';
 import 'package:skar_super_admin/pages/login/parts/input_phone.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skar_super_admin/pages/login/parts/login_button.dart';
 
 class LoginInputs extends StatefulWidget {
   const LoginInputs({super.key});
@@ -44,6 +45,11 @@ class _LoginInputsState extends State<LoginInputs> {
               children: [
                 InputPhone(ctrl: phoneNumberCtrl),
                 InputPassword(ctrl: passwordCtrl),
+                LoginButton(
+                  formKey: formKey,
+                  phoneNumberCtrl: phoneNumberCtrl,
+                  passwordCtrl: passwordCtrl,
+                ),
               ],
             ),
           ),
