@@ -12,9 +12,7 @@ class DrawerPart extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            child: Image.asset("assets/images/logo.jpg"),
-          ),
+          DrawerHeader(child: Image.asset("assets/images/logo.jpg")),
           const HomeButton(),
           const ShopsButton(),
           const CategoriesButton(),
