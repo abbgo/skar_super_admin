@@ -25,6 +25,14 @@ class Admin {
       isSuperAdmin: false,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'full_name': fullName,
+      'phone_number': phoneNumber,
+      'is_super_admin': isSuperAdmin,
+    };
+  }
 }
 
 class ResponseLoginAdmin {
