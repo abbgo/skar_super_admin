@@ -14,3 +14,9 @@ final langProvider = createPrefProvider<String>(
   prefKey: "lang",
   defaultValue: 'tr',
 );
+
+final adminDataProvider = createPrefProvider<String>(
+  prefs: (_) => prefs,
+  prefKey: "admin_data",
+  defaultValue: '',
+);
