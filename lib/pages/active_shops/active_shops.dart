@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/pages/parts/drawer/drawer.dart';
+import 'package:skar_super_admin/pages/parts/my_app_bar.dart';
 
 class ActiveShops extends StatelessWidget {
   const ActiveShops({super.key});
@@ -7,7 +8,7 @@ class ActiveShops extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: myAppBar(),
       drawer: const DrawerPart(),
       body: const Center(child: Text('Aktiwe dukanlar')),
     );
