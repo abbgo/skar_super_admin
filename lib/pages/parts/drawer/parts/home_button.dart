@@ -25,7 +25,7 @@ class HomeButton extends ConsumerWidget {
       ),
       onTap: () {
         ref.read(selectedDrawerButtonProvider.notifier).state = 0;
-        goToDashboard(context);
+        goToHome(context);
       },
     );
   }

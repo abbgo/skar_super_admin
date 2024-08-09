@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skar_super_admin/pages/dashboard/dashboard.dart';
+import 'package:skar_super_admin/pages/home.dart';
 
 goToPage(
   BuildContext context,
@@ -19,11 +19,11 @@ goToPage(
       : null;
 }
 
-goToDashboard(BuildContext context) {
+goToHome(BuildContext context) {
   return context.mounted
       ? Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const Dashboard()),
+          MaterialPageRoute(builder: (context) => const HomePage()),
           (Route<dynamic> route) => false,
         )
       : null;
