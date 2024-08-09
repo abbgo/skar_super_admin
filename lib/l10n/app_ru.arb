@@ -9,5 +9,7 @@
     "userNotFound":"Пользователь не найден",
     "homepage":"Домашняя страница",
     "shops":"Магазины",
-    "categories":"Категории"
+    "categories":"Категории",
+    "shopsToCheck":"Магазины для проверки",
+    "activeShops":"Активные магазины"
 }

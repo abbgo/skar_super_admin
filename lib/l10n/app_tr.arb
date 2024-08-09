@@ -9,5 +9,7 @@
     "userNotFound":"Ulanyjy tapylmady",
     "homepage":"Baş sahypa",
     "shops":"Dükanlar",
-    "categories":"Kategoriýalar"
+    "categories":"Kategoriýalar",
+    "shopsToCheck":"Barlanmaly dükanlar",
+    "activeShops":"Aktiwe dükanlar"
 }
