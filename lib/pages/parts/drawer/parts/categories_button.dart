@@ -12,9 +12,9 @@ class CategoriesButton extends StatelessWidget {
     var lang = AppLocalizations.of(context)!;
 
     return ListTile(
-      leading: Icon(Icons.storefront, color: logoColor),
+      leading: Icon(Icons.view_cozy_outlined, color: logoColor),
       title: Text(
-        lang.shops,
+        lang.categories,
         style: TextStyle(
           color: elevatedButtonColor,
           fontWeight: FontWeight.bold,

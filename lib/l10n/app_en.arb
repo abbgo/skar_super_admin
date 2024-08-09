@@ -8,5 +8,6 @@
     "someErrorOccurred":"Some error occurred",
     "userNotFound":"User not found",
     "homepage":"Homepage",
-    "shops":"Shops"
+    "shops":"Shops",
+    "categories":"Categories"
 }
