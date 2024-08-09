@@ -16,16 +16,16 @@ class CategoriesButton extends ConsumerWidget {
 
     return ListTile(
       leading: Icon(Icons.view_cozy_outlined, color: logoColor),
-      tileColor: selectedDrawerButton == 2 ? elevatedButtonColor : null,
+      tileColor: selectedDrawerButton == 3 ? elevatedButtonColor : null,
       title: Text(
         lang.categories,
         style: TextStyle(
-          color: selectedDrawerButton == 2 ? Colors.white : elevatedButtonColor,
+          color: selectedDrawerButton == 3 ? Colors.white : elevatedButtonColor,
           fontWeight: FontWeight.bold,
         ),
       ),
       onTap: () {
-        ref.read(selectedDrawerButtonProvider.notifier).state = 2;
+        ref.read(selectedDrawerButtonProvider.notifier).state = 3;
         goToPage(context, const CategoriesPage(), true);
       },
     );
