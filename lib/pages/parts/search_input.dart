@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/input.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
-class SearchInput extends StatelessWidget {
+class SearchInput extends ConsumerWidget {
   const SearchInput({
     super.key,
     required this.onPressed,
     required this.label,
     required this.ctrl,
+    required this.searchProvider,
   });
 
   final Function(String) onPressed;
   final String label;
   final TextEditingController ctrl;
+  final StateProvider<String> searchProvider;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    String search = ref.watch(searchProvider);
+
     return SizedBox(
       height: 40,
       width: screenProperties(context).width * .15,
@@ -30,10 +35,18 @@ class SearchInput extends StatelessWidget {
           focusedBorder: inputBorder(),
           border: inputBorder(),
           labelText: ' $label ',
-          suffixIcon: IconButton(
-            onPressed: () => onPressed(ctrl.text),
-            icon: Icon(Icons.search, color: elevatedButtonColor),
-          ),
+          suffixIcon: search.isEmpty
+              ? IconButton(
+                  onPressed: () => onPressed(ctrl.text),
+                  icon: Icon(Icons.search, color: elevatedButtonColor),
+                )
+              : IconButton(
+                  onPressed: () {
+                    ref.read(searchProvider.notifier).state = '';
+                    ctrl.clear();
+                  },
+                  icon: const Icon(Icons.close),
+                ),
         ),
       ),
     );

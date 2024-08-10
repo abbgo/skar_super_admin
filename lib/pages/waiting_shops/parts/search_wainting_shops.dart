@@ -33,6 +33,7 @@ class _SearchWaintingShopsState extends State<SearchWaintingShops> {
             ref.read(shopSearchProvider.notifier).state = value;
             ref.read(hasShopsProvider.notifier).state = true;
           },
+          searchProvider: shopSearchProvider,
         );
       },
     );
