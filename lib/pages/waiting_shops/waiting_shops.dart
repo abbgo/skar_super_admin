@@ -40,7 +40,7 @@ class WaitingShops extends ConsumerWidget {
                   skipLoadingOnReload: true,
                   skipError: true,
                   data: (response) {
-                    if (response.error != '') {
+                    if (response.error != '' || response.shops == null) {
                       return null;
                     }
                     if (indexInPage >= response.shops!.length) {
