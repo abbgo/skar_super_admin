@@ -27,7 +27,7 @@ class ShopApiService {
         'is_shopping_center': '$isShoppingCenter',
         'search': search,
         'lang': lang,
-        'crated_statuses': cratedStatuses,
+        'crated_statuses': cratedStatuses.toString(),
       },
     );
 
