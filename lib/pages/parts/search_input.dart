@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/input.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
@@ -12,6 +13,7 @@ class SearchInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
+      width: screenProperties(context).width * .15,
       child: TextField(
         textInputAction: TextInputAction.search,
         textAlignVertical: TextAlignVertical.center,
