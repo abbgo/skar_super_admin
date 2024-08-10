@@ -8,7 +8,7 @@ class ActiveShops extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(),
+      appBar: myAppBar('active_shops'),
       drawer: const DrawerPart(),
       body: const Center(child: Text('Aktiwe dukanlar')),
     );

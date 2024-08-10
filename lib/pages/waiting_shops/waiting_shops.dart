@@ -17,7 +17,7 @@ class WaitingShops extends ConsumerWidget {
     bool hasShops = ref.watch(hasShopsProvider);
 
     return Scaffold(
-      appBar: myAppBar(),
+      appBar: myAppBar('waiting_shops'),
       drawer: const DrawerPart(),
       body: !hasShops
           ? const NoResult()

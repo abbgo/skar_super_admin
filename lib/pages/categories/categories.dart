@@ -8,7 +8,7 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(),
+      appBar: myAppBar('categories'),
       drawer: const DrawerPart(),
       body: const Center(child: Text('Categories page')),
     );
