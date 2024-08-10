@@ -31,7 +31,7 @@ class SearchInput extends StatelessWidget {
           border: inputBorder(),
           labelText: ' $label ',
           suffixIcon: IconButton(
-            onPressed: onPressed(ctrl.text),
+            onPressed: () => onPressed(ctrl.text),
             icon: Icon(Icons.search, color: elevatedButtonColor),
           ),
         ),
