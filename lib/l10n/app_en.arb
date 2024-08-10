@@ -11,5 +11,6 @@
     "shops":"Shops",
     "categories":"Categories",
     "shopsToCheck":"Shops to check",
-    "activeShops":"Active shops"
+    "activeShops":"Active shops",
+    "noResult":"No Result !"
 }
