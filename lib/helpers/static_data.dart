@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 String apiUrl = dotenv.env['API_URL']!;
@@ -8,4 +9,20 @@ Map<String, String>? tokenHeader(String accessToken) {
     'Authorization': 'Bearer $accessToken',
     'Content-Type': 'application/json'
   };
+}
+
+const pageSize = 10;
+
+class CreatedStatuses {
+  CreatedStatuses._();
+
+  static const int wait = 0;
+  static const int rejected = 1;
+  static const int success = 2;
+}
+
+Center errorMethod(Object error) {
+  return Center(
+    child: Text(error.toString(), textAlign: TextAlign.center),
+  );
 }
