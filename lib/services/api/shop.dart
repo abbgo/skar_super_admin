@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
@@ -52,4 +54,33 @@ class ShopApiService {
       rethrow;
     }
   }
+}
+
+class ShopParams extends Equatable {
+  final bool? isDeleted;
+  final int? page;
+  final BuildContext? context;
+  final Shop? shop;
+  final String? shopID;
+
+  const ShopParams({
+    this.isDeleted,
+    this.page,
+    this.context,
+    this.shop,
+    this.shopID,
+  });
+
+  factory ShopParams.defaultShopParams() {
+    return const ShopParams(
+      isDeleted: null,
+      page: null,
+      context: null,
+      shop: null,
+      shopID: null,
+    );
+  }
+
+  @override
+  List<Object?> get props => [isDeleted, page, context, shop, shopID];
 }
