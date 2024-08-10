@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skar_super_admin/pages/parts/shops_table/parts/shops_table_head.dart';
+import 'package:skar_super_admin/pages/parts/shops_table/parts/shops_table_row.dart';
 
 class ShopsTable extends StatelessWidget {
   const ShopsTable({super.key});
@@ -13,8 +13,11 @@ class ShopsTable extends StatelessWidget {
         children: const [
           TableRow(
             children: [
-              ShopsTableHead(text: 'Ady (tm)'),
-              ShopsTableHead(text: 'Ady (ru)'),
+              ShopsTableRow(text: 'Ady (tm)', isHead: true),
+              ShopsTableRow(text: 'Ady (ru)', isHead: true),
+              ShopsTableRow(text: 'Eltip bermek hyzmaty barmy', isHead: true),
+              ShopsTableRow(text: 'Surat', isHead: true),
+              ShopsTableRow(text: 'Surat', isHead: true),
             ],
           ),
         ],
