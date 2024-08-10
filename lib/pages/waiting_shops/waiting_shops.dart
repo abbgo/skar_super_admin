@@ -5,6 +5,7 @@ import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/parts/drawer/drawer.dart';
 import 'package:skar_super_admin/pages/parts/my_app_bar/my_app_bar.dart';
 import 'package:skar_super_admin/pages/parts/no_result.dart';
+import 'package:skar_super_admin/pages/parts/shops_table/shops_table.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/providers/pages/shops.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
@@ -48,7 +49,8 @@ class WaitingShops extends ConsumerWidget {
                       return null;
                     }
                     Shop shop = response.shops![indexInPage];
-                    return Text(shop.nameTM);
+                    // return Text(shop.nameTM);
+                    return ShopsTable();
                   },
                   error: (error, stackTrace) => errorMethod(error),
                   loading: () => null,
