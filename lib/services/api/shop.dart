@@ -62,7 +62,7 @@ class ShopParams extends Equatable {
   final BuildContext? context;
   final Shop? shop;
   final String? shopID;
-  final List<String> cratedStatuses;
+  final List<int> cratedStatuses;
 
   const ShopParams({
     this.isDeleted,
