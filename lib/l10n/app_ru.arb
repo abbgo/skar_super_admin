@@ -13,5 +13,6 @@
     "shopsToCheck":"Магазины для проверки",
     "activeShops":"Активные магазины",
     "noResult":"Безрезультатно !",
-    "noResult":"No Result !"
+    "noResult":"No Result !",
+    "searchShop":"Поиск магазина..."
 }
