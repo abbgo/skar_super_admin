@@ -1,1 +1,55 @@
-class ShopApiService{}
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:skar_super_admin/helpers/static_data.dart';
+import 'package:skar_super_admin/models/shop.dart';
+
+class ShopApiService {
+  // fetch shops -------------------------------------------------------
+  Future<ResultShop> fetchShops({
+    required String accessToken,
+    required int page,
+    required String shopOwnerID,
+    required bool isDeleted,
+    required bool isShoppingCenter,
+    required String search,
+    required String lang,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/shops').replace(
+      queryParameters: {
+        'limit': '10',
+        'page': '$page',
+        'shop_owner_id': shopOwnerID,
+        'is_deleted': '$isDeleted',
+        'is_shopping_center': '$isShoppingCenter',
+        'search': search,
+        'lang': lang,
+      },
+    );
+
+    try {
+      http.Response response = await http.get(
+        uri,
+        headers: tokenHeader(accessToken),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        if (jsonData['shops'] == null) {
+          return const ResultShop(shops: [], error: '');
+        }
+
+        var shopsList = jsonData['shops'] as List;
+        return ResultShop(
+          shops: shopsList
+              .map<Shop>((propJson) => Shop.fromJson(propJson))
+              .toList(),
+          error: '',
+        );
+      }
+      return const ResultShop(shops: [], error: 'auth error');
+    } catch (e) {
+      rethrow;
+    }
+  }
+}
