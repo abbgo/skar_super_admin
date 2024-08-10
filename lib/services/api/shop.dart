@@ -16,7 +16,7 @@ class ShopApiService {
     required bool isShoppingCenter,
     required String search,
     required String lang,
-    required List<int> cratedStatuses,
+    required List<String> cratedStatuses,
   }) async {
     Uri uri = Uri.parse('$apiUrl/back/shops').replace(
       queryParameters: {
@@ -27,7 +27,7 @@ class ShopApiService {
         'is_shopping_center': '$isShoppingCenter',
         'search': search,
         'lang': lang,
-        'crated_statuses': cratedStatuses.toString(),
+        'crated_statuses': cratedStatuses,
       },
     );
 
@@ -64,7 +64,7 @@ class ShopParams extends Equatable {
   final BuildContext? context;
   final Shop? shop;
   final String? shopID;
-  final List<int> cratedStatuses;
+  final List<String> cratedStatuses;
 
   const ShopParams({
     this.isDeleted,

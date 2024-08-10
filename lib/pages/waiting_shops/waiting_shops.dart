@@ -31,7 +31,7 @@ class WaitingShops extends ConsumerWidget {
                   page: page,
                   isDeleted: false,
                   context: context,
-                  cratedStatuses: const [CreatedStatuses.wait],
+                  cratedStatuses: const ['${CreatedStatuses.wait}'],
                 );
                 final AsyncValue<ResultShop> shops =
                     ref.watch(fetchShopsProvider(shopParams));
