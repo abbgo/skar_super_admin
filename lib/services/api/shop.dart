@@ -16,6 +16,7 @@ class ShopApiService {
     required bool isShoppingCenter,
     required String search,
     required String lang,
+    required List<int> cratedStatuses,
   }) async {
     Uri uri = Uri.parse('$apiUrl/back/shops').replace(
       queryParameters: {
@@ -26,6 +27,7 @@ class ShopApiService {
         'is_shopping_center': '$isShoppingCenter',
         'search': search,
         'lang': lang,
+        'crated_statuses': cratedStatuses,
       },
     );
 
