@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 class ShopsTableImage extends StatelessWidget {
   const ShopsTableImage(
@@ -17,11 +18,15 @@ class ShopsTableImage extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
+        color: isHeader ? elevatedButtonColor : null,
       ),
       child: isHeader
           ? Text(
               text,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             )
           : showCachImageMethod(text),
     );
