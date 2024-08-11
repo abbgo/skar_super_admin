@@ -20,7 +20,7 @@ class ShopApiService {
   }) async {
     Uri uri = Uri.parse('$apiUrl/back/shops').replace(
       queryParameters: {
-        'limit': '20',
+        'limit': '10',
         'page': '$page',
         'shop_owner_id': shopOwnerID,
         'is_deleted': '$isDeleted',
