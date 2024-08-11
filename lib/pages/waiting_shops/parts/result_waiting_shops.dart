@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
@@ -37,8 +38,7 @@ class ResultWaitingShops extends ConsumerWidget {
                   page: page,
                   isDeleted: false,
                   context: context,
-                  // cratedStatuses: const ['${CreatedStatuses.wait}'],
-                  cratedStatuses: const [],
+                  cratedStatuses: const ['${CreatedStatuses.wait}'],
                 );
                 final AsyncValue<ResultShop> shops =
                     ref.watch(fetchShopsProvider(shopParams));
@@ -64,10 +64,7 @@ class ResultWaitingShops extends ConsumerWidget {
                           text: shop.hasShipping!.toString(),
                           isHeader: false,
                         ),
-                        const ShopsTableHeader(
-                          text: 'Funksiyalar',
-                          isHeader: false,
-                        ),
+                        const ShopsTableConfirmButton(),
                       ],
                     );
                   },
