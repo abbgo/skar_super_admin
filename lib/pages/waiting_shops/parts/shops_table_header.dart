@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ShopsTableHeader extends StatelessWidget {
-  const ShopsTableHeader(
-      {super.key, required this.text, required this.isHeader});
+  const ShopsTableHeader({
+    super.key,
+    required this.text,
+    required this.isHeader,
+  });
 
   final String text;
   final bool isHeader;
@@ -11,6 +14,7 @@ class ShopsTableHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        height: isHeader ? null : 75,
         padding: const EdgeInsets.all(5),
         alignment: Alignment.center,
         decoration: BoxDecoration(

@@ -27,6 +27,3 @@ class ShopsTableImage extends StatelessWidget {
     );
   }
 }
-
-
-      // child: showCachImageMethod(image),

@@ -23,7 +23,7 @@ class ResultWaitingShops extends ConsumerWidget {
               ShopsTableHeader(text: 'Ady (ru)', isHeader: true),
               ShopsTableHeader(
                   text: 'Eltip bermek hyzmaty barmy', isHeader: true),
-              ShopsTableHeader(text: '', isHeader: true),
+              ShopsTableHeader(text: 'Funksiyalar', isHeader: true),
             ],
           ),
           Expanded(
@@ -64,7 +64,10 @@ class ResultWaitingShops extends ConsumerWidget {
                           text: shop.hasShipping!.toString(),
                           isHeader: false,
                         ),
-                        const ShopsTableHeader(text: '', isHeader: true),
+                        const ShopsTableHeader(
+                          text: 'Funksiyalar',
+                          isHeader: false,
+                        ),
                       ],
                     );
                   },
