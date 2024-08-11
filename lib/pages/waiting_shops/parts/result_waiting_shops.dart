@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
@@ -14,28 +15,10 @@ class ResultWaitingShops extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: Column(
         children: [
-          Row(
+          const Row(
             children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: const Text('Ady (tm)'),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: const Text('Ady (ru)'),
-                ),
-              ),
+              ShopsTableHeader(text: 'Ady (tm)'),
+              ShopsTableHeader(text: 'Ady (ru)'),
             ],
           ),
           Expanded(
