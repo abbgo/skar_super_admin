@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 
-class ShopsTableImageHeader extends StatelessWidget {
-  const ShopsTableImageHeader({super.key, required this.image});
+class ShopsTableImageRow extends StatelessWidget {
+  const ShopsTableImageRow({super.key, required this.image});
 
   final String image;
 
