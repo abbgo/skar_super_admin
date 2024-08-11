@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ShopsTableHeader extends StatelessWidget {
-  const ShopsTableHeader(
+class ShopsTableImageHeader extends StatelessWidget {
+  const ShopsTableImageHeader(
       {super.key, required this.text, required this.isHeader});
 
   final String text;

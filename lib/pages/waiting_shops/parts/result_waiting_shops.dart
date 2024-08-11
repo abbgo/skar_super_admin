@@ -17,8 +17,12 @@ class ResultWaitingShops extends ConsumerWidget {
         children: [
           const Row(
             children: [
-              ShopsTableHeader(text: 'Ady (tm)'),
-              ShopsTableHeader(text: 'Ady (ru)'),
+              ShopsTableHeader(text: 'Suraty', isHeader: true),
+              ShopsTableHeader(text: 'Ady (tm)', isHeader: true),
+              ShopsTableHeader(text: 'Ady (ru)', isHeader: true),
+              ShopsTableHeader(
+                  text: 'Eltip bermek hyzmaty barmy', isHeader: true),
+              ShopsTableHeader(text: '', isHeader: true),
             ],
           ),
           Expanded(
@@ -50,7 +54,18 @@ class ResultWaitingShops extends ConsumerWidget {
                       return null;
                     }
                     Shop shop = response.shops![indexInPage];
-                    return Text(shop.nameTM);
+                    return Row(
+                      children: [
+                        ShopsTableHeader(text: shop.image!, isHeader: false),
+                        ShopsTableHeader(text: shop.nameTM, isHeader: false),
+                        ShopsTableHeader(text: shop.nameRU, isHeader: false),
+                        ShopsTableHeader(
+                          text: shop.hasShipping!.toString(),
+                          isHeader: false,
+                        ),
+                        const ShopsTableHeader(text: '', isHeader: true),
+                      ],
+                    );
                   },
                   error: (error, stackTrace) => errorMethod(error),
                   loading: () => null,
