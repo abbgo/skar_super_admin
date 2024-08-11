@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image_header.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image_row.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
@@ -19,7 +18,7 @@ class ResultWaitingShops extends ConsumerWidget {
         children: [
           const Row(
             children: [
-              ShopsTableHeader(text: 'Suraty', isHeader: true),
+              ShopsTableImage(text: 'Suraty', isHeader: true),
               ShopsTableHeader(text: 'Ady (tm)', isHeader: true),
               ShopsTableHeader(text: 'Ady (ru)', isHeader: true),
               ShopsTableHeader(
@@ -58,7 +57,7 @@ class ResultWaitingShops extends ConsumerWidget {
                     Shop shop = response.shops![indexInPage];
                     return Row(
                       children: [
-                        ShopsTableImageRow(image: shop.image!),
+                        ShopsTableImage(text: shop.image!, isHeader: false),
                         ShopsTableHeader(text: shop.nameTM, isHeader: false),
                         ShopsTableHeader(text: shop.nameRU, isHeader: false),
                         ShopsTableHeader(
