@@ -18,5 +18,7 @@
     "address":"Address",
     "picture":"Picture",
     "isThereDeliveryService":"Is there a delivery service",
-    "coordinates":"Coordinates"
+    "coordinates":"Coordinates",
+    "yes":"Yes",
+    "no":"No"
 }

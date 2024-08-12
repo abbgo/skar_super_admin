@@ -19,5 +19,7 @@
     "address":"Адрес",
     "picture":"Картина",
     "isThereDeliveryService":"Есть ли служба доставки",
-    "coordinates":"Координаты"
+    "coordinates":"Координаты",
+    "yes":"Да",
+    "no":"Нет"
 }

@@ -18,5 +18,7 @@
     "address":"Salgysy",
     "picture":"Surat",
     "isThereDeliveryService":"Eltip bermek hyzmaty barmy",
-    "coordinates":"Kordinatalary"
+    "coordinates":"Kordinatalary",
+    "yes":"Hawa",
+    "no":"Ýok"
 }

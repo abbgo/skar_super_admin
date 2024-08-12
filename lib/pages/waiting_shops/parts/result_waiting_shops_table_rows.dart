@@ -4,6 +4,7 @@ import 'package:skar_super_admin/pages/waiting_shops/parts/lat_long_button_row.d
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ResultWaitingShopsTableRows extends StatelessWidget {
   const ResultWaitingShopsTableRows({super.key, required this.shop});
@@ -12,6 +13,8 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lang = AppLocalizations.of(context)!;
+
     return Row(
       children: [
         ShopsTableImage(text: shop.image!, isHeader: false),
@@ -24,7 +27,7 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
           longitude: shop.longitude!.toString(),
         ),
         ShopsTableHeader(
-          text: shop.hasShipping!.toString(),
+          text: shop.hasShipping! ? lang.yes : lang.no,
           isHeader: false,
         ),
         const ShopsTableConfirmButton(),
