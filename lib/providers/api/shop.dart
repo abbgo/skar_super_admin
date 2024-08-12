@@ -61,7 +61,7 @@ var updateShopCreatedStatusProvider =
       await wrongToken(resultShop.error, ref, arg.context);
 
       if (resultShop.error == 'some error') {
-        if (arg.context!.mounted) showErrToast('Käbir ýalňyşlyk ýüze çykdy !');
+        showToast('Käbir ýalňyşlyk ýüze çykdy !', true);
       }
 
       result = resultShop;

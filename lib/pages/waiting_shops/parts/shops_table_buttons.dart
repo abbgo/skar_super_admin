@@ -4,8 +4,8 @@ import 'package:skar_super_admin/models/shop_created_status.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
-class ShopsTableConfirmButton extends ConsumerWidget {
-  const ShopsTableConfirmButton({super.key, required this.shopID});
+class ShopsTableButtons extends ConsumerWidget {
+  const ShopsTableButtons({super.key, required this.shopID});
 
   final String shopID;
 

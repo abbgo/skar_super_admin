@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-void showErrToast(String text) => Fluttertoast.showToast(
+void showToast(String text, bool forErr) => Fluttertoast.showToast(
       msg: text,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.CENTER,
@@ -10,5 +10,5 @@ void showErrToast(String text) => Fluttertoast.showToast(
       fontSize: 16.0,
       webPosition: "center",
       webShowClose: true,
-      webBgColor: "red",
+      webBgColor: forErr ? "red" : "green",
     );

@@ -54,7 +54,7 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
             );
           },
         ),
-        ShopsTableConfirmButton(shopID: shop.id!),
+        ShopsTableButtons(shopID: shop.id!),
       ],
     );
   }
