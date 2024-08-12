@@ -15,6 +15,14 @@ AppBar myAppBar(String page) {
         ],
       );
       break;
+    case 'active_shops':
+      titlePage = const Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SearchWaintingShops(),
+        ],
+      );
+      break;
     default:
   }
 
