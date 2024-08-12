@@ -96,7 +96,7 @@ class ShopParams extends Equatable {
   final BuildContext? context;
   final Shop? shop;
   final String? shopID;
-  final List<String> cratedStatuses;
+  final List<String>? cratedStatuses;
   final ShopCreatedStatus? shopCreatedStatus;
 
   const ShopParams({
@@ -105,7 +105,7 @@ class ShopParams extends Equatable {
     this.context,
     this.shop,
     this.shopID,
-    required this.cratedStatuses,
+    this.cratedStatuses,
     this.shopCreatedStatus,
   });
 

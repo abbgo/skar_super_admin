@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/models/shop_created_status.dart';
+import 'package:skar_super_admin/providers/api/shop.dart';
+import 'package:skar_super_admin/services/api/shop.dart';
 
-class ShopsTableConfirmButton extends StatelessWidget {
-  const ShopsTableConfirmButton({super.key});
+class ShopsTableConfirmButton extends ConsumerWidget {
+  const ShopsTableConfirmButton({super.key, required this.shopID});
+
+  final String shopID;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Expanded(
       child: Container(
         height: 100,
@@ -17,7 +23,14 @@ class ShopsTableConfirmButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                ShopParams params = ShopParams(
+                  context: context,
+                  shopCreatedStatus:
+                      ShopCreatedStatus(id: shopID, createdStatus: 2),
+                );
+                await ref.watch(updateShopCreatedStatusProvider(params).future);
+              },
               icon: const Icon(Icons.check_circle, color: Colors.green),
             ),
             const SizedBox(width: 10),

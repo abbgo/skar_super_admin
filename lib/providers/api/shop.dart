@@ -24,7 +24,7 @@ var fetchShopsProvider =
             isShoppingCenter: false,
             search: search,
             lang: isTM ? 'tm' : 'ru',
-            cratedStatuses: arg.cratedStatuses,
+            cratedStatuses: arg.cratedStatuses!,
           );
 
       await wrongToken(resultShop.error, ref, arg.context);
