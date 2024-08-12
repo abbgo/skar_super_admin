@@ -21,12 +21,15 @@ class LatLongButtonRow extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(latitude, style: const TextStyle(fontSize: 12)),
-                Text(longitude, style: const TextStyle(fontSize: 12)),
-              ],
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(latitude, style: const TextStyle(fontSize: 12)),
+                  const SizedBox(height: 5),
+                  Text(longitude, style: const TextStyle(fontSize: 12)),
+                ],
+              ),
             ),
             Expanded(
               child: IconButton(
