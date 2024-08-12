@@ -16,13 +16,14 @@ class ShopsTableConfirmButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
+            IconButton(
               onPressed: () {},
-              child: const Icon(Icons.add),
+              icon: const Icon(Icons.check_circle, color: Colors.green),
             ),
-            ElevatedButton(
+            const SizedBox(width: 10),
+            IconButton(
               onPressed: () {},
-              child: const Icon(Icons.remove),
+              icon: const Icon(Icons.cancel, color: Colors.red),
             ),
           ],
         ),
