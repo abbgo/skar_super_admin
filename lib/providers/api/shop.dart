@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/functions/validation.dart';
+import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/shops.dart';
@@ -54,13 +55,13 @@ var updateShopCreatedStatusProvider =
       ResultShop resultShop =
           await ref.read(shopApiProvider).updateShopCreatedStatus(
                 accessToken: accessToken,
-                shop: arg.shop!,
+                shop: arg.shopCreatedStatus!,
               );
 
       await wrongToken(resultShop.error, ref, arg.context);
 
       if (resultShop.error == 'some error') {
-        if (arg.context!.mounted) showSomeErr(arg.context!);
+        if (arg.context!.mounted) showErrToast('Käbir ýalňyşlyk ýüze çykdy !');
       }
 
       result = resultShop;
