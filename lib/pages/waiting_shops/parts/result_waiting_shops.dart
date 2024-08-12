@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_waiting_shops_table_headers.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/result_waiting_shops_table_rows.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
@@ -47,18 +45,7 @@ class ResultWaitingShops extends ConsumerWidget {
                       return null;
                     }
                     Shop shop = response.shops![indexInPage];
-                    return Row(
-                      children: [
-                        ShopsTableImage(text: shop.image!, isHeader: false),
-                        ShopsTableHeader(text: shop.nameTM, isHeader: false),
-                        ShopsTableHeader(text: shop.nameRU, isHeader: false),
-                        ShopsTableHeader(
-                          text: shop.hasShipping!.toString(),
-                          isHeader: false,
-                        ),
-                        const ShopsTableConfirmButton(),
-                      ],
-                    );
+                    return ResultWaitingShopsTableRows(shop: shop);
                   },
                   error: (error, stackTrace) => errorMethod(error),
                   loading: () => null,
