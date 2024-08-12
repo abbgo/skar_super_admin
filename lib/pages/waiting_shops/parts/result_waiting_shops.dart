@@ -47,7 +47,8 @@ class ResultWaitingShops extends ConsumerWidget {
                       return null;
                     }
                     Shop shop = response.shops![indexInPage];
-                    return ResultWaitingShopsTableRows(shop: shop);
+                    return ResultWaitingShopsTableRows(
+                        shop: shop, cratedStatus: cratedStatus);
                   },
                   error: (error, stackTrace) => errorMethod(error),
                   loading: () => null,

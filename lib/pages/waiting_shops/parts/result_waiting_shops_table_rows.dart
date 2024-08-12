@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/lat_long_button_row.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shop_owner_row.dart';
@@ -10,9 +11,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 class ResultWaitingShopsTableRows extends StatelessWidget {
-  const ResultWaitingShopsTableRows({super.key, required this.shop});
+  const ResultWaitingShopsTableRows(
+      {super.key, required this.shop, required this.cratedStatus});
 
   final Shop shop;
+  final int cratedStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +57,9 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
             );
           },
         ),
-        ShopsTableButtons(shopID: shop.id!),
+        cratedStatus == CreatedStatuses.wait
+            ? ShopsTableButtons(shopID: shop.id!)
+            : const ShopsTableHeader(text: '', isHeader: false),
       ],
     );
   }
