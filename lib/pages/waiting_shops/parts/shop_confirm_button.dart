@@ -23,6 +23,7 @@ class ShopConfirmButton extends ConsumerWidget {
         );
         await ref.watch(updateShopCreatedStatusProvider(params).future);
         showToast(lang.shopConfirmed, false);
+        ref.invalidate(fetchShopsProvider);
       },
       icon: const Icon(Icons.check_circle, color: Colors.green),
     );
