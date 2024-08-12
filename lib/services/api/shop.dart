@@ -18,13 +18,11 @@ class ShopApiService {
     required String lang,
     required List<String> cratedStatuses,
   }) async {
-    Uri uri = Uri.parse('$apiUrl/back/shops').replace(
+    Uri uri = Uri.parse('$apiUrl/back/shops/admin').replace(
       queryParameters: {
-        'limit': '10',
+        'limit': '50',
         'page': '$page',
-        'shop_owner_id': shopOwnerID,
         'is_deleted': '$isDeleted',
-        'is_shopping_center': '$isShoppingCenter',
         'search': search,
         'lang': lang,
         'crated_statuses': cratedStatuses,

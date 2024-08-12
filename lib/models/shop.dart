@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:skar_super_admin/models/shop_owner.dart';
 
 class Shop extends Equatable {
   final String nameTM, nameRU;
@@ -11,6 +12,7 @@ class Shop extends Equatable {
   final Shop? parentShop;
   final String? parentShopID;
   final int? createdStatus;
+  final ShopOwner? shopOwner;
 
   const Shop({
     this.id,
@@ -27,6 +29,7 @@ class Shop extends Equatable {
     this.parentShop,
     this.parentShopID,
     this.createdStatus,
+    this.shopOwner,
   });
 
   factory Shop.defaultShop() {
@@ -45,6 +48,7 @@ class Shop extends Equatable {
       parentShop: null,
       parentShopID: null,
       createdStatus: null,
+      shopOwner: null,
     );
   }
 
@@ -65,6 +69,9 @@ class Shop extends Equatable {
           ? Shop.defaultShop()
           : Shop.fromJson(json['parent_shop']),
       createdStatus: json['created_status'] ?? 2,
+      shopOwner: json['shop_owner'] == null
+          ? ShopOwner.defaultShopOwner()
+          : ShopOwner.fromJson(json['shop_owner']),
     );
   }
 
