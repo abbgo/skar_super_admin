@@ -13,8 +13,7 @@ class ActiveShops extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: myAppBar('active_shops'),
       drawer: const DrawerPart(),
-      body: const ResultWaitingShops(
-          cratedStatuses: ['${CreatedStatuses.success}']),
+      body: const ResultWaitingShops(cratedStatus: CreatedStatuses.success),
     );
   }
 }

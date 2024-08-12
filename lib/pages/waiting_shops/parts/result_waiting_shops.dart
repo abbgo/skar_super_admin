@@ -8,9 +8,9 @@ import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
 class ResultWaitingShops extends ConsumerWidget {
-  const ResultWaitingShops({super.key, required this.cratedStatuses});
+  const ResultWaitingShops({super.key, required this.cratedStatus});
 
-  final List<String> cratedStatuses;
+  final int cratedStatus;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,7 +30,7 @@ class ResultWaitingShops extends ConsumerWidget {
                   page: page,
                   isDeleted: false,
                   context: context,
-                  cratedStatuses: cratedStatuses,
+                  cratedStatuses: ['$cratedStatus'],
                 );
                 final AsyncValue<ResultShop> shops =
                     ref.watch(fetchShopsProvider(shopParams));

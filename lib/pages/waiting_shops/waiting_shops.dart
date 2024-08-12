@@ -14,8 +14,7 @@ class WaitingShops extends ConsumerWidget {
       resizeToAvoidBottomInset: false,
       appBar: myAppBar('waiting_shops'),
       drawer: const DrawerPart(),
-      body:
-          const ResultWaitingShops(cratedStatuses: ['${CreatedStatuses.wait}']),
+      body: const ResultWaitingShops(cratedStatus: CreatedStatuses.wait),
     );
   }
 }
