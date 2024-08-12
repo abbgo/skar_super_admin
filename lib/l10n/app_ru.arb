@@ -21,5 +21,7 @@
     "isThereDeliveryService":"Есть ли служба доставки",
     "coordinates":"Координаты",
     "yes":"Да",
-    "no":"Нет"
+    "no":"Нет",
+    "phoneNumbers":"Номера телефонов",
+    "headOfShop":"Начальник магазина"
 }

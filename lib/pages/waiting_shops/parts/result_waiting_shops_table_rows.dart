@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/lat_long_button_row.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shop_owner_row.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
@@ -14,6 +15,11 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var lang = AppLocalizations.of(context)!;
+    String phones = '';
+
+    for (var phone in shop.phones!) {
+      phones = '$phones $phone';
+    }
 
     return Row(
       children: [
@@ -30,6 +36,8 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
           text: shop.hasShipping! ? lang.yes : lang.no,
           isHeader: false,
         ),
+        ShopsTableHeader(text: phones, isHeader: false),
+        ShopOwnerRow(shopOwner: shop.shopOwner!),
         const ShopsTableConfirmButton(),
       ],
     );

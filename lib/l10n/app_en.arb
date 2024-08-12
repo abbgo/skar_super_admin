@@ -20,5 +20,7 @@
     "isThereDeliveryService":"Is there a delivery service",
     "coordinates":"Coordinates",
     "yes":"Yes",
-    "no":"No"
+    "no":"No",
+    "phoneNumbers":"Phone numbers",
+    "headOfShop":"Head of shop"
 }

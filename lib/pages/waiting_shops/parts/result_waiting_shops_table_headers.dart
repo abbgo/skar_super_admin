@@ -20,6 +20,8 @@ class ResultWaitingShopsTableHeaders extends StatelessWidget {
         ShopsTableHeader(text: lang.coordinates, isHeader: true),
         ShopsTableHeader(
             text: '${lang.isThereDeliveryService} ?', isHeader: true),
+        ShopsTableHeader(text: lang.phoneNumbers, isHeader: true),
+        ShopsTableHeader(text: lang.headOfShop, isHeader: true),
         const ShopsTableHeader(text: '', isHeader: true),
       ],
     );

@@ -24,8 +24,8 @@ class LatLongButtonRow extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(latitude),
-                Text(longitude),
+                Text(latitude, style: const TextStyle(fontSize: 12)),
+                Text(longitude, style: const TextStyle(fontSize: 12)),
               ],
             ),
             IconButton(
