@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/models/shop_created_status.dart';
-import 'package:skar_super_admin/providers/api/shop.dart';
-import 'package:skar_super_admin/services/api/shop.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shop_confirm_button.dart';
 
 class ShopsTableButtons extends ConsumerWidget {
   const ShopsTableButtons({super.key, required this.shopID});
@@ -22,17 +20,7 @@ class ShopsTableButtons extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            IconButton(
-              onPressed: () async {
-                ShopParams params = ShopParams(
-                  context: context,
-                  shopCreatedStatus:
-                      ShopCreatedStatus(id: shopID, createdStatus: 2),
-                );
-                await ref.watch(updateShopCreatedStatusProvider(params).future);
-              },
-              icon: const Icon(Icons.check_circle, color: Colors.green),
-            ),
+            ShopConfirmButton(shopID: shopID),
             const SizedBox(width: 10),
             IconButton(
               onPressed: () {},
