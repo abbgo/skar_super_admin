@@ -12,7 +12,7 @@ class ShopsTableImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isHeader ? null : 75,
+      height: isHeader ? 50 : 75,
       width: 100,
       padding: const EdgeInsets.all(5),
       alignment: Alignment.center,
