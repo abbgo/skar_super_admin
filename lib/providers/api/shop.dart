@@ -29,14 +29,6 @@ var fetchShopsProvider =
 
       await wrongToken(resultShop.error, ref, arg.context);
 
-      if (resultShop.shops != null) {
-        arg.isDeleted!
-            ? ref.read(hasDeletedShopsProvider.notifier).state =
-                resultShop.shops!.isNotEmpty
-            : ref.read(hasShopsProvider.notifier).state =
-                resultShop.shops!.isNotEmpty;
-      }
-
       result = resultShop;
     } catch (e) {
       result = ResultShop(error: e.toString());

@@ -29,10 +29,8 @@ class _SearchWaintingShopsState extends State<SearchWaintingShops> {
         return SearchInput(
           ctrl: searchCtrl,
           label: lang.searchShop,
-          onPressed: (value) {
-            ref.read(shopSearchProvider.notifier).state = value;
-            ref.read(hasShopsProvider.notifier).state = true;
-          },
+          onPressed: (value) =>
+              ref.read(shopSearchProvider.notifier).state = value,
           searchProvider: shopSearchProvider,
         );
       },
