@@ -7,7 +7,7 @@ class ShopsTableConfirmButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        height: 75,
+        height: 100,
         padding: const EdgeInsets.all(5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
