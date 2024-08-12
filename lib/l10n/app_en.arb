@@ -13,5 +13,9 @@
     "shopsToCheck":"Shops to check",
     "activeShops":"Active shops",
     "noResult":"No Result !",
-    "searchShop":"Search shop..."
+    "searchShop":"Search shop...",
+    "name":"Name",
+    "address":"Address",
+    "picture":"Picture",
+    "isThereDeliveryService":"Is there a delivery service"
 }

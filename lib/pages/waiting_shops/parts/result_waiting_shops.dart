@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/result_waiting_shops_table_headers.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
@@ -17,16 +18,7 @@ class ResultWaitingShops extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: Column(
         children: [
-          const Row(
-            children: [
-              ShopsTableImage(text: 'Suraty', isHeader: true),
-              ShopsTableHeader(text: 'Ady (tm)', isHeader: true),
-              ShopsTableHeader(text: 'Ady (ru)', isHeader: true),
-              ShopsTableHeader(
-                  text: 'Eltip bermek hyzmaty barmy', isHeader: true),
-              ShopsTableHeader(text: 'Funksiyalar', isHeader: true),
-            ],
-          ),
+          const ResultWaitingShopsTableHeaders(),
           Expanded(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),

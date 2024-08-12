@@ -14,5 +14,9 @@
     "activeShops":"Активные магазины",
     "noResult":"Безрезультатно !",
     "noResult":"No Result !",
-    "searchShop":"Поиск магазина..."
+    "searchShop":"Поиск магазина...",
+    "name":"Имя",
+    "address":"Адрес",
+    "picture":"Картина",
+    "isThereDeliveryService":"Есть ли служба доставки"
 }

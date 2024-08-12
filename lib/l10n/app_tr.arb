@@ -13,5 +13,9 @@
     "shopsToCheck":"Barlanmaly dükanlar",
     "activeShops":"Aktiwe dükanlar",
     "noResult":"Netije ýok !",
-    "searchShop":"Dükan gözle..."
+    "searchShop":"Dükan gözle...",
+    "name":"Ady",
+    "address":"Salgysy",
+    "picture":"Surat",
+    "isThereDeliveryService":"Eltip bermek hyzmaty barmy"
 }
