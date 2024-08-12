@@ -24,5 +24,6 @@
     "phoneNumbers":"Telefon belgileri",
     "headOfShop":"Dükanyň eýesi",
     "mall":"Söwda merkezi",
-    "shopConfirmed":"Dükan tassyklandy"
+    "shopConfirmed":"Dükan tassyklandy",
+    "shopRejected":"Dükan ret edildi"
 }

@@ -24,5 +24,6 @@
     "phoneNumbers":"Phone numbers",
     "headOfShop":"Head of shop",
     "mall":"Mall",
-    "shopConfirmed":"Shop confirmed"
+    "shopConfirmed":"Shop confirmed",
+    "shopRejected":"Shop rejected"
 }

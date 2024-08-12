@@ -25,5 +25,6 @@
     "phoneNumbers":"Номера телефонов",
     "headOfShop":"Начальник магазина",
     "mall":"Торговый центр",
-    "shopConfirmed":"Магазин подтвержден"
+    "shopConfirmed":"Магазин подтвержден",
+    "shopRejected":"Магазин отклонен"
 }
