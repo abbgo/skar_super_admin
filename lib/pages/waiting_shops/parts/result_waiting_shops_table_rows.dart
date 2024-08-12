@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/lat_long_button_row.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
@@ -18,8 +19,10 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
         ShopsTableHeader(text: shop.nameRU, isHeader: false),
         ShopsTableHeader(text: shop.addressTM!, isHeader: false),
         ShopsTableHeader(text: shop.addressRU!, isHeader: false),
-        ShopsTableHeader(
-            text: '${shop.latitude} , ${shop.longitude}', isHeader: false),
+        LatLongButtonRow(
+          latitude: shop.latitude!.toString(),
+          longitude: shop.longitude!.toString(),
+        ),
         ShopsTableHeader(
           text: shop.hasShipping!.toString(),
           isHeader: false,
