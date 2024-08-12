@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class ShopRejectedButton extends ConsumerWidget {
+  const ShopRejectedButton({super.key, required this.shopID});
+
+  final String shopID;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return IconButton(
+      onPressed: () {},
+      icon: const Icon(Icons.cancel, color: Colors.red),
+    );
+  }
+}
