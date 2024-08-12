@@ -46,6 +46,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   fluttertoast: ^8.2.5
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:

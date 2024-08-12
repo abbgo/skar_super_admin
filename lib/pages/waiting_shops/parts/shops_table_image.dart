@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
@@ -25,7 +26,10 @@ class ShopsTableImage extends StatelessWidget {
               text,
               style: const TextStyle(color: Colors.white),
             )
-          : showCachImageMethod(text),
+          : GestureDetector(
+              onTap: () => showImageDialog(context, text),
+              child: showCachImageMethod(text),
+            ),
     );
   }
 }
