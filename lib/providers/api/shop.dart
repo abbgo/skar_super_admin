@@ -19,9 +19,7 @@ var fetchShopsProvider =
       ResultShop resultShop = await ref.read(shopApiProvider).fetchShops(
             accessToken: accessToken,
             page: arg.page!,
-            shopOwnerID: '',
             isDeleted: arg.isDeleted!,
-            isShoppingCenter: false,
             search: search,
             lang: isTM ? 'tm' : 'ru',
             cratedStatuses: arg.cratedStatuses!,

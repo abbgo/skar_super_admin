@@ -2,8 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:skar_super_admin/models/shop_owner.dart';
 
 class Shop extends Equatable {
-  final String nameTM, nameRU;
-  final String? id, addressTM, addressRU;
+  final String? id, nameTM, nameRU, addressTM, addressRU;
   final String? image;
   final double? latitude, longitude;
   final List<dynamic>? phones;
@@ -16,8 +15,8 @@ class Shop extends Equatable {
 
   const Shop({
     this.id,
-    required this.nameRU,
-    required this.nameTM,
+    this.nameRU,
+    this.nameTM,
     this.latitude,
     this.longitude,
     this.image,
@@ -54,9 +53,9 @@ class Shop extends Equatable {
 
   factory Shop.fromJson(Map<String, dynamic> json) {
     return Shop(
-      id: json['id'],
-      nameRU: json['name_ru'],
-      nameTM: json['name_tm'],
+      id: json['id'] ?? '',
+      nameRU: json['name_ru'] ?? '',
+      nameTM: json['name_tm'] ?? '',
       latitude: json['latitude'] ?? 0,
       longitude: json['longitude'] ?? 0,
       image: json['image'] ?? "",

@@ -12,9 +12,7 @@ class ShopApiService {
   Future<ResultShop> fetchShops({
     required String accessToken,
     required int page,
-    required String shopOwnerID,
     required bool isDeleted,
-    required bool isShoppingCenter,
     required String search,
     required String lang,
     required List<String> cratedStatuses,

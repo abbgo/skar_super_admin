@@ -26,8 +26,8 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
     return Row(
       children: [
         ShopsTableImage(text: shop.image!, isHeader: false),
-        ShopsTableHeader(text: shop.nameTM, isHeader: false),
-        ShopsTableHeader(text: shop.nameRU, isHeader: false),
+        ShopsTableHeader(text: shop.nameTM!, isHeader: false),
+        ShopsTableHeader(text: shop.nameRU!, isHeader: false),
         ShopsTableHeader(text: shop.addressTM!, isHeader: false),
         ShopsTableHeader(text: shop.addressRU!, isHeader: false),
         LatLongButtonRow(
@@ -47,8 +47,8 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
             return ShopsTableHeader(
               text: shop.parentShop != null
                   ? isTM
-                      ? shop.parentShop!.nameTM
-                      : shop.parentShop!.nameRU
+                      ? shop.parentShop!.nameTM!
+                      : shop.parentShop!.nameRU!
                   : '-',
               isHeader: false,
             );

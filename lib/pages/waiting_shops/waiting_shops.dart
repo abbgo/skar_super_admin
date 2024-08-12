@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/pages/parts/drawer/drawer.dart';
 import 'package:skar_super_admin/pages/parts/my_app_bar/my_app_bar.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_waiting_shops.dart';
@@ -13,7 +14,8 @@ class WaitingShops extends ConsumerWidget {
       resizeToAvoidBottomInset: false,
       appBar: myAppBar('waiting_shops'),
       drawer: const DrawerPart(),
-      body: const ResultWaitingShops(),
+      body:
+          const ResultWaitingShops(cratedStatuses: ['${CreatedStatuses.wait}']),
     );
   }
 }
