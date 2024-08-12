@@ -43,3 +43,31 @@ var fetchShopsProvider =
     return result;
   },
 );
+
+var updateShopCreatedStatusProvider =
+    FutureProvider.autoDispose.family<ResultShop, ShopParams>(
+  (ref, arg) async {
+    ResultShop result = ResultShop.defaultResult();
+
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultShop resultShop =
+          await ref.read(shopApiProvider).updateShopCreatedStatus(
+                accessToken: accessToken,
+                shop: arg.shop!,
+              );
+
+      await wrongToken(resultShop.error, ref, arg.context);
+
+      if (resultShop.error == 'some error') {
+        if (arg.context!.mounted) showSomeErr(arg.context!);
+      }
+
+      result = resultShop;
+    } catch (e) {
+      result = ResultShop(error: e.toString());
+    }
+
+    return result;
+  },
+);
