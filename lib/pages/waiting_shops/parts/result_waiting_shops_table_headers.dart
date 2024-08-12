@@ -22,6 +22,7 @@ class ResultWaitingShopsTableHeaders extends StatelessWidget {
             text: '${lang.isThereDeliveryService} ?', isHeader: true),
         ShopsTableHeader(text: lang.phoneNumbers, isHeader: true),
         ShopsTableHeader(text: lang.headOfShop, isHeader: true),
+        ShopsTableHeader(text: lang.mall, isHeader: true),
         const ShopsTableHeader(text: '', isHeader: true),
       ],
     );

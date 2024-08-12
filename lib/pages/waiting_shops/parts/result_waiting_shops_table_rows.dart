@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/lat_long_button_row.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shop_owner_row.dart';
@@ -6,6 +7,7 @@ import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.d
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skar_super_admin/providers/local_storadge.dart';
 
 class ResultWaitingShopsTableRows extends StatelessWidget {
   const ResultWaitingShopsTableRows({super.key, required this.shop});
@@ -38,6 +40,20 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
         ),
         ShopsTableHeader(text: phones, isHeader: false),
         ShopOwnerRow(shopOwner: shop.shopOwner!),
+        Consumer(
+          builder: (context, ref, child) {
+            bool isTM = ref.watch(langProvider) == 'tr';
+
+            return ShopsTableHeader(
+              text: shop.parentShop != null
+                  ? isTM
+                      ? shop.parentShop!.nameTM
+                      : shop.parentShop!.nameRU
+                  : '-',
+              isHeader: false,
+            );
+          },
+        ),
         const ShopsTableConfirmButton(),
       ],
     );

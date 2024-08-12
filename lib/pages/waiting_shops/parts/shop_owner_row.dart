@@ -19,8 +19,8 @@ class ShopOwnerRow extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(shopOwner.fullName),
-            Text(shopOwner.phoneNumber),
+            Text(shopOwner.fullName, textAlign: TextAlign.center),
+            Text(shopOwner.phoneNumber, textAlign: TextAlign.center),
           ],
         ),
       ),
