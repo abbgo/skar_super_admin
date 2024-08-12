@@ -10,7 +10,7 @@ class ShopCreatedStatus {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
-      'createdStatus': createdStatus,
+      'created_status': createdStatus,
     };
   }
 }
