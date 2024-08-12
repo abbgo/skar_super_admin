@@ -23,10 +23,7 @@ class ShopsTableImage extends StatelessWidget {
       child: isHeader
           ? Text(
               text,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: const TextStyle(color: Colors.white),
             )
           : showCachImageMethod(text),
     );

@@ -17,5 +17,6 @@
     "name":"Name",
     "address":"Address",
     "picture":"Picture",
-    "isThereDeliveryService":"Is there a delivery service"
+    "isThereDeliveryService":"Is there a delivery service",
+    "coordinates":"Coordinates"
 }

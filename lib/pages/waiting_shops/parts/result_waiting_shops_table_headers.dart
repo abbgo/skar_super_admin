@@ -15,6 +15,9 @@ class ResultWaitingShopsTableHeaders extends StatelessWidget {
         ShopsTableImage(text: lang.picture, isHeader: true),
         ShopsTableHeader(text: '${lang.name} (tm)', isHeader: true),
         ShopsTableHeader(text: '${lang.name} (ru)', isHeader: true),
+        ShopsTableHeader(text: '${lang.address} (tm)', isHeader: true),
+        ShopsTableHeader(text: '${lang.address} (ru)', isHeader: true),
+        ShopsTableHeader(text: lang.coordinates, isHeader: true),
         ShopsTableHeader(
             text: '${lang.isThereDeliveryService} ?', isHeader: true),
         const ShopsTableHeader(text: '', isHeader: true),

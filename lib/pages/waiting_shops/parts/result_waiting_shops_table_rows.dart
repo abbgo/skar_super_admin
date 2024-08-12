@@ -16,6 +16,10 @@ class ResultWaitingShopsTableRows extends StatelessWidget {
         ShopsTableImage(text: shop.image!, isHeader: false),
         ShopsTableHeader(text: shop.nameTM, isHeader: false),
         ShopsTableHeader(text: shop.nameRU, isHeader: false),
+        ShopsTableHeader(text: shop.addressTM!, isHeader: false),
+        ShopsTableHeader(text: shop.addressRU!, isHeader: false),
+        ShopsTableHeader(
+            text: '${shop.latitude} , ${shop.longitude}', isHeader: false),
         ShopsTableHeader(
           text: shop.hasShipping!.toString(),
           isHeader: false,

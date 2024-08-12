@@ -24,10 +24,7 @@ class ShopsTableHeader extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            fontWeight: isHeader ? FontWeight.bold : null,
-            color: isHeader ? Colors.white : null,
-          ),
+          style: TextStyle(color: isHeader ? Colors.white : null),
         ),
       ),
     );

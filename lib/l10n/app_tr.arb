@@ -17,5 +17,6 @@
     "name":"Ady",
     "address":"Salgysy",
     "picture":"Surat",
-    "isThereDeliveryService":"Eltip bermek hyzmaty barmy"
+    "isThereDeliveryService":"Eltip bermek hyzmaty barmy",
+    "coordinates":"Kordinatalary"
 }

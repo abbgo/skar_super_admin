@@ -18,5 +18,6 @@
     "name":"Имя",
     "address":"Адрес",
     "picture":"Картина",
-    "isThereDeliveryService":"Есть ли служба доставки"
+    "isThereDeliveryService":"Есть ли служба доставки",
+    "coordinates":"Координаты"
 }
