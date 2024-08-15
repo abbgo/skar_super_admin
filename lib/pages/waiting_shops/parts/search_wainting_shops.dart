@@ -28,7 +28,7 @@ class _SearchWaintingShopsState extends State<SearchWaintingShops> {
       builder: (context, ref, child) {
         return SearchInput(
           ctrl: searchCtrl,
-          label: lang.searchShop,
+          label: lang.search,
           onPressed: (value) =>
               ref.read(shopSearchProvider.notifier).state = value,
           searchProvider: shopSearchProvider,
