@@ -28,5 +28,7 @@
     "shopConfirmed":"Магазин подтвержден",
     "shopRejected":"Магазин отклонен",
     "writeReasonForRejectingShop":"Напишите причину отклонения магазина",
-    "pleaseEnterThisInformation":"Пожалуйста, введите эту информацию"
+    "pleaseEnterThisInformation":"Пожалуйста, введите эту информацию",
+    "cancel":"Отмена",
+    "rejected":"Отклоненный"
 }

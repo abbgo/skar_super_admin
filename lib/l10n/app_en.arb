@@ -27,5 +27,7 @@
     "shopConfirmed":"Shop confirmed",
     "shopRejected":"Shop rejected",
     "writeReasonForRejectingShop":"Write the reason for rejecting the shop",
-    "pleaseEnterThisInformation":"Please enter this information"
+    "pleaseEnterThisInformation":"Please enter this information",
+    "cancel":"Cancel",
+    "rejected":"Rejected"
 }

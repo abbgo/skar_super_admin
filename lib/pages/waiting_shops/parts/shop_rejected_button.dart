@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
@@ -14,8 +13,6 @@ class ShopRejectedButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var lang = AppLocalizations.of(context)!;
-
     return IconButton(
       onPressed: () => showRejectedShopCommentDialog(context),
       // onPressed: () async {
