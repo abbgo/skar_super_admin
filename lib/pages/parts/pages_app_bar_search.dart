@@ -4,14 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/pages/parts/search_input.dart';
 import 'package:skar_super_admin/providers/pages/shops.dart';
 
-class SearchWaintingShops extends StatefulWidget {
-  const SearchWaintingShops({super.key});
+class PagesAppBarSearch extends StatefulWidget {
+  const PagesAppBarSearch({super.key});
 
   @override
-  State<SearchWaintingShops> createState() => _SearchWaintingShopsState();
+  State<PagesAppBarSearch> createState() => _PagesAppBarSearchState();
 }
 
-class _SearchWaintingShopsState extends State<SearchWaintingShops> {
+class _PagesAppBarSearchState extends State<PagesAppBarSearch> {
   final TextEditingController searchCtrl = TextEditingController();
 
   @override
