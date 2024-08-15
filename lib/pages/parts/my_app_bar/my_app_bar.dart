@@ -13,6 +13,12 @@ AppBar myAppBar(String page) {
     case 'active_shops':
       titlePage = const ShopsPagesAppBar();
       break;
+    case 'waiting_products':
+      titlePage = const ShopsPagesAppBar();
+      break;
+    case 'active_products':
+      titlePage = const ShopsPagesAppBar();
+      break;
     default:
   }
 
