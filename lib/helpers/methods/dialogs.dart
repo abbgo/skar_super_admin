@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/pages/parts/rejected_shop_comment_dialog_content.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 showImageDialog(BuildContext context, String image) => showDialog(
       context: context,
@@ -26,7 +27,10 @@ showRejectedShopCommentDialog(BuildContext context) => showDialog(
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Goybolsun et'),
+              child: const Text(
+                'Goybolsun et',
+                style: TextStyle(color: Colors.red),
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -34,7 +38,10 @@ showRejectedShopCommentDialog(BuildContext context) => showDialog(
                   Navigator.pop(context);
                 }
               },
-              child: const Text('Dukany red et'),
+              child: const Text(
+                'Dukany red et',
+                style: TextStyle(color: Colors.green),
+              ),
             ),
           ],
         );

@@ -25,5 +25,7 @@
     "headOfShop":"Head of shop",
     "mall":"Mall",
     "shopConfirmed":"Shop confirmed",
-    "shopRejected":"Shop rejected"
+    "shopRejected":"Shop rejected",
+    "writeReasonForRejectingShop":"Write the reason for rejecting the shop",
+    "pleaseEnterThisInformation":"Please enter this information"
 }

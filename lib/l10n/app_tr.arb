@@ -25,5 +25,7 @@
     "headOfShop":"Dükanyň eýesi",
     "mall":"Söwda merkezi",
     "shopConfirmed":"Dükan tassyklandy",
-    "shopRejected":"Dükan ret edildi"
+    "shopRejected":"Dükan ret edildi",
+    "writeReasonForRejectingShop":"Dükany red etmegiňiziň sebäbini ýazyň",
+    "pleaseEnterThisInformation":"Bu maglumaty giriziň"
 }

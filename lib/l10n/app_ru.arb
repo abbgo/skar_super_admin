@@ -26,5 +26,7 @@
     "headOfShop":"Начальник магазина",
     "mall":"Торговый центр",
     "shopConfirmed":"Магазин подтвержден",
-    "shopRejected":"Магазин отклонен"
+    "shopRejected":"Магазин отклонен",
+    "writeReasonForRejectingShop":"Напишите причину отклонения магазина",
+    "pleaseEnterThisInformation":"Пожалуйста, введите эту информацию"
 }
