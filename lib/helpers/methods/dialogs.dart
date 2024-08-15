@@ -52,7 +52,7 @@ showRejectedShopCommentDialog(BuildContext context, String shopID) =>
                         .watch(updateShopCreatedStatusProvider(params).future);
                     showToast(lang.shopRejected, false);
                     ref.invalidate(fetchShopsProvider);
-                    Navigator.pop(context);
+                    if (context.mounted) Navigator.pop(context);
                   }
                 },
                 child: Text(
