@@ -10,8 +10,8 @@ import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dar
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
-class ResultWaitingShopsTableRows extends StatelessWidget {
-  const ResultWaitingShopsTableRows(
+class ResultShopsTableRows extends StatelessWidget {
+  const ResultShopsTableRows(
       {super.key, required this.shop, required this.cratedStatus});
 
   final Shop shop;
