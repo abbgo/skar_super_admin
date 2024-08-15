@@ -2,25 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:skar_super_admin/helpers/methods/input.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
-class RejectedShopCommentDialogContent extends StatefulWidget {
+class RejectedShopCommentDialogContent extends StatelessWidget {
   const RejectedShopCommentDialogContent({super.key, required this.formKey});
 
   final GlobalKey<FormState> formKey;
-
-  @override
-  State<RejectedShopCommentDialogContent> createState() =>
-      _RejectedShopCommentDialogContentState();
-}
-
-class _RejectedShopCommentDialogContentState
-    extends State<RejectedShopCommentDialogContent> {
-  final TextEditingController commentCtrl = TextEditingController();
-
-  @override
-  void dispose() {
-    commentCtrl.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +15,7 @@ class _RejectedShopCommentDialogContentState
         const Text('Dukany ret etmegin sebabini yazyn'),
         const SizedBox(height: 20),
         Form(
-          key: widget.formKey,
+          key: formKey,
           child: TextFormField(
             maxLines: 3,
             keyboardType: TextInputType.phone,
@@ -42,7 +27,7 @@ class _RejectedShopCommentDialogContentState
             ),
             validator: (validator) {
               var l = validator.toString().length;
-              if (l != 8) return 'Bu bolegi doldurun';
+              if (l <= 3) return 'Bu bolegi doldurun';
               return null;
             },
           ),
