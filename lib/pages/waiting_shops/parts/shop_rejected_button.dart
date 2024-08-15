@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
-import 'package:skar_super_admin/helpers/methods/toasts.dart';
-import 'package:skar_super_admin/models/shop_created_status.dart';
-import 'package:skar_super_admin/providers/api/shop.dart';
-import 'package:skar_super_admin/services/api/shop.dart';
 
 class ShopRejectedButton extends ConsumerWidget {
   const ShopRejectedButton({super.key, required this.shopID});
@@ -14,16 +10,7 @@ class ShopRejectedButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return IconButton(
-      onPressed: () => showRejectedShopCommentDialog(context),
-      // onPressed: () async {
-      //   ShopParams params = ShopParams(
-      //     context: context,
-      //     shopCreatedStatus: ShopCreatedStatus(id: shopID, createdStatus: 1),
-      //   );
-      //   await ref.watch(updateShopCreatedStatusProvider(params).future);
-      //   showToast(lang.shopRejected, false);
-      //   ref.invalidate(fetchShopsProvider);
-      // },
+      onPressed: () => showRejectedShopCommentDialog(context, shopID),
       icon: const Icon(Icons.cancel, color: Colors.red),
     );
   }
