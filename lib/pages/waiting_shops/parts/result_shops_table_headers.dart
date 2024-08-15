@@ -3,8 +3,8 @@ import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.da
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ResultWaitingShopsTableHeaders extends StatelessWidget {
-  const ResultWaitingShopsTableHeaders({super.key});
+class ResultShopsTableHeaders extends StatelessWidget {
+  const ResultShopsTableHeaders({super.key});
 
   @override
   Widget build(BuildContext context) {
