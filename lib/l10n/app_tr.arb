@@ -11,7 +11,9 @@
     "shops":"Dükanlar",
     "categories":"Kategoriýalar",
     "shopsToCheck":"Barlanmaly dükanlar",
+    "productsToCheck":"Barlanmaly harytlar",
     "activeShops":"Aktiwe dükanlar",
+    "activeProducts":"Aktiwe harytlar",
     "noResult":"Netije ýok !",
     "searchShop":"Dükan gözle...",
     "name":"Ady",
@@ -29,5 +31,6 @@
     "writeReasonForRejectingShop":"Dükany red etmegiňiziň sebäbini ýazyň",
     "pleaseEnterThisInformation":"Bu maglumaty giriziň",
     "cancel":"Goýbolsun et",
-    "rejected":"Red et"
+    "rejected":"Red et",
+    "products":"Harytlar"
 }

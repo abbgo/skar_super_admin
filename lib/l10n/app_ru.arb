@@ -11,7 +11,9 @@
     "shops":"Магазины",
     "categories":"Категории",
     "shopsToCheck":"Магазины для проверки",
+    "productsToCheck":"Продукты для проверки",
     "activeShops":"Активные магазины",
+    "activeProducts":"Активные продукты",
     "noResult":"Безрезультатно !",
     "noResult":"No Result !",
     "searchShop":"Поиск магазина...",
@@ -30,5 +32,6 @@
     "writeReasonForRejectingShop":"Напишите причину отклонения магазина",
     "pleaseEnterThisInformation":"Пожалуйста, введите эту информацию",
     "cancel":"Отмена",
-    "rejected":"Отклоненный"
+    "rejected":"Отклоненный",
+    "products":"Продукты"
 }

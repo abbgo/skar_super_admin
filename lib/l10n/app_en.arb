@@ -11,7 +11,9 @@
     "shops":"Shops",
     "categories":"Categories",
     "shopsToCheck":"Shops to check",
+    "productsToCheck":"Products to check",
     "activeShops":"Active shops",
+    "activeProducts":"Active products",
     "noResult":"No Result !",
     "searchShop":"Search shop...",
     "name":"Name",
@@ -29,5 +31,6 @@
     "writeReasonForRejectingShop":"Write the reason for rejecting the shop",
     "pleaseEnterThisInformation":"Please enter this information",
     "cancel":"Cancel",
-    "rejected":"Rejected"
+    "rejected":"Rejected",
+    "products":"Products"
 }

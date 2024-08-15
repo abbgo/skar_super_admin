@@ -17,31 +17,31 @@ class ProductsButton extends ConsumerWidget {
 
     return ExpansionTile(
       collapsedBackgroundColor:
-          selectedDrawerButton == 1 || selectedDrawerButton == 2
+          selectedDrawerButton == 3 || selectedDrawerButton == 4
               ? elevatedButtonColor
               : null,
-      collapsedIconColor: selectedDrawerButton == 1 || selectedDrawerButton == 2
+      collapsedIconColor: selectedDrawerButton == 3 || selectedDrawerButton == 4
           ? Colors.white
           : null,
-      collapsedTextColor: selectedDrawerButton == 1 || selectedDrawerButton == 2
+      collapsedTextColor: selectedDrawerButton == 3 || selectedDrawerButton == 4
           ? Colors.white
           : null,
       title: ListTile(
-        leading: Icon(Icons.storefront, color: logoColor),
+        leading: Icon(Icons.local_mall, color: logoColor),
         title: Text(
-          lang.shops,
+          lang.products,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
       children: [
         ShopsButtonListTile(
-          text: lang.shopsToCheck,
-          selectedIndex: 1,
+          text: lang.productsToCheck,
+          selectedIndex: 3,
           page: const WaitingShops(),
         ),
         ShopsButtonListTile(
-          text: lang.activeShops,
-          selectedIndex: 2,
+          text: lang.activeProducts,
+          selectedIndex: 4,
           page: const ActiveShops(),
         ),
       ],
