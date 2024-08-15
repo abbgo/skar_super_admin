@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/pages/active_shops/active_shops.dart';
-import 'package:skar_super_admin/pages/parts/shops_button_list_tile.dart';
-import 'package:skar_super_admin/pages/waiting_shops/waiting_shops.dart';
+import 'package:skar_super_admin/pages/active_products/active_products.dart';
+import 'package:skar_super_admin/pages/parts/drawer_list_tile_button.dart';
+import 'package:skar_super_admin/pages/waiting_products/waiting_products.dart';
 import 'package:skar_super_admin/providers/pages/drawer.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -34,15 +34,15 @@ class ProductsButton extends ConsumerWidget {
         ),
       ),
       children: [
-        ShopsButtonListTile(
+        DrawerListTileButton(
           text: lang.productsToCheck,
           selectedIndex: 3,
-          page: const WaitingShops(),
+          page: const WaitingProductsPage(),
         ),
-        ShopsButtonListTile(
+        DrawerListTileButton(
           text: lang.activeProducts,
           selectedIndex: 4,
-          page: const ActiveShops(),
+          page: const ActiveProductsPage(),
         ),
       ],
     );

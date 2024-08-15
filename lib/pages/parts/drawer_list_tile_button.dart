@@ -4,8 +4,8 @@ import 'package:skar_super_admin/helpers/methods/navigators.dart';
 import 'package:skar_super_admin/providers/pages/drawer.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
-class ShopsButtonListTile extends ConsumerWidget {
-  const ShopsButtonListTile({
+class DrawerListTileButton extends ConsumerWidget {
+  const DrawerListTileButton({
     super.key,
     required this.text,
     required this.selectedIndex,
