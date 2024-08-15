@@ -5,7 +5,9 @@ import 'package:skar_super_admin/pages/parts/search_input.dart';
 import 'package:skar_super_admin/providers/pages/shops.dart';
 
 class PagesAppBarSearch extends StatefulWidget {
-  const PagesAppBarSearch({super.key});
+  const PagesAppBarSearch({super.key, required this.searchProvider});
+
+  final StateProvider<String> searchProvider;
 
   @override
   State<PagesAppBarSearch> createState() => _PagesAppBarSearchState();
@@ -30,7 +32,7 @@ class _PagesAppBarSearchState extends State<PagesAppBarSearch> {
           ctrl: searchCtrl,
           label: lang.search,
           onPressed: (value) =>
-              ref.read(shopSearchProvider.notifier).state = value,
+              ref.read(widget.searchProvider.notifier).state = value,
           searchProvider: shopSearchProvider,
         );
       },
