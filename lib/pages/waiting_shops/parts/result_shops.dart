@@ -7,8 +7,8 @@ import 'package:skar_super_admin/pages/waiting_shops/parts/result_waiting_shops_
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
-class ResultWaitingShops extends ConsumerWidget {
-  const ResultWaitingShops({super.key, required this.cratedStatus});
+class ResultShops extends ConsumerWidget {
+  const ResultShops({super.key, required this.cratedStatus});
 
   final int cratedStatus;
 
