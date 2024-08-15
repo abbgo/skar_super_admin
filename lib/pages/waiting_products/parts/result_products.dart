@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_headers.dart';
 
 class ResultProducts extends StatelessWidget {
   const ResultProducts({super.key, required this.cratedStatus});
@@ -7,6 +8,14 @@ class ResultProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Result Products'));
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+      child: Column(
+        children: [
+          const ResultShopsTableHeaders(),
+          const Center(child: Text('Result Products')),
+        ],
+      ),
+    );
   }
 }
