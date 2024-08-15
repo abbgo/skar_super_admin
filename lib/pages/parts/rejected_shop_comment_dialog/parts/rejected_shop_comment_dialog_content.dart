@@ -4,9 +4,11 @@ import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RejectedShopCommentDialogContent extends StatelessWidget {
-  const RejectedShopCommentDialogContent({super.key, required this.formKey});
+  const RejectedShopCommentDialogContent(
+      {super.key, required this.formKey, required this.ctrl});
 
   final GlobalKey<FormState> formKey;
+  final TextEditingController ctrl;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class RejectedShopCommentDialogContent extends StatelessWidget {
           key: formKey,
           child: TextFormField(
             maxLines: 6,
+            controller: ctrl,
             keyboardType: TextInputType.phone,
             textAlignVertical: TextAlignVertical.center,
             cursorColor: elevatedButtonColor,
