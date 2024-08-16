@@ -4,50 +4,42 @@ import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 
 class Product {
-  final String? id, shopID, brendID;
-  final String nameTM, nameRU;
-  final num? price, oldPrice;
-  final String? image;
-  final bool? isVisible;
-  final List<dynamic>? categoryIDs;
+  final String id, nameTM, nameRU;
+  final String? shopID, brendID;
+  final num price;
+  final num? oldPrice;
+  final bool isVisible;
   final List<ProductColor>? productColors;
   final Brend? brend;
   final List<Category>? categories;
-  final int? createdStatus;
 
   Product({
-    this.id,
+    required this.id,
     this.shopID,
     this.brendID,
     required this.nameTM,
     required this.nameRU,
-    this.price,
+    required this.price,
     this.oldPrice,
-    this.image,
-    this.isVisible,
-    this.categoryIDs,
+    required this.isVisible,
     this.productColors,
     this.brend,
     this.categories,
-    this.createdStatus,
   });
 
   factory Product.defaultProduct() {
     return Product(
-      id: null,
+      id: '',
       shopID: null,
       brendID: null,
       nameRU: '',
       nameTM: '',
-      price: null,
+      price: 0,
       oldPrice: null,
-      image: null,
       isVisible: false,
-      categoryIDs: null,
       productColors: null,
       brend: null,
       categories: null,
-      createdStatus: null,
     );
   }
 
@@ -58,7 +50,6 @@ class Product {
       nameRU: json['name_ru'],
       price: json['price'] ?? 0.0,
       oldPrice: json['old_price'] ?? 0.0,
-      image: json['image'] ?? '',
       brendID: json['brend_id'] ?? '',
       isVisible: json['is_visible'] ?? false,
       productColors: json['product_colors'] == null
@@ -76,7 +67,6 @@ class Product {
                 (categoryJson) => Category.fromJson(categoryJson),
               ),
             ),
-      createdStatus: json['created_status'] ?? 2,
     );
   }
 
@@ -89,11 +79,8 @@ class Product {
       'old_price': oldPrice,
       'brend_id': brendID,
       'shop_id': shopID,
-      'categories': categoryIDs,
       'product_colors': productColors,
       'is_visible': isVisible,
-      'image': image,
-      'created_status': createdStatus,
     };
   }
 }
