@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/pages/parts/search_input.dart';
-import 'package:skar_super_admin/providers/pages/shops.dart';
 
 class PagesAppBarSearch extends StatefulWidget {
   const PagesAppBarSearch({super.key, required this.searchProvider});
@@ -33,7 +32,7 @@ class _PagesAppBarSearchState extends State<PagesAppBarSearch> {
           label: lang.search,
           onPressed: (value) =>
               ref.read(widget.searchProvider.notifier).state = value,
-          searchProvider: shopSearchProvider,
+          searchProvider: widget.searchProvider,
         );
       },
     );
