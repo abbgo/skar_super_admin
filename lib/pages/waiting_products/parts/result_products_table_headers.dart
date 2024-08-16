@@ -18,6 +18,7 @@ class ResultProductsTableHeaders extends StatelessWidget {
         ResultTableHeader(text: lang.brend, isHeader: true),
         ResultTableHeader(text: lang.shop, isHeader: true),
         ResultTableHeader(text: '${lang.isVisible} ?', isHeader: true),
+        ResultTableHeader(text: lang.categories, isHeader: true),
         const ResultTableHeader(text: '', isHeader: true),
       ],
     );
