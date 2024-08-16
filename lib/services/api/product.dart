@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:skar_super_admin/helpers/static_data.dart';
 
 class ProductApiService {
   // fetch shops -------------------------------------------------------
@@ -10,7 +11,7 @@ class ProductApiService {
     required String lang,
     required List<String> cratedStatuses,
   }) async {
-    Uri uri = Uri.parse('$apiUrl/back/shops/admin').replace(
+    Uri uri = Uri.parse('$apiUrl/back/products/admin').replace(
       queryParameters: {
         'limit': '50',
         'page': '$page',
