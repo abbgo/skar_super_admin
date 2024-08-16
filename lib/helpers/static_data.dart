@@ -12,7 +12,7 @@ Map<String, String>? tokenHeader(String accessToken) {
   };
 }
 
-const pageSize = 10;
+const pageSize = 50;
 
 class CreatedStatuses {
   CreatedStatuses._();

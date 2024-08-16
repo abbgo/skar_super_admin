@@ -32,10 +32,10 @@ class ResultShops extends ConsumerWidget {
                   context: context,
                   cratedStatuses: ['$cratedStatus'],
                 );
-                final AsyncValue<ResultShop> shops =
+                final AsyncValue<ResultShop> resultShop =
                     ref.watch(fetchShopsProvider(shopParams));
 
-                return shops.when(
+                return resultShop.when(
                   skipLoadingOnRefresh: true,
                   skipLoadingOnReload: true,
                   skipError: true,

@@ -18,7 +18,7 @@ class ProductApiService {
   }) async {
     Uri uri = Uri.parse('$apiUrl/back/products/admin').replace(
       queryParameters: {
-        'limit': '50',
+        'limit': pageSize.toString(),
         'page': '$page',
         'is_deleted': '$isDeleted',
         'search': search,
