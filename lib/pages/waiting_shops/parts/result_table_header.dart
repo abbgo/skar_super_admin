@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
-class ShopsTableHeader extends StatelessWidget {
-  const ShopsTableHeader({
+class ResultTableHeader extends StatelessWidget {
+  const ResultTableHeader({
     super.key,
     required this.text,
     required this.isHeader,

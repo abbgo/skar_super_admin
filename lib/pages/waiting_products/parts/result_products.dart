@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/pages/waiting_products/parts/result_products_table_headers.dart';
+import 'package:skar_super_admin/pages/waiting_products/parts/result_products_table_rows.dart';
 import 'package:skar_super_admin/providers/api/product.dart';
 import 'package:skar_super_admin/services/api/product.dart';
 
@@ -46,7 +47,7 @@ class ResultProducts extends ConsumerWidget {
                       return null;
                     }
                     Product product = response.products![indexInPage];
-                    return Text(product.nameTM);
+                    return ResultProductsTableRows(product: product);
                   },
                   error: (error, stackTrace) => errorMethod(error),
                   loading: () => null,
