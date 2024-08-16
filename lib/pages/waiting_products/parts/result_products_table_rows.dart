@@ -5,14 +5,20 @@ import 'package:skar_super_admin/pages/waiting_shops/parts/result_table_header.d
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
-class ResultProductsTableRows extends StatelessWidget {
+class ResultProductsTableRows extends ConsumerWidget {
   const ResultProductsTableRows({super.key, required this.product});
 
   final Product product;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    String categories = '';
     var lang = AppLocalizations.of(context)!;
+    bool isTM = ref.read(langProvider) == 'tr';
+
+    for (var category in product.categories!) {
+      categories += ' , ${isTM ? category.nameTM : category.nameRU}';
+    }
 
     return Row(
       children: [
@@ -27,19 +33,15 @@ class ResultProductsTableRows extends StatelessWidget {
           text: product.brend != null ? product.brend!.name : '-',
           isHeader: false,
         ),
-        Consumer(
-          builder: (context, ref, child) {
-            bool isTM = ref.read(langProvider) == 'tr';
-            return ResultTableHeader(
-              text: isTM ? product.shop!.nameTM! : product.shop!.nameRU!,
-              isHeader: false,
-            );
-          },
+        ResultTableHeader(
+          text: isTM ? product.shop!.nameTM! : product.shop!.nameRU!,
+          isHeader: false,
         ),
         ResultTableHeader(
           text: product.isVisible ? lang.yes : lang.no,
           isHeader: false,
         ),
+        ResultTableHeader(text: categories, isHeader: false),
         const ResultTableHeader(text: '', isHeader: false),
       ],
     );
