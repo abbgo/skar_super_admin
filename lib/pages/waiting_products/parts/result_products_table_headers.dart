@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_header.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_image.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ResultProductsTableHeaders extends StatelessWidget {
@@ -12,17 +11,13 @@ class ResultProductsTableHeaders extends StatelessWidget {
 
     return Row(
       children: [
-        ShopsTableImage(text: lang.picture, isHeader: true),
         ShopsTableHeader(text: '${lang.name} (tm)', isHeader: true),
         ShopsTableHeader(text: '${lang.name} (ru)', isHeader: true),
-        ShopsTableHeader(text: '${lang.address} (tm)', isHeader: true),
-        ShopsTableHeader(text: '${lang.address} (ru)', isHeader: true),
-        ShopsTableHeader(text: lang.coordinates, isHeader: true),
-        ShopsTableHeader(
-            text: '${lang.isThereDeliveryService} ?', isHeader: true),
-        ShopsTableHeader(text: lang.phoneNumbers, isHeader: true),
-        ShopsTableHeader(text: lang.headOfShop, isHeader: true),
-        ShopsTableHeader(text: lang.mall, isHeader: true),
+        ShopsTableHeader(text: lang.price, isHeader: true),
+        ShopsTableHeader(text: lang.oldPrice, isHeader: true),
+        ShopsTableHeader(text: lang.brend, isHeader: true),
+        ShopsTableHeader(text: lang.shop, isHeader: true),
+        ShopsTableHeader(text: '${lang.isVisible} ?', isHeader: true),
         const ShopsTableHeader(text: '', isHeader: true),
       ],
     );

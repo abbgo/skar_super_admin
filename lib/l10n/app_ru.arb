@@ -33,5 +33,10 @@
     "pleaseEnterThisInformation":"Пожалуйста, введите эту информацию",
     "cancel":"Отмена",
     "rejected":"Отклоненный",
-    "products":"Продукты"
+    "products":"Продукты",
+    "price":"Цена",
+    "oldPrice":"Старая цена",
+    "brend":"Бренд",
+    "shop":"Магазин",
+    "isVisible":"Видно"
 }

@@ -32,5 +32,10 @@
     "pleaseEnterThisInformation":"Bu maglumaty giriziň",
     "cancel":"Goýbolsun et",
     "rejected":"Red et",
-    "products":"Harytlar"
+    "products":"Harytlar",
+    "price":"Bahasy",
+    "oldPrice":"Köne bahasy",
+    "brend":"Brendi",
+    "shop":"Dükan",
+    "isVisible":"Görünýärmi"
 }

@@ -32,5 +32,10 @@
     "pleaseEnterThisInformation":"Please enter this information",
     "cancel":"Cancel",
     "rejected":"Rejected",
-    "products":"Products"
+    "products":"Products",
+    "price":"Price",
+    "oldPrice":"Old Price",
+    "brend":"Brend",
+    "shop":"Shop",
+    "isVisible":"Is visible"
 }
