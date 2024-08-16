@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:skar_super_admin/helpers/static_data.dart';
+import 'package:skar_super_admin/models/product.dart';
 
 class ProductApiService {
-  // fetch shops -------------------------------------------------------
-  Future<ResultShop> fetchProducts({
+  // fetch products -------------------------------------------------------
+  Future<ResultProduct> fetchProducts({
     required String accessToken,
     required int page,
     required bool isDeleted,
@@ -30,19 +33,19 @@ class ProductApiService {
       var jsonData = json.decode(response.body);
 
       if (response.statusCode == 200 && jsonData['status']) {
-        if (jsonData['shops'] == null) {
-          return const ResultShop(shops: null, error: '');
+        if (jsonData['products'] == null) {
+          return const ResultProduct(products: null, error: '');
         }
 
-        var shopsList = jsonData['shops'] as List;
-        return ResultShop(
-          shops: shopsList
-              .map<Shop>((propJson) => Shop.fromJson(propJson))
+        var productsList = jsonData['products'] as List;
+        return ResultProduct(
+          products: productsList
+              .map<Product>((propJson) => Product.fromJson(propJson))
               .toList(),
           error: '',
         );
       }
-      return const ResultShop(shops: [], error: 'auth error');
+      return const ResultProduct(products: [], error: 'auth error');
     } catch (e) {
       rethrow;
     }
