@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
@@ -50,4 +52,35 @@ class ProductApiService {
       rethrow;
     }
   }
+}
+
+class ProductParams extends Equatable {
+  final bool? isDeleted;
+  final int? page;
+  final BuildContext? context;
+  final List<String>? cratedStatuses;
+
+  const ProductParams({
+    this.isDeleted,
+    this.page,
+    this.context,
+    this.cratedStatuses,
+  });
+
+  factory ProductParams.defaultProductParams() {
+    return const ProductParams(
+      isDeleted: null,
+      page: null,
+      context: null,
+      cratedStatuses: [],
+    );
+  }
+
+  @override
+  List<Object?> get props => [
+        isDeleted,
+        page,
+        context,
+        cratedStatuses,
+      ];
 }
