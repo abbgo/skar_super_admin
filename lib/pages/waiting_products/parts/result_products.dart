@@ -41,7 +41,6 @@ class ResultProducts extends ConsumerWidget {
                   skipError: true,
                   data: (response) {
                     if (response.error != '' || response.products == null) {
-                      print('-------- ${response.error}');
                       return null;
                     }
                     if (indexInPage >= response.products!.length) {
