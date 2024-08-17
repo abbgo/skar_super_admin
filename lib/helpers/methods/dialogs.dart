@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
+import 'package:skar_super_admin/models/product_color.dart';
+import 'package:skar_super_admin/pages/parts/product_color_and_dimension_dialog/product_color_and_dimension_dialog.dart';
 import 'package:skar_super_admin/pages/parts/rejected_shop_comment_dialog/rejected_shop_comment_dialog.dart';
 
 showImageDialog(BuildContext context, String image) => showDialog(
@@ -20,4 +22,11 @@ showRejectedShopCommentDialog(BuildContext context, String shopID) =>
     showDialog(
       context: context,
       builder: (context) => RejectedShopCommentDialog(shopID: shopID),
+    );
+
+showProductDialog(BuildContext context, ProductColor productColor) =>
+    showDialog(
+      context: context,
+      builder: (context) =>
+          ProductColorAndDimensionDialog(productColor: productColor),
     );
