@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 
 class ProductColorAndDimensionDialog extends StatelessWidget {
-  const ProductColorAndDimensionDialog({super.key, required this.productColor});
+  const ProductColorAndDimensionDialog(
+      {super.key, required this.productColors});
 
-  final ProductColor productColor;
+  final List<ProductColor> productColors;
 
   @override
   Widget build(BuildContext context) {

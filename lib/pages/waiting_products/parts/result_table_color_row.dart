@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 
 class ResultTableColorRow extends StatelessWidget {
@@ -21,7 +22,7 @@ class ResultTableColorRow extends StatelessWidget {
           children: [
             Text('${productColors.length} renki bar'),
             IconButton(
-              onPressed: () {},
+              onPressed: () => showProductDialog(context, productColors),
               icon: const Icon(Icons.remove_red_eye),
             ),
           ],
