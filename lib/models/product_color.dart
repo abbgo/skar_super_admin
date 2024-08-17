@@ -1,7 +1,7 @@
 class ProductColor {
   final String name;
-  final List<String> dimensions;
-  final List<String> images;
+  final List<dynamic>? dimensions;
+  final List<dynamic>? images;
 
   const ProductColor(
       {required this.name, required this.dimensions, required this.images});
@@ -13,8 +13,8 @@ class ProductColor {
   factory ProductColor.fromJson(Map<String, dynamic> json) {
     return ProductColor(
       name: json['name'],
-      dimensions: json['dimensions'],
-      images: json['images'],
+      dimensions: json['dimensions'] ?? [],
+      images: json['images'] ?? [],
     );
   }
 
