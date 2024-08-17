@@ -42,6 +42,10 @@ class ResultProductsTableRows extends ConsumerWidget {
           isHeader: false,
         ),
         ResultTableHeader(text: categories, isHeader: false),
+        ResultTableHeader(
+          text: '${product.productColors!.length} sany renki bar',
+          isHeader: false,
+        ),
         const ResultTableHeader(text: '', isHeader: false),
       ],
     );
