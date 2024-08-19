@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/functions/validation.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/products.dart';
@@ -11,6 +12,15 @@ final productApiProvider =
 var fetchProductsProvider =
     FutureProvider.autoDispose.family<ResultProduct, ProductParams>(
   (ref, arg) async {
+    if (arg.cratedStatuses != null) {
+      if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
+        ref.read(loadWaitingProductsProvider.notifier).state = true;
+      } else if (arg.cratedStatuses!.first ==
+          CreatedStatuses.success.toString()) {
+        ref.read(loadActiveProductsProvider.notifier).state = true;
+      }
+    }
+
     ResultProduct result = ResultProduct.defaultResult();
     try {
       bool isTM = ref.read(langProvider) == 'tr';
@@ -31,6 +41,15 @@ var fetchProductsProvider =
       result = resultShop;
     } catch (e) {
       result = ResultProduct(error: e.toString());
+    }
+
+    if (arg.cratedStatuses != null) {
+      if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
+        ref.read(loadWaitingProductsProvider.notifier).state = false;
+      } else if (arg.cratedStatuses!.first ==
+          CreatedStatuses.success.toString()) {
+        ref.read(loadActiveProductsProvider.notifier).state = false;
+      }
     }
     return result;
   },
