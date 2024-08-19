@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 import 'package:skar_super_admin/pages/parts/product_color_and_dimension_dialog/parts/product_dimensions.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -26,7 +27,8 @@ class ProductColorAndDimensionDialog extends StatelessWidget {
               title: Text('${lang.color}: ${productColor.name}'),
               subtitle: ProductDimensions(dimensions: productColor.dimensions!),
               trailing: ElevatedButton(
-                onPressed: () {},
+                onPressed: () =>
+                    showImagesDialog(context, productColor.images!),
                 child: Text(lang.showImages),
               ),
             );
