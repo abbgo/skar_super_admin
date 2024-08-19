@@ -5,6 +5,7 @@ import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_headers.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_rows.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
+import 'package:skar_super_admin/providers/pages/shops.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
 class ResultShops extends ConsumerWidget {
@@ -14,46 +15,60 @@ class ResultShops extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    bool load = cratedStatus == CreatedStatuses.wait
+        ? ref.watch(loadWaitingShopsProvider)
+        : ref.watch(loadActiveShopsProvider);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: Column(
         children: [
           const ResultShopsTableHeaders(),
           Expanded(
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                final page = index ~/ pageSize + 1;
-                final indexInPage = index % pageSize;
+            child: Stack(
+              children: [
+                ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    final page = index ~/ pageSize + 1;
+                    final indexInPage = index % pageSize;
 
-                ShopParams shopParams = ShopParams(
-                  page: page,
-                  isDeleted: false,
-                  context: context,
-                  cratedStatuses: ['$cratedStatus'],
-                );
-                final AsyncValue<ResultShop> resultShop =
-                    ref.watch(fetchShopsProvider(shopParams));
+                    ShopParams shopParams = ShopParams(
+                      page: page,
+                      isDeleted: false,
+                      context: context,
+                      cratedStatuses: ['$cratedStatus'],
+                    );
+                    final AsyncValue<ResultShop> resultShop =
+                        ref.watch(fetchShopsProvider(shopParams));
 
-                return resultShop.when(
-                  skipLoadingOnRefresh: true,
-                  skipLoadingOnReload: true,
-                  skipError: true,
-                  data: (response) {
-                    if (response.error != '' || response.shops == null) {
-                      return null;
-                    }
-                    if (indexInPage >= response.shops!.length) {
-                      return null;
-                    }
-                    Shop shop = response.shops![indexInPage];
-                    return ResultShopsTableRows(
-                        shop: shop, cratedStatus: cratedStatus);
+                    return resultShop.when(
+                      skipLoadingOnRefresh: true,
+                      skipLoadingOnReload: true,
+                      skipError: true,
+                      data: (response) {
+                        if (response.error != '' || response.shops == null) {
+                          return null;
+                        }
+                        if (indexInPage >= response.shops!.length) {
+                          return null;
+                        }
+                        Shop shop = response.shops![indexInPage];
+                        return ResultShopsTableRows(
+                            shop: shop, cratedStatus: cratedStatus);
+                      },
+                      error: (error, stackTrace) => errorMethod(error),
+                      loading: () => null,
+                    );
                   },
-                  error: (error, stackTrace) => errorMethod(error),
-                  loading: () => null,
-                );
-              },
+                ),
+                load
+                    ? Container(
+                        color: Colors.white.withOpacity(.5),
+                        child: loadWidget,
+                      )
+                    : const SizedBox(),
+              ],
             ),
           ),
         ],
