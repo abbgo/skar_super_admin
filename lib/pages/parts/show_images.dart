@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_gallery.dart';
+import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
-import 'package:skar_super_admin/helpers/static_data.dart';
 
 class ShowImages extends StatefulWidget {
   const ShowImages({super.key, required this.images});
@@ -24,24 +22,54 @@ class _ShowImagesState extends State<ShowImages> {
 
   @override
   Widget build(BuildContext context) {
-    print('----------- ${widget.images.length}');
-    return PageView.builder(
-      itemCount: widget.images.length,
-      itemBuilder: (context, index) {
-        return showCachImageMethod(widget.images[index]);
-      },
+    return SizedBox(
+      height: screenProperties(context).height * .8,
+      width: screenProperties(context).height * .6,
+      child: Column(
+        children: [
+          Expanded(
+            child: PageView(
+              controller: _pageController,
+              physics: const BouncingScrollPhysics(),
+              children: widget.images
+                  .map(
+                    (e) => InteractiveViewer(
+                      minScale: 0.01,
+                      maxScale: 4,
+                      child: showCachImageMethod(e),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+          const SizedBox(height: 20),
+          widget.images.length > 1
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        _pageController.previousPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
+                      child: const Icon(Icons.arrow_back),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
+                      child: const Icon(Icons.arrow_forward),
+                    ),
+                  ],
+                )
+              : const SizedBox(),
+        ],
+      ),
     );
-    // return PhotoViewGallery.builder(
-    //   itemCount: widget.images.length,
-    //   builder: (BuildContext context, int index) {
-    //     return PhotoViewGalleryPageOptions(
-    //       imageProvider: NetworkImage('$pathUrl/${widget.images[index]}'),
-    //       initialScale: PhotoViewComputedScale.contained * 0.8,
-    //       heroAttributes: PhotoViewHeroAttributes(tag: index),
-    //     );
-    //   },
-    //   loadingBuilder: (context, event) => const CircularProgressIndicator(),
-    //   pageController: _pageController,
-    // );
   }
 }
