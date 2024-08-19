@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
-import 'package:skar_super_admin/helpers/static_data.dart';
+import 'package:skar_super_admin/helpers/functions/screen.dart';
+import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 import 'package:skar_super_admin/pages/parts/product_color_and_dimension_dialog/product_color_and_dimension_dialog.dart';
 import 'package:skar_super_admin/pages/parts/rejected_shop_comment_dialog/rejected_shop_comment_dialog.dart';
@@ -10,11 +10,13 @@ showImageDialog(BuildContext context, String image) => showDialog(
       context: context,
       builder: (context) => Dialog(
         backgroundColor: Colors.transparent,
-        child: PhotoView(
-          imageProvider: NetworkImage('$pathUrl/$image'),
-          loadingBuilder: (context, event) => const CircularProgressIndicator(),
-          minScale: PhotoViewComputedScale.contained,
-          maxScale: PhotoViewComputedScale.contained * 4.0,
+        child: SizedBox(
+          height: screenProperties(context).height * .8,
+          child: InteractiveViewer(
+            minScale: 0.01,
+            maxScale: 4,
+            child: showCachImageMethod(image),
+          ),
         ),
       ),
     );

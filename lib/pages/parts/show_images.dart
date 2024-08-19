@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 
 class ShowImages extends StatefulWidget {
@@ -23,18 +24,24 @@ class _ShowImagesState extends State<ShowImages> {
 
   @override
   Widget build(BuildContext context) {
-    return PhotoViewGallery.builder(
+    print('----------- ${widget.images.length}');
+    return PageView.builder(
       itemCount: widget.images.length,
-      builder: (BuildContext context, int index) {
-        return PhotoViewGalleryPageOptions(
-          imageProvider: NetworkImage('$pathUrl/${widget.images[index]}'),
-          initialScale: PhotoViewComputedScale.contained * 0.8,
-          minScale: PhotoViewComputedScale.contained,
-          maxScale: PhotoViewComputedScale.contained * 4.0,
-        );
+      itemBuilder: (context, index) {
+        return showCachImageMethod(widget.images[index]);
       },
-      loadingBuilder: (context, event) => const CircularProgressIndicator(),
-      pageController: _pageController,
     );
+    // return PhotoViewGallery.builder(
+    //   itemCount: widget.images.length,
+    //   builder: (BuildContext context, int index) {
+    //     return PhotoViewGalleryPageOptions(
+    //       imageProvider: NetworkImage('$pathUrl/${widget.images[index]}'),
+    //       initialScale: PhotoViewComputedScale.contained * 0.8,
+    //       heroAttributes: PhotoViewHeroAttributes(tag: index),
+    //     );
+    //   },
+    //   loadingBuilder: (context, event) => const CircularProgressIndicator(),
+    //   pageController: _pageController,
+    // );
   }
 }
