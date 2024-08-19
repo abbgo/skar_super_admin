@@ -18,6 +18,19 @@ showImageDialog(BuildContext context, String image) => showDialog(
       ),
     );
 
+showImagesDialog(BuildContext context, String image) => showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: PhotoView(
+          imageProvider: NetworkImage('$pathUrl/$image'),
+          loadingBuilder: (context, event) => const CircularProgressIndicator(),
+          minScale: PhotoViewComputedScale.contained,
+          maxScale: PhotoViewComputedScale.contained * 4.0,
+        ),
+      ),
+    );
+
 showRejectedShopCommentDialog(BuildContext context, String shopID) =>
     showDialog(
       context: context,
