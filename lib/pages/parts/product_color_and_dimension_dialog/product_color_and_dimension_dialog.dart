@@ -9,8 +9,32 @@ class ProductColorAndDimensionDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AlertDialog.adaptive(
-      title: Text('some'),
+    return AlertDialog.adaptive(
+      title: const Text('Harydyn renkleri', textAlign: TextAlign.center),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: productColors.length,
+          itemBuilder: (context, index) {
+            ProductColor productColor = productColors[index];
+            return ListTile(
+              title: Text(productColor.name),
+              subtitle: SizedBox(
+                height: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: productColor.dimensions!.length,
+                  itemBuilder: (context, indexDimension) => Text(
+                    productColor.dimensions![indexDimension],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
