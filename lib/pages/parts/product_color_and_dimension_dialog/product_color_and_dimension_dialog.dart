@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/models/product_color.dart';
+import 'package:skar_super_admin/pages/parts/product_color_and_dimension_dialog/parts/product_dimensions.dart';
 
 class ProductColorAndDimensionDialog extends StatelessWidget {
   const ProductColorAndDimensionDialog(
@@ -20,17 +21,7 @@ class ProductColorAndDimensionDialog extends StatelessWidget {
             ProductColor productColor = productColors[index];
             return ListTile(
               title: Text(productColor.name),
-              subtitle: SizedBox(
-                height: double.maxFinite,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: productColor.dimensions!.length,
-                  itemBuilder: (context, indexDimension) => Text(
-                    productColor.dimensions![indexDimension],
-                  ),
-                ),
-              ),
+              subtitle: ProductDimensions(dimensions: productColor.dimensions!),
             );
           },
         ),
