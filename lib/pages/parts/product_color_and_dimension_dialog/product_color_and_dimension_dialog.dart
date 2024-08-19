@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 import 'package:skar_super_admin/pages/parts/product_color_and_dimension_dialog/parts/product_dimensions.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductColorAndDimensionDialog extends StatelessWidget {
   const ProductColorAndDimensionDialog(
@@ -10,8 +11,10 @@ class ProductColorAndDimensionDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lang = AppLocalizations.of(context)!;
+
     return AlertDialog.adaptive(
-      title: const Text('Harydyn renkleri', textAlign: TextAlign.center),
+      title: Text(lang.colorsOfProduct, textAlign: TextAlign.center),
       content: SizedBox(
         width: 500,
         child: ListView.builder(
@@ -20,11 +23,11 @@ class ProductColorAndDimensionDialog extends StatelessWidget {
           itemBuilder: (context, index) {
             ProductColor productColor = productColors[index];
             return ListTile(
-              title: Text('Renki: ${productColor.name}'),
+              title: Text('${lang.color}: ${productColor.name}'),
               subtitle: ProductDimensions(dimensions: productColor.dimensions!),
               trailing: ElevatedButton(
                 onPressed: () {},
-                child: Text('Suratlaryny gor'),
+                child: Text(lang.showImages),
               ),
             );
           },

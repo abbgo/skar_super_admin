@@ -38,5 +38,8 @@
     "oldPrice":"Старая цена",
     "brend":"Бренд",
     "shop":"Магазин",
-    "isVisible":"Видно"
+    "isVisible":"Видно",
+    "colorsOfProduct":"Цвета продукта",
+    "color":"Цвет",
+    "showImages":"Показать изображения"
 }

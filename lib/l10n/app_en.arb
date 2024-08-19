@@ -37,5 +37,8 @@
     "oldPrice":"Old Price",
     "brend":"Brend",
     "shop":"Shop",
-    "isVisible":"Is visible"
+    "isVisible":"Is visible",
+    "colorsOfProduct":"Colors of product",
+    "color":"Color",
+    "showImages":"Show images"
 }

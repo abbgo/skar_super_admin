@@ -37,5 +37,8 @@
     "oldPrice":"Köne bahasy",
     "brend":"Brendi",
     "shop":"Dükan",
-    "isVisible":"Görünýärmi"
+    "isVisible":"Görünýärmi",
+    "colorsOfProduct":"Harydyň reňkleri",
+    "color":"Reňki",
+    "showImages":"Suratlary gör"
 }
