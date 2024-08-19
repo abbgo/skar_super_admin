@@ -11,6 +11,7 @@ final shopApiProvider = Provider<ShopApiService>((ref) => ShopApiService());
 var fetchShopsProvider =
     FutureProvider.autoDispose.family<ResultShop, ShopParams>(
   (ref, arg) async {
+    ref.read(loadShopsProvider.notifier).state = true;
     ResultShop result = ResultShop.defaultResult();
     try {
       bool isTM = ref.read(langProvider) == 'tr';
@@ -31,6 +32,8 @@ var fetchShopsProvider =
     } catch (e) {
       result = ResultShop(error: e.toString());
     }
+
+    ref.read(loadShopsProvider.notifier).state = false;
     return result;
   },
 );
