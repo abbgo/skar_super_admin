@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
-import 'package:skar_super_admin/pages/parts/rejected_shop_comment_dialog/parts/rejected_shop_comment_dialog_content.dart';
+import 'package:skar_super_admin/pages/parts/rejected_comment_dialog/parts/rejected_comment_dialog_content.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

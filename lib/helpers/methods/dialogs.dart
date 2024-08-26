@@ -3,7 +3,7 @@ import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/product_color.dart';
 import 'package:skar_super_admin/pages/parts/product_color_and_dimension_dialog/product_color_and_dimension_dialog.dart';
-import 'package:skar_super_admin/pages/parts/rejected_shop_comment_dialog/rejected_shop_comment_dialog.dart';
+import 'package:skar_super_admin/pages/parts/rejected_comment_dialog/rejected_comment_dialog.dart';
 import 'package:skar_super_admin/pages/parts/show_images.dart';
 
 showImageDialog(BuildContext context, String image) => showDialog(
@@ -29,16 +29,10 @@ showImagesDialog(BuildContext context, List<dynamic> images) => showDialog(
       ),
     );
 
-showRejectedShopCommentDialog(BuildContext context, String shopID) =>
+showRejectedCommentDialog(BuildContext context, String id, bool forShop) =>
     showDialog(
       context: context,
-      builder: (context) => RejectedShopCommentDialog(shopID: shopID),
-    );
-
-showRejectedProductCommentDialog(BuildContext context, String shopID) =>
-    showDialog(
-      context: context,
-      builder: (context) => RejectedShopCommentDialog(shopID: shopID),
+      builder: (context) => RejectedShopCommentDialog(shopID: id),
     );
 
 showProductDialog(BuildContext context, List<ProductColor> productColors) =>

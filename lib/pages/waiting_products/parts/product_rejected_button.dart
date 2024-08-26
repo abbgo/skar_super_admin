@@ -10,7 +10,7 @@ class ProductRejectedButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return IconButton(
-      onPressed: () => showRejectedProductCommentDialog(context, productID),
+      onPressed: () => showRejectedCommentDialog(context, productID, false),
       icon: const Icon(Icons.cancel, color: Colors.red),
     );
   }
