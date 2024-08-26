@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
+import 'package:skar_super_admin/models/shop_created_status.dart';
 
 class ProductApiService {
   // fetch products -------------------------------------------------------
@@ -48,6 +49,39 @@ class ProductApiService {
         );
       }
       return const ResultProduct(products: [], error: 'auth error');
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  // update product created status ------------------------------------------------
+  Future<ResultProduct> updateProductCreatedStatus({
+    required String accessToken,
+    required ShopCreatedStatus shop,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/products/admin/created-status');
+
+    try {
+      http.Response response = await http.put(
+        uri,
+        headers: tokenHeader(accessToken),
+        body: json.encode(shop.toJson()),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        if (jsonData['message'] == null) {
+          return const ResultProduct(message: '', error: '');
+        }
+
+        return ResultProduct(message: jsonData['message'], error: '');
+      }
+
+      if (response.statusCode == 400) {
+        return const ResultProduct(error: 'some error');
+      }
+
+      return const ResultProduct(message: '', error: 'auth error');
     } catch (e) {
       rethrow;
     }
