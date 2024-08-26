@@ -93,12 +93,14 @@ class ProductParams extends Equatable {
   final int? page;
   final BuildContext? context;
   final List<String>? cratedStatuses;
+  final ShopCreatedStatus? productCreatedStatus;
 
   const ProductParams({
     this.isDeleted,
     this.page,
     this.context,
     this.cratedStatuses,
+    this.productCreatedStatus,
   });
 
   factory ProductParams.defaultProductParams() {
@@ -107,6 +109,7 @@ class ProductParams extends Equatable {
       page: null,
       context: null,
       cratedStatuses: [],
+      productCreatedStatus: null,
     );
   }
 
@@ -116,5 +119,6 @@ class ProductParams extends Equatable {
         page,
         context,
         cratedStatuses,
+        productCreatedStatus,
       ];
 }
