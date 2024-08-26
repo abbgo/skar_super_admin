@@ -2,10 +2,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
+import 'package:skar_super_admin/pages/waiting_products/parts/products_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_products/parts/result_table_color_row.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_table_header.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 class ResultProductsTableRows extends ConsumerWidget {
@@ -49,7 +49,7 @@ class ResultProductsTableRows extends ConsumerWidget {
         ResultTableHeader(text: categories, isHeader: false),
         ResultTableColorRow(productColors: product.productColors!),
         cratedStatus == CreatedStatuses.wait
-            ? const ShopsTableButtons(shopID: '')
+            ? ProductsTableButtons(productID: product.id)
             : const ResultTableHeader(text: '', isHeader: false),
       ],
     );
