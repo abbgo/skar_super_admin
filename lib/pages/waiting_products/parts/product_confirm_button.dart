@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
-import 'package:skar_super_admin/providers/api/shop.dart';
-import 'package:skar_super_admin/services/api/shop.dart';
+import 'package:skar_super_admin/providers/api/product.dart';
+import 'package:skar_super_admin/services/api/product.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProductConfirmButton extends ConsumerWidget {
@@ -17,13 +17,14 @@ class ProductConfirmButton extends ConsumerWidget {
 
     return IconButton(
       onPressed: () async {
-        ShopParams params = ShopParams(
+        ProductParams params = ProductParams(
           context: context,
-          shopCreatedStatus: ShopCreatedStatus(id: productID, createdStatus: 2),
+          productCreatedStatus:
+              ShopCreatedStatus(id: productID, createdStatus: 2),
         );
-        await ref.watch(updateShopCreatedStatusProvider(params).future);
-        showToast(lang.shopConfirmed, false);
-        ref.invalidate(fetchShopsProvider);
+        await ref.watch(updateProductCreatedStatusProvider(params).future);
+        showToast(lang.productConfirmed, false);
+        ref.invalidate(fetchProductsProvider);
       },
       icon: const Icon(Icons.check_circle, color: Colors.green),
     );

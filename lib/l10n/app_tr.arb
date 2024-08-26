@@ -40,5 +40,7 @@
     "isVisible":"Görünýärmi",
     "colorsOfProduct":"Harydyň reňkleri",
     "color":"Reňki",
-    "showImages":"Suratlary gör"
+    "showImages":"Suratlary gör",
+    "productConfirmed":"Haryt tassyklandy",
+    "productRejected":"Haryt ret edildi"
 }

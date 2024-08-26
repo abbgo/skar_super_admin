@@ -41,5 +41,7 @@
     "isVisible":"Видно",
     "colorsOfProduct":"Цвета продукта",
     "color":"Цвет",
-    "showImages":"Показать изображения"
+    "showImages":"Показать изображения",
+    "productConfirmed":"Продукт подтвержден",
+    "productRejected":"Продукт отклонен"
 }

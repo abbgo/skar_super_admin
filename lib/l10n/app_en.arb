@@ -40,5 +40,7 @@
     "isVisible":"Is visible",
     "colorsOfProduct":"Colors of product",
     "color":"Color",
-    "showImages":"Show images"
+    "showImages":"Show images",
+    "productConfirmed":"Product confirmed",
+    "productRejected":"Product rejected"
 }
