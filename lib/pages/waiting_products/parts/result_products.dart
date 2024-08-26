@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/pages/waiting_products/parts/result_products_table_headers.dart';
 import 'package:skar_super_admin/pages/waiting_products/parts/result_products_table_rows.dart';
 import 'package:skar_super_admin/providers/api/product.dart';
-import 'package:skar_super_admin/providers/pages/products.dart';
 import 'package:skar_super_admin/services/api/product.dart';
 
 class ResultProducts extends ConsumerWidget {
@@ -16,9 +14,9 @@ class ResultProducts extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool load = cratedStatus == CreatedStatuses.wait
-        ? ref.watch(loadWaitingProductsProvider)
-        : ref.watch(loadActiveProductsProvider);
+    // bool load = cratedStatus == CreatedStatuses.wait
+    //     ? ref.watch(loadWaitingProductsProvider)
+    //     : ref.watch(loadActiveProductsProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
@@ -65,14 +63,14 @@ class ResultProducts extends ConsumerWidget {
                     );
                   },
                 ),
-                load
-                    ? Container(
-                        height: screenProperties(context).height,
-                        width: screenProperties(context).width,
-                        color: Colors.white.withOpacity(.2),
-                        child: loadWidget,
-                      )
-                    : const SizedBox(),
+                // load
+                //     ? Container(
+                //         height: screenProperties(context).height,
+                //         width: screenProperties(context).width,
+                //         color: Colors.white.withOpacity(.2),
+                //         child: loadWidget,
+                //       )
+                //     : const SizedBox(),
               ],
             ),
           ),

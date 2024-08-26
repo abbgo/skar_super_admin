@@ -10,7 +10,6 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     String accessToken = ref.watch(accessTokenProvider);
-    print('-------------- accessToken: $accessToken');
 
     return accessToken.isEmpty ? const LoginPage() : const Dashboard();
   }

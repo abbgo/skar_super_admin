@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_headers.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_rows.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
-import 'package:skar_super_admin/providers/pages/shops.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 
 class ResultShops extends ConsumerWidget {
@@ -16,9 +14,9 @@ class ResultShops extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool load = cratedStatus == CreatedStatuses.wait
-        ? ref.watch(loadWaitingShopsProvider)
-        : ref.watch(loadActiveShopsProvider);
+    // bool load = cratedStatus == CreatedStatuses.wait
+    //     ? ref.watch(loadWaitingShopsProvider)
+    //     : ref.watch(loadActiveShopsProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
@@ -63,14 +61,14 @@ class ResultShops extends ConsumerWidget {
                     );
                   },
                 ),
-                load
-                    ? Container(
-                        height: screenProperties(context).height,
-                        width: screenProperties(context).width,
-                        color: Colors.white.withOpacity(.2),
-                        child: loadWidget,
-                      )
-                    : const SizedBox(),
+                // load
+                //     ? Container(
+                //         height: screenProperties(context).height,
+                //         width: screenProperties(context).width,
+                //         color: Colors.white.withOpacity(.2),
+                //         child: loadWidget,
+                //       )
+                //     : const SizedBox(),
               ],
             ),
           ),

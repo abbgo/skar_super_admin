@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
+import 'package:skar_super_admin/models/product.dart';
+import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
 import 'package:skar_super_admin/pages/parts/rejected_comment_dialog/parts/rejected_comment_dialog_content.dart';
 import 'package:skar_super_admin/providers/api/product.dart';
@@ -58,10 +60,14 @@ class _RejectedCommentDialogState extends State<RejectedCommentDialog> {
                       rejectedReason: commentCtrl.text,
                     ),
                   );
-                  await ref
-                      .watch(updateShopCreatedStatusProvider(params).future);
-                  showToast(lang.shopRejected, false);
-                  ref.invalidate(fetchShopsProvider);
+
+                  ResultShop resultShop = await ref
+                      .read(updateShopCreatedStatusProvider(params).future);
+
+                  if (resultShop.error == '') {
+                    showToast(lang.shopRejected, false);
+                    ref.invalidate(fetchShopsProvider);
+                  }
                 } else {
                   ProductParams params = ProductParams(
                     context: context,
@@ -71,10 +77,14 @@ class _RejectedCommentDialogState extends State<RejectedCommentDialog> {
                       rejectedReason: commentCtrl.text,
                     ),
                   );
-                  await ref
-                      .watch(updateProductCreatedStatusProvider(params).future);
-                  showToast(lang.productRejected, false);
-                  ref.invalidate(fetchProductsProvider);
+
+                  ResultProduct resultProduct = await ref
+                      .read(updateProductCreatedStatusProvider(params).future);
+
+                  if (resultProduct.error == '') {
+                    showToast(lang.productRejected, false);
+                    ref.invalidate(fetchProductsProvider);
+                  }
                 }
                 if (context.mounted) Navigator.pop(context);
               }

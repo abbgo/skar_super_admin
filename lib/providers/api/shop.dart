@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/functions/validation.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
-import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/shops.dart';
@@ -12,14 +11,14 @@ final shopApiProvider = Provider<ShopApiService>((ref) => ShopApiService());
 var fetchShopsProvider =
     FutureProvider.autoDispose.family<ResultShop, ShopParams>(
   (ref, arg) async {
-    if (arg.cratedStatuses != null) {
-      if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
-        ref.read(loadWaitingShopsProvider.notifier).state = true;
-      } else if (arg.cratedStatuses!.first ==
-          CreatedStatuses.success.toString()) {
-        ref.read(loadActiveShopsProvider.notifier).state = true;
-      }
-    }
+    // if (arg.cratedStatuses != null) {
+    //   if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
+    //     ref.read(loadWaitingShopsProvider.notifier).state = true;
+    //   } else if (arg.cratedStatuses!.first ==
+    //       CreatedStatuses.success.toString()) {
+    //     ref.read(loadActiveShopsProvider.notifier).state = true;
+    //   }
+    // }
 
     ResultShop result = ResultShop.defaultResult();
     try {
@@ -42,14 +41,14 @@ var fetchShopsProvider =
       result = ResultShop(error: e.toString());
     }
 
-    if (arg.cratedStatuses != null) {
-      if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
-        ref.read(loadWaitingShopsProvider.notifier).state = false;
-      } else if (arg.cratedStatuses!.first ==
-          CreatedStatuses.success.toString()) {
-        ref.read(loadActiveShopsProvider.notifier).state = false;
-      }
-    }
+    // if (arg.cratedStatuses != null) {
+    //   if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
+    //     ref.read(loadWaitingShopsProvider.notifier).state = false;
+    //   } else if (arg.cratedStatuses!.first ==
+    //       CreatedStatuses.success.toString()) {
+    //     ref.read(loadActiveShopsProvider.notifier).state = false;
+    //   }
+    // }
 
     return result;
   },
