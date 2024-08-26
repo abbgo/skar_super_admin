@@ -3,8 +3,8 @@ import 'package:skar_super_admin/helpers/methods/input.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class RejectedShopCommentDialogContent extends StatelessWidget {
-  const RejectedShopCommentDialogContent(
+class RejectedCommentDialogContent extends StatelessWidget {
+  const RejectedCommentDialogContent(
       {super.key, required this.formKey, required this.ctrl});
 
   final GlobalKey<FormState> formKey;

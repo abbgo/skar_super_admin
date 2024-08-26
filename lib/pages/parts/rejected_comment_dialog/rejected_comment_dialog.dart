@@ -7,17 +7,18 @@ import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class RejectedShopCommentDialog extends StatefulWidget {
-  const RejectedShopCommentDialog({super.key, required this.shopID});
+class RejectedCommentDialog extends StatefulWidget {
+  const RejectedCommentDialog(
+      {super.key, required this.shopID, required this.forShop});
 
   final String shopID;
+  final bool forShop;
 
   @override
-  State<RejectedShopCommentDialog> createState() =>
-      _RejectedShopCommentDialogState();
+  State<RejectedCommentDialog> createState() => _RejectedCommentDialogState();
 }
 
-class _RejectedShopCommentDialogState extends State<RejectedShopCommentDialog> {
+class _RejectedCommentDialogState extends State<RejectedCommentDialog> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController commentCtrl = TextEditingController();
 
@@ -33,7 +34,7 @@ class _RejectedShopCommentDialogState extends State<RejectedShopCommentDialog> {
 
     return AlertDialog.adaptive(
       content:
-          RejectedShopCommentDialogContent(formKey: formKey, ctrl: commentCtrl),
+          RejectedCommentDialogContent(formKey: formKey, ctrl: commentCtrl),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
