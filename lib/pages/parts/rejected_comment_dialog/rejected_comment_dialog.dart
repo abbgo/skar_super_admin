@@ -3,15 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
 import 'package:skar_super_admin/pages/parts/rejected_comment_dialog/parts/rejected_comment_dialog_content.dart';
+import 'package:skar_super_admin/providers/api/product.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
+import 'package:skar_super_admin/services/api/product.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RejectedCommentDialog extends StatefulWidget {
   const RejectedCommentDialog(
-      {super.key, required this.shopID, required this.forShop});
+      {super.key, required this.id, required this.forShop});
 
-  final String shopID;
+  final String id;
   final bool forShop;
 
   @override
@@ -47,17 +49,33 @@ class _RejectedCommentDialogState extends State<RejectedCommentDialog> {
           builder: (context, ref, child) => TextButton(
             onPressed: () async {
               if (formKey.currentState?.validate() == true) {
-                ShopParams params = ShopParams(
-                  context: context,
-                  shopCreatedStatus: ShopCreatedStatus(
-                    id: widget.shopID,
-                    createdStatus: 1,
-                    rejectedReason: commentCtrl.text,
-                  ),
-                );
-                await ref.watch(updateShopCreatedStatusProvider(params).future);
-                showToast(lang.shopRejected, false);
-                ref.invalidate(fetchShopsProvider);
+                if (widget.forShop) {
+                  ShopParams params = ShopParams(
+                    context: context,
+                    shopCreatedStatus: ShopCreatedStatus(
+                      id: widget.id,
+                      createdStatus: 1,
+                      rejectedReason: commentCtrl.text,
+                    ),
+                  );
+                  await ref
+                      .watch(updateShopCreatedStatusProvider(params).future);
+                  showToast(lang.shopRejected, false);
+                  ref.invalidate(fetchShopsProvider);
+                } else {
+                  ProductParams params = ProductParams(
+                    context: context,
+                    productCreatedStatus: ShopCreatedStatus(
+                      id: widget.id,
+                      createdStatus: 1,
+                      rejectedReason: commentCtrl.text,
+                    ),
+                  );
+                  await ref
+                      .watch(updateProductCreatedStatusProvider(params).future);
+                  showToast(lang.productRejected, false);
+                  ref.invalidate(fetchProductsProvider);
+                }
                 if (context.mounted) Navigator.pop(context);
               }
             },

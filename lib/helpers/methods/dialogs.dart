@@ -32,7 +32,7 @@ showImagesDialog(BuildContext context, List<dynamic> images) => showDialog(
 showRejectedCommentDialog(BuildContext context, String id, bool forShop) =>
     showDialog(
       context: context,
-      builder: (context) => RejectedCommentDialog(shopID: id, forShop: forShop),
+      builder: (context) => RejectedCommentDialog(id: id, forShop: forShop),
     );
 
 showProductDialog(BuildContext context, List<ProductColor> productColors) =>
