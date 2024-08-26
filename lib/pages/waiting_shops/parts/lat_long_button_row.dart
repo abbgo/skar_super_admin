@@ -31,14 +31,12 @@ class LatLongButtonRow extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
-              child: IconButton(
-                onPressed: () async {
-                  await Clipboard.setData(
-                      ClipboardData(text: '$latitude $longitude'));
-                },
-                icon: const Icon(Icons.content_copy),
-              ),
+            GestureDetector(
+              onTap: () async {
+                await Clipboard.setData(
+                    ClipboardData(text: '$latitude $longitude'));
+              },
+              child: const Icon(Icons.content_copy),
             ),
           ],
         ),
