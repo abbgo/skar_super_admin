@@ -28,7 +28,7 @@
     "mall":"Mall",
     "shopConfirmed":"Shop confirmed",
     "shopRejected":"Shop rejected",
-    "writeReasonForRejectingShop":"Write the reason for rejecting the shop",
+    "writeReasonForRejecting":"Write the reason for rejecting",
     "pleaseEnterThisInformation":"Please enter this information",
     "cancel":"Cancel",
     "rejected":"Rejected",

@@ -18,7 +18,7 @@ class RejectedCommentDialogContent extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          lang.writeReasonForRejectingShop,
+          lang.writeReasonForRejecting,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,

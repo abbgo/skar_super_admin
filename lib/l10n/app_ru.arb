@@ -29,7 +29,7 @@
     "mall":"Торговый центр",
     "shopConfirmed":"Магазин подтвержден",
     "shopRejected":"Магазин отклонен",
-    "writeReasonForRejectingShop":"Напишите причину отклонения магазина",
+    "writeReasonForRejecting":"Напишите причину вашего отказа",
     "pleaseEnterThisInformation":"Пожалуйста, введите эту информацию",
     "cancel":"Отмена",
     "rejected":"Отклоненный",
