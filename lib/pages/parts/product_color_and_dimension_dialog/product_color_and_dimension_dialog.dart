@@ -14,7 +14,7 @@ class ProductColorAndDimensionDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     var lang = AppLocalizations.of(context)!;
 
-    return AlertDialog.adaptive(
+    return AlertDialog(
       title: Text(lang.colorsOfProduct, textAlign: TextAlign.center),
       content: SizedBox(
         width: 500,
