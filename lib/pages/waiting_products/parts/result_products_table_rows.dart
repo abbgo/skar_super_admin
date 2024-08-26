@@ -7,9 +7,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 class ResultProductsTableRows extends ConsumerWidget {
-  const ResultProductsTableRows({super.key, required this.product});
+  const ResultProductsTableRows(
+      {super.key, required this.product, required this.cratedStatus});
 
   final Product product;
+  final int cratedStatus;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

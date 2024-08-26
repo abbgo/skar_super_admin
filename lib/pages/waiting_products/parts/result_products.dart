@@ -55,7 +55,10 @@ class ResultProducts extends ConsumerWidget {
                           return null;
                         }
                         Product product = response.products![indexInPage];
-                        return ResultProductsTableRows(product: product);
+                        return ResultProductsTableRows(
+                          product: product,
+                          cratedStatus: cratedStatus,
+                        );
                       },
                       error: (error, stackTrace) => errorMethod(error),
                       loading: () => null,
