@@ -35,6 +35,12 @@ showRejectedShopCommentDialog(BuildContext context, String shopID) =>
       builder: (context) => RejectedShopCommentDialog(shopID: shopID),
     );
 
+showRejectedProductCommentDialog(BuildContext context, String shopID) =>
+    showDialog(
+      context: context,
+      builder: (context) => RejectedShopCommentDialog(shopID: shopID),
+    );
+
 showProductDialog(BuildContext context, List<ProductColor> productColors) =>
     showDialog(
       context: context,
