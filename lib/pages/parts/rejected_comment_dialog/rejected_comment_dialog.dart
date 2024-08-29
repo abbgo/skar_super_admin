@@ -36,7 +36,7 @@ class _RejectedCommentDialogState extends State<RejectedCommentDialog> {
   Widget build(BuildContext context) {
     var lang = AppLocalizations.of(context)!;
 
-    return AlertDialog.adaptive(
+    return AlertDialog(
       content:
           RejectedCommentDialogContent(formKey: formKey, ctrl: commentCtrl),
       actions: [
