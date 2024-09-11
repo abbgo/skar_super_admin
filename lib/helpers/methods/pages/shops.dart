@@ -69,7 +69,13 @@ List<TableRow> shopRows(
                               ),
                             );
                           },
-                          child: Text(lang.copy),
+                          child: Text(
+                            lang.copy,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ],
                     ),
