@@ -15,16 +15,31 @@ List<Widget> shopColumns(BuildContext context) {
   TextStyle textStyle = const TextStyle(color: Colors.white);
 
   return [
-    Center(child: Text(lang.picture, style: textStyle)),
-    Center(child: Text('${lang.name} (tm)', style: textStyle)),
-    Center(child: Text('${lang.name} (ru)', style: textStyle)),
-    Center(child: Text('${lang.address} (tm)', style: textStyle)),
-    Center(child: Text('${lang.address} (ru)', style: textStyle)),
-    Center(child: Text(lang.coordinates, style: textStyle)),
-    Center(child: Text('${lang.isThereDeliveryService} ?', style: textStyle)),
-    Center(child: Text(lang.phoneNumbers, style: textStyle)),
-    Center(child: Text(lang.headOfShop, style: textStyle)),
-    Center(child: Text(lang.mall, style: textStyle)),
+    TableCellWidget(
+      child: Text(
+        lang.picture,
+        style: textStyle,
+        textAlign: TextAlign.center,
+      ),
+    ),
+    TableCellWidget(
+        child: Center(child: Text('${lang.name} (tm)', style: textStyle))),
+    TableCellWidget(
+        child: Center(child: Text('${lang.name} (ru)', style: textStyle))),
+    TableCellWidget(
+        child: Center(child: Text('${lang.address} (tm)', style: textStyle))),
+    TableCellWidget(
+        child: Center(child: Text('${lang.address} (ru)', style: textStyle))),
+    TableCellWidget(
+        child: Center(child: Text(lang.coordinates, style: textStyle))),
+    TableCellWidget(
+        child: Center(
+            child: Text('${lang.isThereDeliveryService} ?', style: textStyle))),
+    TableCellWidget(
+        child: Center(child: Text(lang.phoneNumbers, style: textStyle))),
+    TableCellWidget(
+        child: Center(child: Text(lang.headOfShop, style: textStyle))),
+    TableCellWidget(child: Center(child: Text(lang.mall, style: textStyle))),
     const SizedBox(),
   ];
 }
