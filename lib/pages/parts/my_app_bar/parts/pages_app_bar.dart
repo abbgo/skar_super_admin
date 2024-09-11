@@ -22,6 +22,15 @@ class PagesAppBar extends StatelessWidget {
             child: const Icon(Icons.autorenew),
           ),
         ),
+        const SizedBox(width: 10),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('Sahypa: 1'),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.chevron_left)),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.chevron_right)),
+          ],
+        ),
       ],
     );
   }
