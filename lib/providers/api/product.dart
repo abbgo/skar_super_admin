@@ -12,15 +12,6 @@ final productApiProvider =
 var fetchProductsProvider =
     FutureProvider.autoDispose.family<ResultProduct, ProductParams>(
   (ref, arg) async {
-    // if (arg.cratedStatuses != null) {
-    //   if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
-    //     ref.read(loadWaitingProductsProvider.notifier).state = true;
-    //   } else if (arg.cratedStatuses!.first ==
-    //       CreatedStatuses.success.toString()) {
-    //     ref.read(loadActiveProductsProvider.notifier).state = true;
-    //   }
-    // }
-
     ResultProduct result = ResultProduct.defaultResult();
     try {
       bool isTM = ref.read(langProvider) == 'tr';
@@ -43,14 +34,6 @@ var fetchProductsProvider =
       result = ResultProduct(error: e.toString());
     }
 
-    // if (arg.cratedStatuses != null) {
-    //   if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
-    //     ref.read(loadWaitingProductsProvider.notifier).state = false;
-    //   } else if (arg.cratedStatuses!.first ==
-    //       CreatedStatuses.success.toString()) {
-    //     ref.read(loadActiveProductsProvider.notifier).state = false;
-    //   }
-    // }
     return result;
   },
 );
