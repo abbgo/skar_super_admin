@@ -25,6 +25,10 @@ class ResultProducts extends ConsumerWidget {
 
     return resultProduct.when(
       data: (response) {
+        if (response.error != '' || response.products == null) {
+          return const SizedBox();
+        }
+
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
           child: SingleChildScrollView(
