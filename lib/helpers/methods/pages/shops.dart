@@ -2,153 +2,128 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
-List<DataColumn> shopColumns(BuildContext context) {
+List<Widget> shopColumns(BuildContext context) {
   var lang = AppLocalizations.of(context)!;
-  double columnWidth = (screenProperties(context).width - 100) / 12;
+  TextStyle textStyle = const TextStyle(color: Colors.white);
 
   return [
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text(lang.picture)),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text('${lang.name} (tm)')),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text('${lang.name} (ru)')),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text('${lang.address} (tm)')),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text('${lang.address} (ru)')),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text(lang.coordinates)),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(
-        width: columnWidth,
-        child: Text(
-          '${lang.isThereDeliveryService} ?',
-          overflow: TextOverflow.ellipsis,
-          maxLines: 3,
-          textAlign: TextAlign.center,
-        ),
-      ),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text(lang.phoneNumbers)),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text(lang.headOfShop)),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    DataColumn(
-      label: SizedBox(width: columnWidth, child: Text(lang.mall)),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
-    const DataColumn(
-      label: SizedBox(),
-      headingRowAlignment: MainAxisAlignment.center,
-    ),
+    Center(child: Text(lang.picture, style: textStyle)),
+    Center(child: Text('${lang.name} (tm)', style: textStyle)),
+    Center(child: Text('${lang.name} (ru)', style: textStyle)),
+    Center(child: Text('${lang.address} (tm)', style: textStyle)),
+    Center(child: Text('${lang.address} (ru)', style: textStyle)),
+    Center(child: Text(lang.coordinates, style: textStyle)),
+    Center(child: Text('${lang.isThereDeliveryService} ?', style: textStyle)),
+    Center(child: Text(lang.phoneNumbers, style: textStyle)),
+    Center(child: Text(lang.headOfShop, style: textStyle)),
+    Center(child: Text(lang.mall, style: textStyle)),
   ];
 }
 
-List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
-  double cellWidth = (screenProperties(context).width - 100) / 12;
+List<TableRow> shopRows(List<Shop> shops, BuildContext context) {
   var lang = AppLocalizations.of(context)!;
 
-  return shops.map(
-    (shop) {
-      return DataRow(
-        cells: [
-          DataCell(
-            SizedBox(
-              width: cellWidth,
+  return shops
+      .map(
+        (e) => TableRow(
+          children: [
+            TableCellWidget(
               child: GestureDetector(
-                onTap: () => showImageDialog(context, shop.image!),
-                child: showCachImageMethod(shop.image!),
+                onTap: () => showImageDialog(context, e.image!),
+                child: showCachImageMethod(e.image!),
               ),
             ),
-          ),
-          DataCell(SizedBox(width: cellWidth, child: Text(shop.nameTM!))),
-          DataCell(SizedBox(width: cellWidth, child: Text(shop.nameRU!))),
-          DataCell(SizedBox(width: cellWidth, child: Text(shop.addressTM!))),
-          DataCell(SizedBox(width: cellWidth, child: Text(shop.addressRU!))),
-          DataCell(
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(shop.latitude.toString()),
-                Text(shop.longitude.toString()),
-                const SizedBox(height: 10),
-                ListTile(
-                  onTap: () async {
-                    await Clipboard.setData(
-                      ClipboardData(
-                        text: '${shop.latitude} ${shop.longitude}',
-                      ),
-                    );
-                  },
-                  title: Text(lang.copy),
-                  trailing: const Icon(Icons.content_copy),
-                ),
-              ],
-            ),
-          ),
-          DataCell(
-            Center(child: Text(shop.hasShipping! ? lang.yes : lang.no)),
-          ),
-          DataCell(
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: shop.phones!.map((e) => Text(e)).toList(),
-            ),
-          ),
-          DataCell(
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(shop.shopOwner!.fullName, textAlign: TextAlign.center),
-                Text(shop.shopOwner!.phoneNumber, textAlign: TextAlign.center),
-              ],
-            ),
-          ),
-          DataCell(
-            Consumer(
-              builder: (context, ref, child) {
-                bool isTM = ref.watch(langProvider) == 'tr';
-
-                return Center(
-                  child: Text(
-                    shop.parentShop != Shop.defaultShop()
-                        ? isTM
-                            ? shop.parentShop!.nameTM!
-                            : shop.parentShop!.nameRU!
-                        : lang.no,
-                    textAlign: TextAlign.center,
+            TableCellWidget(
+                child: Text(e.nameTM!, textAlign: TextAlign.center)),
+            TableCellWidget(
+                child: Text(e.nameRU!, textAlign: TextAlign.center)),
+            TableCellWidget(
+                child: Text(e.addressTM!, textAlign: TextAlign.center)),
+            TableCellWidget(
+                child: Text(e.addressRU!, textAlign: TextAlign.center)),
+            TableCellWidget(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(e.latitude.toString()),
+                  Text(e.longitude.toString()),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () async {
+                      await Clipboard.setData(
+                        ClipboardData(
+                          text: '${e.latitude} ${e.longitude}',
+                        ),
+                      );
+                    },
+                    child: Text(lang.copy),
                   ),
-                );
-              },
+                ],
+              ),
             ),
-          ),
-          const DataCell(SizedBox()),
-        ],
-      );
-    },
-  ).toList();
+            TableCellWidget(
+              child: Text(
+                e.hasShipping! ? lang.yes : lang.no,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            TableCellWidget(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: e.phones!.map((e) => Text(e)).toList(),
+              ),
+            ),
+            TableCellWidget(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(e.shopOwner!.fullName, textAlign: TextAlign.center),
+                  Text(e.shopOwner!.phoneNumber, textAlign: TextAlign.center),
+                ],
+              ),
+            ),
+            TableCellWidget(
+              child: Consumer(
+                builder: (context, ref, child) {
+                  bool isTM = ref.watch(langProvider) == 'tr';
+
+                  return Center(
+                    child: Text(
+                      e.parentShop != Shop.defaultShop()
+                          ? isTM
+                              ? e.parentShop!.nameTM!
+                              : e.parentShop!.nameRU!
+                          : lang.no,
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      )
+      .toList();
+}
+
+class TableCellWidget extends StatelessWidget {
+  const TableCellWidget({super.key, required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return TableCell(
+      verticalAlignment: TableCellVerticalAlignment.middle,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: child,
+      ),
+    );
+  }
 }
