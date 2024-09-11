@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/methods/pages/products.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/providers/api/product.dart';
@@ -31,9 +32,8 @@ class ResultProducts extends ConsumerWidget {
               border: TableBorder.all(),
               children: [
                 TableRow(
-                  decoration: BoxDecoration(
-                    color: elevatedButtonColor,
-                  ),
+                  children: productColumns(context),
+                  decoration: BoxDecoration(color: elevatedButtonColor),
                 ),
               ],
             ),
