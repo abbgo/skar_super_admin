@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/pages/parts/my_app_bar/parts/pagination_buttons.dart';
 import 'package:skar_super_admin/pages/parts/pages_app_bar_search.dart';
 
 class PagesAppBar extends StatelessWidget {
@@ -23,14 +24,7 @@ class PagesAppBar extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text('Sahypa: 1'),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.chevron_left)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.chevron_right)),
-          ],
-        ),
+        const PaginationButtons(),
       ],
     );
   }
