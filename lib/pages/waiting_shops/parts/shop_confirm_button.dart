@@ -7,15 +7,17 @@ import 'package:skar_super_admin/services/api/shop.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ShopConfirmButton extends ConsumerWidget {
-  const ShopConfirmButton({super.key, required this.shopID});
+  const ShopConfirmButton(
+      {super.key, required this.shopID, required this.textButton});
 
-  final String shopID;
+  final String shopID, textButton;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var lang = AppLocalizations.of(context)!;
 
-    return IconButton(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
       onPressed: () async {
         ShopParams params = ShopParams(
           context: context,
@@ -25,7 +27,10 @@ class ShopConfirmButton extends ConsumerWidget {
         showToast(lang.shopConfirmed, false);
         ref.invalidate(fetchShopsProvider);
       },
-      icon: const Icon(Icons.check_circle, color: Colors.green),
+      child: Text(
+        textButton,
+        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
