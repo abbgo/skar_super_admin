@@ -9,23 +9,13 @@ class ShopsTableButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 100,
-        padding: const EdgeInsets.all(5),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ShopConfirmButton(shopID: shopID),
-            const SizedBox(width: 10),
-            ShopRejectedButton(shopID: shopID),
-          ],
-        ),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ShopConfirmButton(shopID: shopID),
+        const SizedBox(width: 10),
+        ShopRejectedButton(shopID: shopID),
+      ],
     );
   }
 }
