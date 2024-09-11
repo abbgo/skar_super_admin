@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<Widget> shopColumns(BuildContext context) {
@@ -109,21 +110,4 @@ List<TableRow> shopRows(List<Shop> shops, BuildContext context) {
         ),
       )
       .toList();
-}
-
-class TableCellWidget extends StatelessWidget {
-  const TableCellWidget({super.key, required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return TableCell(
-      verticalAlignment: TableCellVerticalAlignment.middle,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: child,
-      ),
-    );
-  }
 }
