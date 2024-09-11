@@ -9,23 +9,13 @@ class ProductsTableButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 100,
-        padding: const EdgeInsets.all(5),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ProductConfirmButton(productID: productID),
-            const SizedBox(width: 10),
-            ProductRejectedButton(productID: productID),
-          ],
-        ),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ProductConfirmButton(productID: productID),
+        const SizedBox(height: 10),
+        ProductRejectedButton(productID: productID),
+      ],
     );
   }
 }
