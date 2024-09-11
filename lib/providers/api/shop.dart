@@ -11,15 +11,6 @@ final shopApiProvider = Provider<ShopApiService>((ref) => ShopApiService());
 var fetchShopsProvider =
     FutureProvider.autoDispose.family<ResultShop, ShopParams>(
   (ref, arg) async {
-    // if (arg.cratedStatuses != null) {
-    //   if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
-    //     ref.read(loadWaitingShopsProvider.notifier).state = true;
-    //   } else if (arg.cratedStatuses!.first ==
-    //       CreatedStatuses.success.toString()) {
-    //     ref.read(loadActiveShopsProvider.notifier).state = true;
-    //   }
-    // }
-
     ResultShop result = ResultShop.defaultResult();
     try {
       bool isTM = ref.read(langProvider) == 'tr';
@@ -40,15 +31,6 @@ var fetchShopsProvider =
     } catch (e) {
       result = ResultShop(error: e.toString());
     }
-
-    // if (arg.cratedStatuses != null) {
-    //   if (arg.cratedStatuses!.first == CreatedStatuses.wait.toString()) {
-    //     ref.read(loadWaitingShopsProvider.notifier).state = false;
-    //   } else if (arg.cratedStatuses!.first ==
-    //       CreatedStatuses.success.toString()) {
-    //     ref.read(loadActiveShopsProvider.notifier).state = false;
-    //   }
-    // }
 
     return result;
   },

@@ -21,6 +21,7 @@ List<Widget> shopColumns(BuildContext context) {
     tableHeaderText('${lang.address} (tm)'),
     tableHeaderText('${lang.address} (ru)'),
     tableHeaderText(lang.coordinates),
+    tableHeaderText('Dukanyn harytlary oyde satylyarmy ?'),
     tableHeaderText('${lang.isThereDeliveryService} ?'),
     tableHeaderText(lang.phoneNumbers),
     tableHeaderText(lang.headOfShop),
@@ -72,6 +73,12 @@ List<TableRow> shopRows(
                         ),
                       ],
                     ),
+            ),
+            TableCellWidget(
+              child: Text(
+                e.atHome! ? lang.yes : lang.no,
+                textAlign: TextAlign.center,
+              ),
             ),
             TableCellWidget(
               child: Text(
