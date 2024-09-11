@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
+import 'package:skar_super_admin/helpers/methods/table.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
@@ -12,34 +13,18 @@ import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<Widget> shopColumns(BuildContext context) {
   var lang = AppLocalizations.of(context)!;
-  TextStyle textStyle = const TextStyle(color: Colors.white);
 
   return [
-    TableCellWidget(
-      child: Text(
-        lang.picture,
-        style: textStyle,
-        textAlign: TextAlign.center,
-      ),
-    ),
-    TableCellWidget(
-        child: Center(child: Text('${lang.name} (tm)', style: textStyle))),
-    TableCellWidget(
-        child: Center(child: Text('${lang.name} (ru)', style: textStyle))),
-    TableCellWidget(
-        child: Center(child: Text('${lang.address} (tm)', style: textStyle))),
-    TableCellWidget(
-        child: Center(child: Text('${lang.address} (ru)', style: textStyle))),
-    TableCellWidget(
-        child: Center(child: Text(lang.coordinates, style: textStyle))),
-    TableCellWidget(
-        child: Center(
-            child: Text('${lang.isThereDeliveryService} ?', style: textStyle))),
-    TableCellWidget(
-        child: Center(child: Text(lang.phoneNumbers, style: textStyle))),
-    TableCellWidget(
-        child: Center(child: Text(lang.headOfShop, style: textStyle))),
-    TableCellWidget(child: Center(child: Text(lang.mall, style: textStyle))),
+    tableHeaderText(lang.picture),
+    tableHeaderText('${lang.name} (tm)'),
+    tableHeaderText('${lang.name} (ru)'),
+    tableHeaderText('${lang.address} (tm)'),
+    tableHeaderText('${lang.address} (ru)'),
+    tableHeaderText(lang.coordinates),
+    tableHeaderText('${lang.isThereDeliveryService} ?'),
+    tableHeaderText(lang.phoneNumbers),
+    tableHeaderText(lang.headOfShop),
+    tableHeaderText(lang.mall),
     const SizedBox(),
   ];
 }

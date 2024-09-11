@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/methods/table.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
@@ -10,18 +11,18 @@ import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<Widget> productColumns(BuildContext context) {
   var lang = AppLocalizations.of(context)!;
-  TextStyle textStyle = const TextStyle(color: Colors.white);
 
   return [
-    Center(child: Text('${lang.name} (tm)', style: textStyle)),
-    Center(child: Text('${lang.name} (ru)', style: textStyle)),
-    Center(child: Text(lang.price, style: textStyle)),
-    Center(child: Text(lang.oldPrice, style: textStyle)),
-    Center(child: Text(lang.brend, style: textStyle)),
-    Center(child: Text(lang.shop, style: textStyle)),
-    Center(child: Text('${lang.isVisible} ?', style: textStyle)),
-    Center(child: Text(lang.categories, style: textStyle)),
-    Center(child: Text(lang.colorsOfProduct, style: textStyle)),
+    tableHeaderText('${lang.name} (tm)'),
+    tableHeaderText('${lang.name} (ru)'),
+    tableHeaderText(lang.picture),
+    tableHeaderText(lang.price),
+    tableHeaderText(lang.oldPrice),
+    tableHeaderText(lang.brend),
+    tableHeaderText(lang.shop),
+    tableHeaderText('${lang.isVisible} ?'),
+    tableHeaderText(lang.categories),
+    tableHeaderText(lang.colorsOfProduct),
     const SizedBox(),
   ];
 }
