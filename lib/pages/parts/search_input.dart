@@ -36,16 +36,16 @@ class SearchInput extends ConsumerWidget {
           border: inputBorder(),
           labelText: ' $label ',
           suffixIcon: search.isEmpty
-              ? IconButton(
-                  onPressed: () => onPressed(ctrl.text),
-                  icon: Icon(Icons.search, color: elevatedButtonColor),
+              ? GestureDetector(
+                  onTap: () => onPressed(ctrl.text),
+                  child: Icon(Icons.search, color: elevatedButtonColor),
                 )
-              : IconButton(
-                  onPressed: () {
+              : GestureDetector(
+                  onTap: () {
                     ref.read(searchProvider.notifier).state = '';
                     ctrl.clear();
                   },
-                  icon: const Icon(Icons.close),
+                  child: const Icon(Icons.close),
                 ),
         ),
       ),
