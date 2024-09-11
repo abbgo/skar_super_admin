@@ -43,5 +43,6 @@
     "color":"Цвет",
     "showImages":"Показать изображения",
     "productConfirmed":"Продукт подтвержден",
-    "productRejected":"Продукт отклонен"
+    "productRejected":"Продукт отклонен",
+    "copy":"Копировать"
 }

@@ -70,57 +70,58 @@ List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
   double cellWidth = (screenProperties(context).width - 100) / 12;
   var lang = AppLocalizations.of(context)!;
 
-  return shops
-      .map(
-        (shop) => DataRow(
-          cells: [
-            DataCell(
-              SizedBox(
-                width: cellWidth,
-                child: GestureDetector(
-                  onTap: () => showImageDialog(context, shop.image!),
-                  child: showCachImageMethod(shop.image!),
+  return shops.map(
+    (shop) {
+      return DataRow(
+        cells: [
+          DataCell(
+            SizedBox(
+              width: cellWidth,
+              child: GestureDetector(
+                onTap: () => showImageDialog(context, shop.image!),
+                child: showCachImageMethod(shop.image!),
+              ),
+            ),
+          ),
+          DataCell(SizedBox(width: cellWidth, child: Text(shop.nameTM!))),
+          DataCell(SizedBox(width: cellWidth, child: Text(shop.nameRU!))),
+          DataCell(SizedBox(width: cellWidth, child: Text(shop.addressTM!))),
+          DataCell(SizedBox(width: cellWidth, child: Text(shop.addressRU!))),
+          DataCell(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(shop.latitude.toString()),
+                Text(shop.longitude.toString()),
+                const SizedBox(height: 10),
+                ListTile(
+                  onTap: () async {
+                    await Clipboard.setData(
+                      ClipboardData(
+                        text: '${shop.latitude} ${shop.longitude}',
+                      ),
+                    );
+                  },
+                  title: Text(lang.copy),
+                  trailing: const Icon(Icons.content_copy),
                 ),
-              ),
+              ],
             ),
-            DataCell(SizedBox(width: cellWidth, child: Text(shop.nameTM!))),
-            DataCell(SizedBox(width: cellWidth, child: Text(shop.nameRU!))),
-            DataCell(SizedBox(width: cellWidth, child: Text(shop.addressTM!))),
-            DataCell(SizedBox(width: cellWidth, child: Text(shop.addressRU!))),
-            DataCell(
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(shop.latitude.toString()),
-                  Text(shop.longitude.toString()),
-                  const SizedBox(height: 10),
-                  ListTile(
-                    onTap: () async {
-                      await Clipboard.setData(
-                        ClipboardData(
-                          text: '${shop.latitude} ${shop.longitude}',
-                        ),
-                      );
-                    },
-                    title: const Text('Kopyala'),
-                    trailing: const Icon(Icons.content_copy),
-                  ),
-                ],
-              ),
+          ),
+          DataCell(
+            Center(child: Text(shop.hasShipping! ? lang.yes : lang.no)),
+          ),
+          DataCell(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: shop.phones!.map((e) => Text(e)).toList(),
             ),
-            DataCell(
-              Center(
-                child: Text(
-                  shop.hasShipping! ? lang.yes : lang.no,
-                ),
-              ),
-            ),
-            DataCell(Text(shop.image!)),
-            DataCell(Text(shop.image!)),
-            DataCell(Text(shop.image!)),
-            DataCell(Text(shop.image!)),
-          ],
-        ),
-      )
-      .toList();
+          ),
+          DataCell(Text(shop.image!)),
+          DataCell(Text(shop.image!)),
+          DataCell(Text(shop.image!)),
+        ],
+      );
+    },
+  ).toList();
 }

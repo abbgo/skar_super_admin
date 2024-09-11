@@ -42,5 +42,6 @@
     "color":"Color",
     "showImages":"Show images",
     "productConfirmed":"Product confirmed",
-    "productRejected":"Product rejected"
+    "productRejected":"Product rejected",
+    "copy":"Copy"
 }
