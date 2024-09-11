@@ -42,11 +42,13 @@ class ResultProducts extends ConsumerWidget {
                   ),
                 ],
               ),
-              SingleChildScrollView(
-                child: Table(
-                  border: TableBorder.all(),
-                  children:
-                      productRows(response.products!, context, cratedStatus),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Table(
+                    border: TableBorder.all(),
+                    children:
+                        productRows(response.products!, context, cratedStatus),
+                  ),
                 ),
               ),
             ],
