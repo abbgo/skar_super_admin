@@ -15,7 +15,8 @@ class ProductConfirmButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var lang = AppLocalizations.of(context)!;
 
-    return IconButton(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
       onPressed: () async {
         ProductParams params = ProductParams(
           context: context,
@@ -26,7 +27,10 @@ class ProductConfirmButton extends ConsumerWidget {
         showToast(lang.productConfirmed, false);
         ref.invalidate(fetchProductsProvider);
       },
-      icon: const Icon(Icons.check_circle, color: Colors.green),
+      child: Text(
+        lang.confirm,
+        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
