@@ -44,5 +44,6 @@
     "productConfirmed":"Haryt tassyklandy",
     "productRejected":"Haryt ret edildi",
     "copy":"Kopýala",
-    "confirm":"Tassykla"
+    "confirm":"Tassykla",
+    "reject":"Red et"
 }

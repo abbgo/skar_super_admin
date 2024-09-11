@@ -8,9 +8,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ShopConfirmButton extends ConsumerWidget {
   const ShopConfirmButton(
-      {super.key, required this.shopID, required this.textButton});
+      {super.key, required this.shopID, required this.buttonText});
 
-  final String shopID, textButton;
+  final String shopID, buttonText;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +28,7 @@ class ShopConfirmButton extends ConsumerWidget {
         ref.invalidate(fetchShopsProvider);
       },
       child: Text(
-        textButton,
+        buttonText,
         style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
       ),
     );

@@ -15,9 +15,9 @@ class ShopsTableButtons extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ShopConfirmButton(shopID: shopID, textButton: lang.confirm),
-        const SizedBox(width: 10),
-        ShopRejectedButton(shopID: shopID),
+        ShopConfirmButton(shopID: shopID, buttonText: lang.confirm),
+        const SizedBox(height: 10),
+        ShopRejectedButton(shopID: shopID, buttonText: lang.reject),
       ],
     );
   }

@@ -44,5 +44,6 @@
     "productConfirmed":"Product confirmed",
     "productRejected":"Product rejected",
     "copy":"Copy",
-    "confirm":"Confirm"
+    "confirm":"Confirm",
+    "reject":"Reject"
 }

@@ -3,15 +3,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 
 class ShopRejectedButton extends ConsumerWidget {
-  const ShopRejectedButton({super.key, required this.shopID});
+  const ShopRejectedButton(
+      {super.key, required this.shopID, required this.buttonText});
 
-  final String shopID;
+  final String shopID, buttonText;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return IconButton(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
       onPressed: () => showRejectedCommentDialog(context, shopID, true),
-      icon: const Icon(Icons.cancel, color: Colors.red),
+      child: Text(
+        buttonText,
+        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
