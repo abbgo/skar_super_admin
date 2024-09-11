@@ -52,24 +52,26 @@ List<TableRow> shopRows(
             TableCellWidget(
                 child: Text(e.addressRU!, textAlign: TextAlign.center)),
             TableCellWidget(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(e.latitude.toString()),
-                  Text(e.longitude.toString()),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () async {
-                      await Clipboard.setData(
-                        ClipboardData(
-                          text: '${e.latitude} ${e.longitude}',
+              child: e.latitude == 0 || e.longitude == 0
+                  ? const Text('Ýok', textAlign: TextAlign.center)
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(e.latitude.toString()),
+                        Text(e.longitude.toString()),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () async {
+                            await Clipboard.setData(
+                              ClipboardData(
+                                text: '${e.latitude} ${e.longitude}',
+                              ),
+                            );
+                          },
+                          child: Text(lang.copy),
                         ),
-                      );
-                    },
-                    child: Text(lang.copy),
-                  ),
-                ],
-              ),
+                      ],
+                    ),
             ),
             TableCellWidget(
               child: Text(
