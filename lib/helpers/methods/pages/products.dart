@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
+import 'package:skar_super_admin/pages/waiting_products/parts/products_table_buttons.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<Widget> productColumns(BuildContext context) {
@@ -19,10 +21,12 @@ List<Widget> productColumns(BuildContext context) {
     Center(child: Text('${lang.isVisible} ?', style: textStyle)),
     Center(child: Text(lang.categories, style: textStyle)),
     Center(child: Text(lang.colorsOfProduct, style: textStyle)),
+    const SizedBox(),
   ];
 }
 
-List<TableRow> productRows(List<Product> products, BuildContext context) {
+List<TableRow> productRows(
+    List<Product> products, BuildContext context, int cratedStatus) {
   var lang = AppLocalizations.of(context)!;
 
   return products
@@ -76,6 +80,9 @@ List<TableRow> productRows(List<Product> products, BuildContext context) {
               ),
             ),
             TableCellWidget(child: Text(e.nameTM, textAlign: TextAlign.center)),
+            cratedStatus == CreatedStatuses.wait
+                ? TableCellWidget(child: ProductsTableButtons(productID: e.id!))
+                : const SizedBox(),
           ],
         ),
       )
