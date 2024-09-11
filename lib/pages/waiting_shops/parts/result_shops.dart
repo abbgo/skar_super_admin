@@ -31,17 +31,26 @@ class ResultShops extends ConsumerWidget {
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
-          child: SingleChildScrollView(
-            child: Table(
-              border: TableBorder.all(),
-              children: [
-                TableRow(
-                  children: shopColumns(context),
-                  decoration: BoxDecoration(color: elevatedButtonColor),
+          child: Column(
+            children: [
+              Table(
+                border: TableBorder.all(),
+                children: [
+                  TableRow(
+                    children: shopColumns(context),
+                    decoration: BoxDecoration(color: elevatedButtonColor),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Table(
+                    border: TableBorder.all(),
+                    children: shopRows(response.shops!, context, cratedStatus),
+                  ),
                 ),
-                ...shopRows(response.shops!, context, cratedStatus)
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
