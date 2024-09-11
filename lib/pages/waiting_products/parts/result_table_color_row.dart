@@ -9,24 +9,11 @@ class ResultTableColorRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 100,
-        padding: const EdgeInsets.all(5),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('${productColors.length} renki bar'),
-            IconButton(
-              onPressed: () => showProductDialog(context, productColors),
-              icon: const Icon(Icons.remove_red_eye),
-            ),
-          ],
-        ),
+    return ElevatedButton(
+      onPressed: () => showProductDialog(context, productColors),
+      child: Text(
+        '${productColors.length} renki bar',
+        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
       ),
     );
   }
