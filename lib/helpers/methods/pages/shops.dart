@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<DataColumn> shopColumns(BuildContext context) {
   var lang = AppLocalizations.of(context)!;
@@ -126,8 +128,25 @@ List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
               ],
             ),
           ),
-          DataCell(Text(shop.image!)),
-          DataCell(Text(shop.image!)),
+          DataCell(
+            Consumer(
+              builder: (context, ref, child) {
+                bool isTM = ref.watch(langProvider) == 'tr';
+
+                return Center(
+                  child: Text(
+                    shop.parentShop != Shop.defaultShop()
+                        ? isTM
+                            ? shop.parentShop!.nameTM!
+                            : shop.parentShop!.nameRU!
+                        : lang.no,
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              },
+            ),
+          ),
+          const DataCell(SizedBox()),
         ],
       );
     },
