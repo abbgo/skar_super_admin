@@ -42,7 +42,6 @@ class ResultShops extends ConsumerWidget {
                 if (response.error != '' || response.shops == null) {
                   return [];
                 }
-
                 return shopRows(response.shops!, context);
               },
               error: (error, stackTrace) => [],
