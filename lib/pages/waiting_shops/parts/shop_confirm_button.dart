@@ -7,10 +7,9 @@ import 'package:skar_super_admin/services/api/shop.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ShopConfirmButton extends ConsumerWidget {
-  const ShopConfirmButton(
-      {super.key, required this.shopID, required this.buttonText});
+  const ShopConfirmButton({super.key, required this.shopID});
 
-  final String shopID, buttonText;
+  final String shopID;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +27,7 @@ class ShopConfirmButton extends ConsumerWidget {
         ref.invalidate(fetchShopsProvider);
       },
       child: Text(
-        buttonText,
+        lang.confirm,
         style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
       ),
     );

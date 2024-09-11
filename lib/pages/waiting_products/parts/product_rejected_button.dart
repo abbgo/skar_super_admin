@@ -13,6 +13,7 @@ class ProductRejectedButton extends ConsumerWidget {
     var lang = AppLocalizations.of(context)!;
 
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
       onPressed: () => showRejectedCommentDialog(context, productID, false),
       child: Text(
         lang.reject,
