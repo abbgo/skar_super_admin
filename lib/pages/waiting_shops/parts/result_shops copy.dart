@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
-import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_headers.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/result_shops_table_rows.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
@@ -18,7 +17,7 @@ class ResultShops extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: Column(
         children: [
-          const ResultShopsTableHeaders(),
+          // const ResultShopsTableHeaders(),
           Expanded(
             child: Stack(
               children: [

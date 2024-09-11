@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/pages/shops.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
+import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/providers/api/shop.dart';
+import 'package:skar_super_admin/services/api/shop.dart';
 
 class ResultShops extends ConsumerWidget {
   const ResultShops({super.key, required this.cratedStatus});
@@ -9,11 +13,33 @@ class ResultShops extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ShopParams shopParams = ShopParams(
+      page: 1,
+      isDeleted: false,
+      context: context,
+      cratedStatuses: ['$cratedStatus'],
+    );
+    final AsyncValue<ResultShop> resultShop =
+        ref.watch(fetchShopsProvider(shopParams));
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: DataTable(
         columns: shopColumns(context),
-        rows: rows,
+        rows: resultShop.when(
+          skipLoadingOnRefresh: true,
+          skipLoadingOnReload: true,
+          skipError: true,
+          data: (response) {
+            if (response.error != '' || response.shops == null) {
+              return [];
+            }
+
+            return shopRows(response.shops!);
+          },
+          error: (error, stackTrace) => [],
+          loading: () => [],
+        ),
       ),
     );
   }
