@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 List<DataColumn> shopColumns(BuildContext context) {
   var lang = AppLocalizations.of(context)!;
@@ -12,7 +13,9 @@ List<DataColumn> shopColumns(BuildContext context) {
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text('${lang.name} (tm)'),
+      label: Text(
+        '${lang.name} (tm)',
+      ),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(

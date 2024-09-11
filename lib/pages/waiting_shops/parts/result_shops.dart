@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/pages/shops.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 class ResultShops extends ConsumerWidget {
   const ResultShops({super.key, required this.cratedStatus});
@@ -27,8 +29,10 @@ class ResultShops extends ConsumerWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: DataTable(
-            dataRowMinHeight: 60,
-            dataRowMaxHeight: 80,
+            headingRowColor: WidgetStatePropertyAll(elevatedButtonColor),
+            headingTextStyle: const TextStyle(color: Colors.white),
+            dataRowMinHeight: screenProperties(context).height / 5,
+            dataRowMaxHeight: screenProperties(context).height / 5 + 50,
             columns: shopColumns(context),
             rows: resultShop.when(
               skipLoadingOnRefresh: true,
