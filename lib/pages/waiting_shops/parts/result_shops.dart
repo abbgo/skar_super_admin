@@ -14,10 +14,6 @@ class ResultShops extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // bool load = cratedStatus == CreatedStatuses.wait
-    //     ? ref.watch(loadWaitingShopsProvider)
-    //     : ref.watch(loadActiveShopsProvider);
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: Column(
@@ -61,14 +57,6 @@ class ResultShops extends ConsumerWidget {
                     );
                   },
                 ),
-                // load
-                //     ? Container(
-                //         height: screenProperties(context).height,
-                //         width: screenProperties(context).width,
-                //         color: Colors.white.withOpacity(.2),
-                //         child: loadWidget,
-                //       )
-                //     : const SizedBox(),
               ],
             ),
           ),
