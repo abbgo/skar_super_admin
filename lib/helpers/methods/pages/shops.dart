@@ -117,7 +117,15 @@ List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
               children: shop.phones!.map((e) => Text(e)).toList(),
             ),
           ),
-          DataCell(Text(shop.image!)),
+          DataCell(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(shop.shopOwner!.fullName, textAlign: TextAlign.center),
+                Text(shop.shopOwner!.phoneNumber, textAlign: TextAlign.center),
+              ],
+            ),
+          ),
           DataCell(Text(shop.image!)),
           DataCell(Text(shop.image!)),
         ],
