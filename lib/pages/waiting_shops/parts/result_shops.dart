@@ -33,6 +33,7 @@ class ResultShops extends ConsumerWidget {
             headingTextStyle: const TextStyle(color: Colors.white),
             dataRowMinHeight: screenProperties(context).height / 5,
             dataRowMaxHeight: screenProperties(context).height / 5 + 50,
+            headingRowHeight: 100,
             columns: shopColumns(context),
             rows: resultShop.when(
               skipLoadingOnRefresh: true,

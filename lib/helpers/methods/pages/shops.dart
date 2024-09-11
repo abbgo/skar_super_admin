@@ -2,51 +2,61 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
+import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/shop.dart';
 
 List<DataColumn> shopColumns(BuildContext context) {
   var lang = AppLocalizations.of(context)!;
+  double columnWidth = (screenProperties(context).width - 100) / 12;
 
   return [
     DataColumn(
-      label: Text(lang.picture),
+      label: SizedBox(width: columnWidth, child: Text(lang.picture)),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text('${lang.name} (tm)'),
+      label: SizedBox(width: columnWidth, child: Text('${lang.name} (tm)')),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text('${lang.name} (ru)'),
+      label: SizedBox(width: columnWidth, child: Text('${lang.name} (ru)')),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text('${lang.address} (tm)'),
+      label: SizedBox(width: columnWidth, child: Text('${lang.address} (tm)')),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text('${lang.address} (ru)'),
+      label: SizedBox(width: columnWidth, child: Text('${lang.address} (ru)')),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text(lang.coordinates),
+      label: SizedBox(width: columnWidth, child: Text(lang.coordinates)),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text('${lang.isThereDeliveryService} ?'),
+      label: SizedBox(
+        width: columnWidth,
+        child: Text(
+          '${lang.isThereDeliveryService} ?',
+          overflow: TextOverflow.ellipsis,
+          maxLines: 3,
+          textAlign: TextAlign.center,
+        ),
+      ),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text(lang.phoneNumbers),
+      label: SizedBox(width: columnWidth, child: Text(lang.phoneNumbers)),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text(lang.headOfShop),
+      label: SizedBox(width: columnWidth, child: Text(lang.headOfShop)),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     DataColumn(
-      label: Text(lang.mall),
+      label: SizedBox(width: columnWidth, child: Text(lang.mall)),
       headingRowAlignment: MainAxisAlignment.center,
     ),
     const DataColumn(
@@ -58,6 +68,8 @@ List<DataColumn> shopColumns(BuildContext context) {
 
 List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
   double cellWidth = (screenProperties(context).width - 100) / 12;
+  var lang = AppLocalizations.of(context)!;
+
   return shops
       .map(
         (shop) => DataRow(
@@ -65,7 +77,10 @@ List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
             DataCell(
               SizedBox(
                 width: cellWidth,
-                child: showCachImageMethod(shop.image!),
+                child: GestureDetector(
+                  onTap: () => showImageDialog(context, shop.image!),
+                  child: showCachImageMethod(shop.image!),
+                ),
               ),
             ),
             DataCell(SizedBox(width: cellWidth, child: Text(shop.nameTM!))),
@@ -93,7 +108,13 @@ List<DataRow> shopRows(List<Shop> shops, BuildContext context) {
                 ],
               ),
             ),
-            DataCell(Text(shop.image!)),
+            DataCell(
+              Center(
+                child: Text(
+                  shop.hasShipping! ? lang.yes : lang.no,
+                ),
+              ),
+            ),
             DataCell(Text(shop.image!)),
             DataCell(Text(shop.image!)),
             DataCell(Text(shop.image!)),
