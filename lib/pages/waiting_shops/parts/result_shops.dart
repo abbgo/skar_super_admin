@@ -39,7 +39,7 @@ class ResultShops extends ConsumerWidget {
                   children: shopColumns(context),
                   decoration: BoxDecoration(color: elevatedButtonColor),
                 ),
-                ...shopRows(response.shops!, context)
+                ...shopRows(response.shops!, context, cratedStatus)
               ],
             ),
           ),

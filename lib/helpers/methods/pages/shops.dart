@@ -4,8 +4,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<Widget> shopColumns(BuildContext context) {
@@ -23,10 +25,12 @@ List<Widget> shopColumns(BuildContext context) {
     Center(child: Text(lang.phoneNumbers, style: textStyle)),
     Center(child: Text(lang.headOfShop, style: textStyle)),
     Center(child: Text(lang.mall, style: textStyle)),
+    const SizedBox(),
   ];
 }
 
-List<TableRow> shopRows(List<Shop> shops, BuildContext context) {
+List<TableRow> shopRows(
+    List<Shop> shops, BuildContext context, int cratedStatus) {
   var lang = AppLocalizations.of(context)!;
 
   return shops
@@ -106,6 +110,9 @@ List<TableRow> shopRows(List<Shop> shops, BuildContext context) {
                 },
               ),
             ),
+            cratedStatus == CreatedStatuses.wait
+                ? TableCellWidget(child: ShopsTableButtons(shopID: e.id!))
+                : const SizedBox(),
           ],
         ),
       )
