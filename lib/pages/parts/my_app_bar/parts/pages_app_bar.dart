@@ -23,7 +23,7 @@ class PagesAppBar extends StatelessWidget {
             child: const Icon(Icons.autorenew),
           ),
         ),
-        const SizedBox(width: 10),
+        const SizedBox(width: 20),
         const PaginationButtons(),
       ],
     );

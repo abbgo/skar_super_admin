@@ -4,6 +4,7 @@ import 'package:skar_super_admin/helpers/methods/pages/shops.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
+import 'package:skar_super_admin/providers/pages/shops.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
@@ -15,7 +16,7 @@ class ResultShops extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ShopParams shopParams = ShopParams(
-      page: 1,
+      page: ref.watch(shopPageProvider),
       isDeleted: false,
       context: context,
       cratedStatuses: ['$cratedStatus'],

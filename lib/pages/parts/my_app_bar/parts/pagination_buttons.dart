@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/providers/pages/shops.dart';
 
-class PaginationButtons extends StatelessWidget {
+class PaginationButtons extends ConsumerWidget {
   const PaginationButtons({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    int shopPage = ref.watch(shopPageProvider);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text('Sahypa: 1'),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.chevron_left)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.chevron_right)),
+        Text('Sahypa: $shopPage'),
+        IconButton(
+          onPressed: () =>
+              ref.read(shopPageProvider.notifier).state = shopPage - 1,
+          icon: const Icon(Icons.chevron_left),
+        ),
+        IconButton(
+          onPressed: () =>
+              ref.read(shopPageProvider.notifier).state = shopPage + 1,
+          icon: const Icon(Icons.chevron_right),
+        ),
       ],
     );
   }
