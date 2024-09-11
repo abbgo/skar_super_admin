@@ -24,7 +24,7 @@ class ResultProducts extends ConsumerWidget {
         ref.watch(fetchProductsProvider(params));
 
     return resultProduct.when(
-      data: (data) {
+      data: (response) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
           child: SingleChildScrollView(
@@ -35,6 +35,7 @@ class ResultProducts extends ConsumerWidget {
                   children: productColumns(context),
                   decoration: BoxDecoration(color: elevatedButtonColor),
                 ),
+                ...productRows(response.products!, context)
               ],
             ),
           ),
