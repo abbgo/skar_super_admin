@@ -20,9 +20,9 @@ class ResultCategories extends ConsumerWidget {
           return const SizedBox();
         }
 
-        return const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
-          child: Text('kategoriyalar'),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+          child: Text('kategoriyalar : ${response.categories!.length}'),
         );
       },
       error: (error, stackTrace) => errorMethod(error),
