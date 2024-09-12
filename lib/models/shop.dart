@@ -104,14 +104,27 @@ class ResultShop extends Equatable {
   final List<Shop>? shops;
   final Shop? shop;
   final String? message;
+  final int? pageCount;
   final String error;
 
-  const ResultShop({this.shops, this.shop, this.message, required this.error});
+  const ResultShop({
+    this.shops,
+    this.shop,
+    this.message,
+    this.pageCount,
+    required this.error,
+  });
 
   factory ResultShop.defaultResult() {
-    return const ResultShop(shops: null, shop: null, message: '', error: '');
+    return const ResultShop(
+      shops: null,
+      shop: null,
+      message: '',
+      pageCount: 0,
+      error: '',
+    );
   }
 
   @override
-  List<Object?> get props => [shops, shop, message, error];
+  List<Object?> get props => [shops, shop, message, pageCount, error];
 }
