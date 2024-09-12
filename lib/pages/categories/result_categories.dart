@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/methods/pages/categories.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/default_param.dart';
@@ -29,19 +30,19 @@ class ResultCategories extends ConsumerWidget {
                 border: TableBorder.all(),
                 children: [
                   TableRow(
-                    // children: shopColumns(context),
+                    children: categoryColumns(context),
                     decoration: BoxDecoration(color: elevatedButtonColor),
                   ),
                 ],
               ),
-              // Expanded(
-              //   child: SingleChildScrollView(
-              //     child: Table(
-              //       border: TableBorder.all(),
-              //       children: shopRows(response.shops!, context, cratedStatus),
-              //     ),
-              //   ),
-              // ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Table(
+                    border: TableBorder.all(),
+                    children: categoryRows(response.categories!, context),
+                  ),
+                ),
+              ),
             ],
           ),
         );

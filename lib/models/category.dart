@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class Category {
   final String id, nameTM, nameRU;
+  final String? image;
   final String? parentCategoryID;
   final List<Category>? childCategories;
 
@@ -9,6 +10,7 @@ class Category {
     required this.id,
     required this.nameTM,
     required this.nameRU,
+    this.image,
     this.parentCategoryID,
     this.childCategories,
   });
@@ -18,6 +20,7 @@ class Category {
       id: '',
       nameTM: '',
       nameRU: '',
+      image: '',
       parentCategoryID: null,
       childCategories: null,
     );
@@ -28,6 +31,7 @@ class Category {
       id: json['id'],
       nameTM: json['name_tm'],
       nameRU: json['name_ru'],
+      image: json['image'] ?? '',
       parentCategoryID: json['parent_category_id'] ?? '',
       childCategories: json['child_categories'] == null
           ? []
