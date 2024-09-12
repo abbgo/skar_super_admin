@@ -14,9 +14,10 @@ var fetchShopsProvider =
     ResultShop result = ResultShop.defaultResult();
     try {
       int shopPage = await ref.watch(shopPageProvider);
-      bool isTM = ref.read(langProvider) == 'tr';
-      String search = ref.watch(shopSearchProvider);
+      String search = await ref.watch(shopSearchProvider);
       String accessToken = await ref.read(accessTokenProvider);
+      bool isTM = ref.read(langProvider) == 'tr';
+
       ResultShop resultShop = await ref.read(shopApiProvider).fetchShops(
             accessToken: accessToken,
             page: shopPage,

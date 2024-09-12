@@ -42,14 +42,15 @@ class Category {
 
 class ResultCategory extends Equatable {
   final List<Category>? categories;
+  final int? pageCount;
   final String error;
 
-  const ResultCategory({this.categories, required this.error});
+  const ResultCategory({this.categories, this.pageCount, required this.error});
 
   factory ResultCategory.defaultResult() {
-    return const ResultCategory(categories: null, error: '');
+    return const ResultCategory(categories: null, pageCount: null, error: '');
   }
 
   @override
-  List<Object?> get props => [categories, error];
+  List<Object?> get props => [categories, pageCount, error];
 }

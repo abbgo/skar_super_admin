@@ -14,15 +14,20 @@ var fetchCategoriesProvider =
     ResultCategory result = ResultCategory.defaultResult();
 
     try {
-      String search = ref.watch(categorySearchProvider);
+      int categoryPage = await ref.watch(categoryPageProvider);
+      String search = await ref.watch(categorySearchProvider);
       bool isTM = ref.read(langProvider) == 'tr';
 
-      ResultCategory resultCategory =
-          await ref.read(categoryApiProvider).fetchCategories(
-                search,
-                arg.page!,
-                isTM ? 'tm' : 'ru',
-              );
+      ResultCategory resultCategory = await ref
+          .read(categoryApiProvider)
+          .fetchCategories(search, categoryPage, isTM ? 'tm' : 'ru');
+
+      if (resultCategory.pageCount == categoryPage ||
+          resultCategory.categories == null) {
+        ref.read(activeCategoryNextButtonPageProvider.notifier).state = false;
+      } else {
+        ref.read(activeCategoryNextButtonPageProvider.notifier).state = true;
+      }
 
       result = resultCategory;
     } catch (e) {

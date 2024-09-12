@@ -15,9 +15,10 @@ var fetchProductsProvider =
     ResultProduct result = ResultProduct.defaultResult();
     try {
       int productPage = await ref.watch(productPageProvider);
-      bool isTM = ref.read(langProvider) == 'tr';
-      String search = ref.watch(productSearchProvider);
+      String search = await ref.watch(productSearchProvider);
       String accessToken = await ref.read(accessTokenProvider);
+      bool isTM = ref.read(langProvider) == 'tr';
+
       ResultProduct resultProduct =
           await ref.read(productApiProvider).fetchProducts(
                 accessToken: accessToken,
