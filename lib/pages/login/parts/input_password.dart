@@ -24,10 +24,10 @@ class InputPassword extends ConsumerWidget {
         cursorColor: elevatedButtonColor,
         obscureText: !passwordVisible,
         decoration: InputDecoration(
-          suffixIcon: IconButton(
-            onPressed: () =>
+          suffixIcon: GestureDetector(
+            onTap: () =>
                 ref.read(passwordVisibleProvider.notifier).changeVisibility(),
-            icon:
+            child:
                 Icon(passwordVisible ? Icons.visibility_off : Icons.visibility),
           ),
           focusedBorder: inputBorder(),
