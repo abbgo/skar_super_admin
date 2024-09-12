@@ -15,8 +15,9 @@ class ResultShops extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    int shopPage = ref.watch(shopPageProvider);
     ShopParams shopParams = ShopParams(
-      page: ref.watch(shopPageProvider),
+      page: shopPage,
       isDeleted: false,
       context: context,
       cratedStatuses: ['$cratedStatus'],
