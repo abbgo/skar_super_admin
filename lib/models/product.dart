@@ -94,20 +94,27 @@ class ResultProduct extends Equatable {
   final List<Product>? products;
   final Product? product;
   final String? message;
+  final int? pageCount;
   final String error;
 
-  const ResultProduct(
-      {this.products, this.product, this.message, required this.error});
+  const ResultProduct({
+    this.products,
+    this.product,
+    this.message,
+    this.pageCount,
+    required this.error,
+  });
 
   factory ResultProduct.defaultResult() {
     return const ResultProduct(
       products: null,
       product: null,
       message: null,
+      pageCount: null,
       error: '',
     );
   }
 
   @override
-  List<Object?> get props => [products, product, message, error];
+  List<Object?> get props => [products, product, message, pageCount, error];
 }
