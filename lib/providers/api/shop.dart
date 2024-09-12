@@ -30,6 +30,8 @@ var fetchShopsProvider =
 
       if (resultShop.pageCount == shopPage) {
         ref.read(activeShopNextButtonPageProvider.notifier).state = false;
+      } else {
+        ref.read(activeShopNextButtonPageProvider.notifier).state = true;
       }
 
       result = resultShop;

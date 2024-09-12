@@ -11,6 +11,8 @@ class PaginationButtons extends ConsumerWidget {
     var lang = AppLocalizations.of(context)!;
     int shopPage = ref.watch(shopPageProvider);
     bool activeShopNextButtonPage = ref.watch(activeShopNextButtonPageProvider);
+    print('----------- activeShopNextButtonPage: $activeShopNextButtonPage');
+    print('----------- shopPage: $shopPage');
 
     return Row(
       mainAxisSize: MainAxisSize.min,
