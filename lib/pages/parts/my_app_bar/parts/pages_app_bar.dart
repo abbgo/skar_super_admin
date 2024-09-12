@@ -4,11 +4,18 @@ import 'package:skar_super_admin/pages/parts/my_app_bar/parts/pagination_buttons
 import 'package:skar_super_admin/pages/parts/pages_app_bar_search.dart';
 
 class PagesAppBar extends StatelessWidget {
-  const PagesAppBar(
-      {super.key, required this.searchProvider, required this.fetchProvider});
+  const PagesAppBar({
+    super.key,
+    required this.searchProvider,
+    required this.fetchProvider,
+    required this.pageProvider,
+    required this.activeNextPageButtonProvider,
+  });
 
   final StateProvider<String> searchProvider;
   final AutoDisposeFutureProviderFamily<dynamic, dynamic> fetchProvider;
+  final AutoDisposeStateProvider<int> pageProvider;
+  final AutoDisposeStateProvider<bool> activeNextPageButtonProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,10 @@ class PagesAppBar extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 20),
-        const PaginationButtons(),
+        PaginationButtons(
+          pageProvider: pageProvider,
+          activeNextPageButtonProvider: activeNextPageButtonProvider,
+        ),
       ],
     );
   }

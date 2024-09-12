@@ -15,12 +15,16 @@ AppBar myAppBar(String page) {
       titlePage = PagesAppBar(
         searchProvider: shopSearchProvider,
         fetchProvider: fetchShopsProvider,
+        pageProvider: shopPageProvider,
+        activeNextPageButtonProvider: activeShopNextButtonPageProvider,
       );
       break;
     case 'active_shops':
       titlePage = PagesAppBar(
         searchProvider: shopSearchProvider,
         fetchProvider: fetchShopsProvider,
+        pageProvider: shopPageProvider,
+        activeNextPageButtonProvider: activeShopNextButtonPageProvider,
       );
       break;
     case 'waiting_products':

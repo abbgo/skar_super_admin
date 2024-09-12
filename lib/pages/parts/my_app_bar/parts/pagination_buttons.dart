@@ -4,13 +4,20 @@ import 'package:skar_super_admin/providers/pages/shops.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PaginationButtons extends ConsumerWidget {
-  const PaginationButtons({super.key});
+  const PaginationButtons({
+    super.key,
+    required this.pageProvider,
+    required this.activeNextPageButtonProvider,
+  });
+
+  final AutoDisposeStateProvider<int> pageProvider;
+  final AutoDisposeStateProvider<bool> activeNextPageButtonProvider;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var lang = AppLocalizations.of(context)!;
-    int shopPage = ref.watch(shopPageProvider);
-    bool activeShopNextButtonPage = ref.watch(activeShopNextButtonPageProvider);
+    int shopPage = ref.watch(pageProvider);
+    bool activeShopNextButtonPage = ref.watch(activeNextPageButtonProvider);
 
     return Row(
       mainAxisSize: MainAxisSize.min,
