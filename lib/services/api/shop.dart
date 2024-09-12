@@ -49,7 +49,7 @@ class ShopApiService {
           error: '',
         );
       }
-      return const ResultShop(shops: [], error: 'auth error');
+      return const ResultShop(shops: null, pageCount: 0, error: 'auth error');
     } catch (e) {
       rethrow;
     }
