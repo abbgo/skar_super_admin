@@ -14,22 +14,30 @@ var fetchProductsProvider =
   (ref, arg) async {
     ResultProduct result = ResultProduct.defaultResult();
     try {
+      int productPage = await ref.watch(productPageProvider);
       bool isTM = ref.read(langProvider) == 'tr';
       String search = ref.watch(productSearchProvider);
       String accessToken = await ref.read(accessTokenProvider);
-      ResultProduct resultShop =
+      ResultProduct resultProduct =
           await ref.read(productApiProvider).fetchProducts(
                 accessToken: accessToken,
-                page: arg.page!,
+                page: productPage,
                 isDeleted: arg.isDeleted!,
                 search: search,
                 lang: isTM ? 'tm' : 'ru',
                 cratedStatuses: arg.cratedStatuses!,
               );
 
-      await wrongToken(resultShop.error, ref, arg.context);
+      await wrongToken(resultProduct.error, ref, arg.context);
 
-      result = resultShop;
+      if (resultProduct.pageCount == productPage ||
+          resultProduct.products == null) {
+        ref.read(activeProductNextButtonPageProvider.notifier).state = false;
+      } else {
+        ref.read(activeProductNextButtonPageProvider.notifier).state = true;
+      }
+
+      result = resultProduct;
     } catch (e) {
       result = ResultProduct(error: e.toString());
     }
