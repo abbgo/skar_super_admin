@@ -46,5 +46,6 @@
     "copy":"Copy",
     "confirm":"Confirm",
     "reject":"Reject",
-    "page":"Page"
+    "page":"Page",
+    "areProductsThisStoreSoldAtHome":"Are the products of this store sold at home ?"
 }
