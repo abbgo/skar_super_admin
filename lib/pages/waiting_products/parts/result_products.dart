@@ -15,7 +15,6 @@ class ResultProducts extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ProductParams params = ProductParams(
-      page: 1,
       isDeleted: false,
       context: context,
       cratedStatuses: ['$cratedStatus'],

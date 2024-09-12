@@ -95,14 +95,12 @@ class ProductApiService {
 
 class ProductParams extends Equatable {
   final bool? isDeleted;
-  final int? page;
   final BuildContext? context;
   final List<String>? cratedStatuses;
   final ShopCreatedStatus? productCreatedStatus;
 
   const ProductParams({
     this.isDeleted,
-    this.page,
     this.context,
     this.cratedStatuses,
     this.productCreatedStatus,
@@ -111,7 +109,6 @@ class ProductParams extends Equatable {
   factory ProductParams.defaultProductParams() {
     return const ProductParams(
       isDeleted: null,
-      page: null,
       context: null,
       cratedStatuses: [],
       productCreatedStatus: null,
@@ -121,7 +118,6 @@ class ProductParams extends Equatable {
   @override
   List<Object?> get props => [
         isDeleted,
-        page,
         context,
         cratedStatuses,
         productCreatedStatus,
