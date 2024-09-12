@@ -30,6 +30,7 @@ List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
             ),
             TableCellWidget(child: Text(e.nameTM, textAlign: TextAlign.center)),
             TableCellWidget(child: Text(e.nameRU, textAlign: TextAlign.center)),
+            const SizedBox(),
           ],
         ),
       )
