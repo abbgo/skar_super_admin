@@ -31,12 +31,16 @@ AppBar myAppBar(String page) {
       titlePage = PagesAppBar(
         searchProvider: productSearchProvider,
         fetchProvider: fetchProductsProvider,
+        pageProvider: productPageProvider,
+        activeNextPageButtonProvider: activeProductNextButtonPageProvider,
       );
       break;
     case 'active_products':
       titlePage = PagesAppBar(
         searchProvider: productSearchProvider,
         fetchProvider: fetchProductsProvider,
+        pageProvider: productPageProvider,
+        activeNextPageButtonProvider: activeProductNextButtonPageProvider,
       );
       break;
     default:
