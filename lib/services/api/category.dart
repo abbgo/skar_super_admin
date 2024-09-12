@@ -26,7 +26,11 @@ class CategoryApiService {
 
       if (response.statusCode == 200 && jsonData['status']) {
         if (jsonData['categories'] == null) {
-          return const ResultCategory(categories: [], error: '');
+          return const ResultCategory(
+            categories: null,
+            pageCount: 0,
+            error: '',
+          );
         }
 
         var categoriesList = jsonData['categories'] as List;
@@ -34,10 +38,11 @@ class CategoryApiService {
           categories: categoriesList
               .map<Category>((propJson) => Category.fromJson(propJson))
               .toList(),
+          pageCount: jsonData['page_count'],
           error: '',
         );
       }
-      return const ResultCategory(categories: [], error: '');
+      return const ResultCategory(categories: null, pageCount: 0, error: '');
     } catch (e) {
       rethrow;
     }
