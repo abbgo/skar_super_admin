@@ -45,5 +45,6 @@
     "productRejected":"Product rejected",
     "copy":"Copy",
     "confirm":"Confirm",
-    "reject":"Reject"
+    "reject":"Reject",
+    "page":"Page"
 }
