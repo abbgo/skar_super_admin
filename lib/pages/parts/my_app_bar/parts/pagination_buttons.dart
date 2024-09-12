@@ -23,8 +23,8 @@ class PaginationButtons extends ConsumerWidget {
           icon: const Icon(Icons.chevron_left),
         ),
         IconButton(
-          onPressed: () => activeShopNextButtonPage
-              ? ref.read(shopPageProvider.notifier).state = shopPage + 1
+          onPressed: activeShopNextButtonPage
+              ? () => ref.read(shopPageProvider.notifier).state = shopPage + 1
               : null,
           icon: const Icon(Icons.chevron_right),
         ),
