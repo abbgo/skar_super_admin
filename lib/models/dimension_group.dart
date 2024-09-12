@@ -1,6 +1,6 @@
 class DimensionGroup {
   final String id, name;
-  final List<String> dimensions;
+  final List<dynamic> dimensions;
 
   DimensionGroup(
       {required this.id, required this.name, required this.dimensions});

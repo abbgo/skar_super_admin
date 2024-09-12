@@ -48,5 +48,6 @@
     "confirm":"Подтверждать",
     "reject":"Отклонять",
     "page":"Страница",
-    "areProductsThisStoreSoldAtHome":"Продаются ли товары этого магазина на дому ?"
+    "areProductsThisStoreSoldAtHome":"Продаются ли товары этого магазина на дому ?",
+    "appropriateDimensions":"Соответствующие размеры"
 }

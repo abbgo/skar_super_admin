@@ -13,6 +13,7 @@ List<Widget> categoryColumns(BuildContext context) {
     tableHeaderText(lang.picture),
     tableHeaderText('${lang.name} (tm)'),
     tableHeaderText('${lang.name} (ru)'),
+    tableHeaderText(lang.appropriateDimensions),
     const SizedBox(),
   ];
 }
@@ -30,6 +31,9 @@ List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
             ),
             TableCellWidget(child: Text(e.nameTM, textAlign: TextAlign.center)),
             TableCellWidget(child: Text(e.nameRU, textAlign: TextAlign.center)),
+            TableCellWidget(
+              child: Text(e.dimensionGroup.name, textAlign: TextAlign.center),
+            ),
             const SizedBox(),
           ],
         ),

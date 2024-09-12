@@ -7,11 +7,12 @@ import 'package:skar_super_admin/models/category.dart';
 class CategoryApiService {
   // fetch categroies --------------------------------------------
   Future<ResultCategory> fetchCategories(
+    String accessToken,
     String search,
     int page,
     String lang,
   ) async {
-    Uri uri = Uri.parse('$apiUrl/categories').replace(
+    Uri uri = Uri.parse('$apiUrl/back/categories').replace(
       queryParameters: {
         'limit': pageSize.toString(),
         'page': '$page',
@@ -21,7 +22,10 @@ class CategoryApiService {
     );
 
     try {
-      http.Response response = await http.get(uri);
+      http.Response response = await http.get(
+        uri,
+        headers: tokenHeader(accessToken),
+      );
       var jsonData = json.decode(response.body);
 
       if (response.statusCode == 200 && jsonData['status']) {

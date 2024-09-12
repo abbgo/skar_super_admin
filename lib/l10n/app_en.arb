@@ -47,5 +47,6 @@
     "confirm":"Confirm",
     "reject":"Reject",
     "page":"Page",
-    "areProductsThisStoreSoldAtHome":"Are the products of this store sold at home ?"
+    "areProductsThisStoreSoldAtHome":"Are the products of this store sold at home ?",
+    "appropriateDimensions":"Appropriate dimensions"
 }

@@ -16,11 +16,16 @@ var fetchCategoriesProvider =
     try {
       int categoryPage = await ref.watch(categoryPageProvider);
       String search = await ref.watch(categorySearchProvider);
+      String accessToken = await ref.read(accessTokenProvider);
       bool isTM = ref.read(langProvider) == 'tr';
 
-      ResultCategory resultCategory = await ref
-          .read(categoryApiProvider)
-          .fetchCategories(search, categoryPage, isTM ? 'tm' : 'ru');
+      ResultCategory resultCategory =
+          await ref.read(categoryApiProvider).fetchCategories(
+                accessToken,
+                search,
+                categoryPage,
+                isTM ? 'tm' : 'ru',
+              );
 
       if (resultCategory.pageCount == categoryPage ||
           resultCategory.categories == null) {
