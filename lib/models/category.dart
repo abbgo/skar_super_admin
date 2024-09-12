@@ -1,10 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:skar_super_admin/models/dimension_group.dart';
 
 class Category {
   final String id, nameTM, nameRU;
   final String? image;
   final String? parentCategoryID;
   final List<Category>? childCategories;
+  final DimensionGroup dimensionGroup;
 
   Category({
     required this.id,
@@ -13,6 +15,7 @@ class Category {
     this.image,
     this.parentCategoryID,
     this.childCategories,
+    required this.dimensionGroup,
   });
 
   factory Category.defaultCategory() {
@@ -23,6 +26,7 @@ class Category {
       image: '',
       parentCategoryID: null,
       childCategories: null,
+      dimensionGroup: DimensionGroup.defaultValue(),
     );
   }
 
@@ -40,6 +44,7 @@ class Category {
                 (categoryJson) => Category.fromJson(categoryJson),
               ),
             ),
+      dimensionGroup: DimensionGroup.fromJson(json['dimension_group']),
     );
   }
 }

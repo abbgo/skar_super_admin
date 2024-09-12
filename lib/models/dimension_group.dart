@@ -12,4 +12,8 @@ class DimensionGroup {
       dimensions: json['dimensions'],
     );
   }
+
+  factory DimensionGroup.defaultValue() {
+    return DimensionGroup(id: '', name: '', dimensions: []);
+  }
 }
