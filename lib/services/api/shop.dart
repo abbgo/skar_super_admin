@@ -91,14 +91,12 @@ class ShopApiService {
 
 class ShopParams extends Equatable {
   final bool? isDeleted;
-  final int? page;
   final BuildContext? context;
   final List<String>? cratedStatuses;
   final ShopCreatedStatus? shopCreatedStatus;
 
   const ShopParams({
     this.isDeleted,
-    this.page,
     this.context,
     this.cratedStatuses,
     this.shopCreatedStatus,
@@ -107,7 +105,6 @@ class ShopParams extends Equatable {
   factory ShopParams.defaultShopParams() {
     return const ShopParams(
       isDeleted: null,
-      page: null,
       context: null,
       cratedStatuses: [],
       shopCreatedStatus: null,
@@ -116,5 +113,5 @@ class ShopParams extends Equatable {
 
   @override
   List<Object?> get props =>
-      [isDeleted, page, context, cratedStatuses, shopCreatedStatus];
+      [isDeleted, context, cratedStatuses, shopCreatedStatus];
 }
