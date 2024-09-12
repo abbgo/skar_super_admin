@@ -28,7 +28,7 @@ var fetchShopsProvider =
 
       await wrongToken(resultShop.error, ref, arg.context);
 
-      if (resultShop.pageCount == shopPage) {
+      if (resultShop.pageCount == shopPage || resultShop.shops == null) {
         ref.read(activeShopNextButtonPageProvider.notifier).state = false;
       } else {
         ref.read(activeShopNextButtonPageProvider.notifier).state = true;
