@@ -32,7 +32,22 @@ List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
             TableCellWidget(child: Text(e.nameTM, textAlign: TextAlign.center)),
             TableCellWidget(child: Text(e.nameRU, textAlign: TextAlign.center)),
             TableCellWidget(
-              child: Text(e.dimensionGroup.name, textAlign: TextAlign.center),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    e.dimensionGroup.name,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: e.dimensionGroup.dimensions
+                        .map((e) => Text(' $e ,'))
+                        .toList(),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(),
           ],
