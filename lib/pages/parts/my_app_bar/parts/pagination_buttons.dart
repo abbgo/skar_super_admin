@@ -10,6 +10,8 @@ class PaginationButtons extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var lang = AppLocalizations.of(context)!;
     int shopPage = ref.watch(shopPageProvider);
+    bool activeShopNextButtonPage = ref.watch(activeShopNextButtonPageProvider);
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -21,8 +23,9 @@ class PaginationButtons extends ConsumerWidget {
           icon: const Icon(Icons.chevron_left),
         ),
         IconButton(
-          onPressed: () =>
-              ref.read(shopPageProvider.notifier).state = shopPage + 1,
+          onPressed: () => activeShopNextButtonPage
+              ? ref.read(shopPageProvider.notifier).state = shopPage + 1
+              : null,
           icon: const Icon(Icons.chevron_right),
         ),
       ],

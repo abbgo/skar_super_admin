@@ -13,12 +13,13 @@ var fetchShopsProvider =
   (ref, arg) async {
     ResultShop result = ResultShop.defaultResult();
     try {
+      int shopPage = await ref.watch(shopPageProvider);
       bool isTM = ref.read(langProvider) == 'tr';
       String search = ref.watch(shopSearchProvider);
       String accessToken = await ref.read(accessTokenProvider);
       ResultShop resultShop = await ref.read(shopApiProvider).fetchShops(
             accessToken: accessToken,
-            page: arg.page!,
+            page: shopPage,
             isDeleted: arg.isDeleted!,
             search: search,
             lang: isTM ? 'tm' : 'ru',
@@ -26,6 +27,10 @@ var fetchShopsProvider =
           );
 
       await wrongToken(resultShop.error, ref, arg.context);
+
+      if (resultShop.pageCount == shopPage) {
+        ref.read(activeShopNextButtonPageProvider.notifier).state = false;
+      }
 
       result = resultShop;
     } catch (e) {
