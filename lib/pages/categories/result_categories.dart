@@ -4,6 +4,7 @@ import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/default_param.dart';
 import 'package:skar_super_admin/providers/api/category.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 class ResultCategories extends ConsumerWidget {
   const ResultCategories({super.key});
@@ -22,7 +23,27 @@ class ResultCategories extends ConsumerWidget {
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
-          child: Text('kategoriyalar : ${response.categories!.length}'),
+          child: Column(
+            children: [
+              Table(
+                border: TableBorder.all(),
+                children: [
+                  TableRow(
+                    // children: shopColumns(context),
+                    decoration: BoxDecoration(color: elevatedButtonColor),
+                  ),
+                ],
+              ),
+              // Expanded(
+              //   child: SingleChildScrollView(
+              //     child: Table(
+              //       border: TableBorder.all(),
+              //       children: shopRows(response.shops!, context, cratedStatus),
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
         );
       },
       error: (error, stackTrace) => errorMethod(error),
