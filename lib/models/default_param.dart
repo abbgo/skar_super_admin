@@ -3,11 +3,10 @@ import 'package:flutter/widgets.dart';
 
 class DefaultParams extends Equatable {
   final bool? isDeleted;
-  final int? page;
   final BuildContext? context;
 
-  const DefaultParams({this.isDeleted, this.page, this.context});
+  const DefaultParams({this.isDeleted, this.context});
 
   @override
-  List<Object?> get props => [isDeleted, page, context];
+  List<Object?> get props => [isDeleted, context];
 }
