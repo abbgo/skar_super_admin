@@ -37,7 +37,7 @@ class ShopApiService {
 
       if (response.statusCode == 200 && jsonData['status']) {
         if (jsonData['shops'] == null) {
-          return const ResultShop(shops: null, error: '');
+          return const ResultShop(shops: null, pageCount: 0, error: '');
         }
 
         var shopsList = jsonData['shops'] as List;
@@ -45,6 +45,7 @@ class ShopApiService {
           shops: shopsList
               .map<Shop>((propJson) => Shop.fromJson(propJson))
               .toList(),
+          pageCount: jsonData['page_count'],
           error: '',
         );
       }
