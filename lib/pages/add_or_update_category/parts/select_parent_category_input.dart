@@ -16,7 +16,7 @@ class SelectParentCategoryInput extends ConsumerWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: DropdownSearch(
+        child: DropdownSearch<Category>(
           asyncItems: (text) async {
             ResultCategory resultCategory =
                 await CategoryApiService.fetchCategories(
@@ -29,6 +29,9 @@ class SelectParentCategoryInput extends ConsumerWidget {
             return resultCategory.categories!;
           },
           itemAsString: (item) => isTM ? item.nameTM : item.nameRU,
+          popupProps: const PopupProps.menu(
+            showSearchBox: true,
+          ),
         ),
       ),
     );
