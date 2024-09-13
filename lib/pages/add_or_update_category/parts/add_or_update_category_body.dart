@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_ru_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_tm_input.dart';
+import 'package:skar_super_admin/pages/add_or_update_category/parts/select_parent_category_input.dart';
 
 class AddOrUpdateCategoryBody extends StatelessWidget {
   const AddOrUpdateCategoryBody({
@@ -28,6 +29,12 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                   children: [
                     CategoryNameTmInput(ctrl: nameTMCtrl),
                     CategoryNameRuInput(ctrl: nameRUCtrl),
+                  ],
+                ),
+                const Row(
+                  children: [
+                    SelectParentCategoryInput(),
+                    SelectParentCategoryInput(),
                   ],
                 ),
               ],

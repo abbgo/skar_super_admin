@@ -53,7 +53,7 @@ class CategoryApiService {
   }
 
 // fetch categroies --------------------------------------------
-  Future<ResultCategory> fetchCategories(
+  static Future<ResultCategory> fetchCategories(
     String accessToken,
     String search,
     int page,
