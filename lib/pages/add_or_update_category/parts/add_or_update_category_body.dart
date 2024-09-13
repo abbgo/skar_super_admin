@@ -34,7 +34,7 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                 const Row(
                   children: [
                     SelectParentCategoryInput(),
-                    SelectParentCategoryInput(),
+                    SizedBox(),
                   ],
                 ),
               ],
