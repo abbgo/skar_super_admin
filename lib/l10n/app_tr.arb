@@ -53,5 +53,6 @@
     "edit":"Üýtgetmek",
     "addCategoryInformation":"Kategoriýanyň maglumatlaryny giriziň",
     "selectParentCategory":"Uly kategoriýa saýlaň",
-    "addImageOfTheCategory":"Kategoriýanyň suratyny goşuň"
+    "addImageOfTheCategory":"Kategoriýanyň suratyny goşuň",
+    "noImage":"Surat ýok"
 }

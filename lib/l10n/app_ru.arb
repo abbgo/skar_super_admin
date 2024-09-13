@@ -54,5 +54,6 @@
     "edit":"Редактировать",
     "addCategoryInformation":"Добавить информацию о категории",
     "selectParentCategory":"Выберите родительскую категорию",
-    "addImageOfTheCategory":"Добавить изображение категории"
+    "addImageOfTheCategory":"Добавить изображение категории",
+    "noImage":"Нет изображения"
 }
