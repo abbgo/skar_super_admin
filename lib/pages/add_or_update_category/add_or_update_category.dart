@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skar_super_admin/pages/add_or_update_category/add_or_update_category_body.dart';
+import 'package:skar_super_admin/pages/add_or_update_category/parts/add_or_update_category_body.dart';
 
 class AddOrUpdateCategoryPage extends StatefulWidget {
   const AddOrUpdateCategoryPage({super.key});

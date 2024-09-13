@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_tm_input.dart';
 
 class AddOrUpdateCategoryBody extends StatelessWidget {
   const AddOrUpdateCategoryBody({
@@ -18,7 +19,11 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
       children: [
         Form(
           key: categoryFormKey,
-          child: ListView(),
+          child: ListView(
+            children: [
+              CategoryNameTmInput(ctrl: nameTMCtrl),
+            ],
+          ),
         ),
       ],
     );
