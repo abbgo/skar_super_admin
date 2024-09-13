@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_ru_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_tm_input.dart';
 
 class AddOrUpdateCategoryBody extends StatelessWidget {
@@ -15,17 +16,25 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Form(
-          key: categoryFormKey,
-          child: ListView(
-            children: [
-              CategoryNameTmInput(ctrl: nameTMCtrl),
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Stack(
+        children: [
+          Form(
+            key: categoryFormKey,
+            child: ListView(
+              children: [
+                Row(
+                  children: [
+                    CategoryNameTmInput(ctrl: nameTMCtrl),
+                    CategoryNameRuInput(ctrl: nameRUCtrl),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

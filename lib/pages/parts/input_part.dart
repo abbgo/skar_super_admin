@@ -20,24 +20,27 @@ class InputPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        maxHeight: maxLines == null ? 100 : 150,
-        minHeight: maxLines == null ? 100 : 150,
-      ),
-      child: TextFormField(
-        autofocus: false,
-        maxLines: maxLines ?? 1,
-        controller: ctrl,
-        keyboardType: keyboardType ?? TextInputType.text,
-        textAlignVertical: TextAlignVertical.center,
-        cursorColor: elevatedButtonColor,
-        decoration: InputDecoration(
-          focusedBorder: inputBorder(),
-          border: inputBorder(),
-          labelText: ' $label ',
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: maxLines == null ? 100 : 150,
+          minHeight: maxLines == null ? 100 : 150,
         ),
-        validator: validatorFunc,
+        child: TextFormField(
+          autofocus: false,
+          maxLines: maxLines ?? 1,
+          controller: ctrl,
+          keyboardType: keyboardType ?? TextInputType.text,
+          textAlignVertical: TextAlignVertical.center,
+          cursorColor: elevatedButtonColor,
+          decoration: InputDecoration(
+            focusedBorder: inputBorder(),
+            border: inputBorder(),
+            labelText: ' $label ',
+          ),
+          validator: validatorFunc,
+        ),
       ),
     );
   }
