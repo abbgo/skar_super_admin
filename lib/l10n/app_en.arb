@@ -52,5 +52,6 @@
     "subcategories":"Subcategories",
     "edit":"Edit",
     "addCategoryInformation":"Add category information",
-    "selectParentCategory":"Select parent category"
+    "selectParentCategory":"Select parent category",
+    "addImageOfTheCategory":"Add image of the category"
 }
