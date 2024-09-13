@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
+import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/services/api/category.dart';
 
 class SelectParentCategoryInput extends ConsumerWidget {
@@ -32,6 +33,8 @@ class SelectParentCategoryInput extends ConsumerWidget {
           popupProps: const PopupProps.menu(
             showSearchBox: true,
           ),
+          onChanged: (value) =>
+              ref.read(parentCategoryProvider.notifier).state = value!.id,
         ),
       ),
     );
