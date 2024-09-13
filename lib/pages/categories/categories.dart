@@ -12,7 +12,13 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar('categories'),
+      appBar: subcategories != null
+          ? AppBar(
+              leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Icons.arrow_back),
+            ))
+          : myAppBar('categories'),
       drawer: const DrawerPart(),
       body: ResultCategories(subcategories: subcategories),
     );

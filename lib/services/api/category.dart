@@ -14,7 +14,7 @@ class CategoryApiService {
   ) async {
     Uri uri = Uri.parse('$apiUrl/back/categories').replace(
       queryParameters: {
-        'limit': pageSize.toString(),
+        'limit': '100',
         'page': '$page',
         'search': search,
         'lang': lang
