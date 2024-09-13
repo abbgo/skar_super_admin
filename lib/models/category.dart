@@ -38,7 +38,7 @@ class Category {
       image: json['image'] ?? '',
       parentCategoryID: json['parent_category_id'] ?? '',
       childCategories: json['child_categories'] == null
-          ? []
+          ? null
           : List<Category>.from(
               json['child_categories'].map(
                 (categoryJson) => Category.fromJson(categoryJson),
