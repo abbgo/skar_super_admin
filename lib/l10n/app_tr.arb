@@ -51,5 +51,6 @@
     "appropriateDimensions":"Degişli ölçegler",
     "subcategories":"Kiçi kategoriýalar",
     "edit":"Üýtgetmek",
-    "addCategoryInformation":"Kategoriýanyň maglumatlaryny giriziň"
+    "addCategoryInformation":"Kategoriýanyň maglumatlaryny giriziň",
+    "selectParentCategory":"Uly kategoriýa saýlaň"
 }

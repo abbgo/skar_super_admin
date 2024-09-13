@@ -51,5 +51,6 @@
     "appropriateDimensions":"Appropriate dimensions",
     "subcategories":"Subcategories",
     "edit":"Edit",
-    "addCategoryInformation":"Add category information"
+    "addCategoryInformation":"Add category information",
+    "selectParentCategory":"Select parent category"
 }

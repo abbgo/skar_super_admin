@@ -5,12 +5,14 @@ import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/services/api/category.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectParentCategoryInput extends ConsumerWidget {
   const SelectParentCategoryInput({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var lang = AppLocalizations.of(context)!;
     String accessToken = ref.watch(accessTokenProvider);
     bool isTM = ref.watch(langProvider) == 'tr';
 
@@ -33,8 +35,21 @@ class SelectParentCategoryInput extends ConsumerWidget {
           popupProps: const PopupProps.menu(
             showSearchBox: true,
           ),
-          onChanged: (value) =>
-              ref.read(parentCategoryProvider.notifier).state = value!.id,
+          onChanged: (value) {
+            if (value == null) {
+              ref.read(parentCategoryProvider.notifier).state = '';
+            } else {
+              ref.read(parentCategoryProvider.notifier).state = value.id;
+            }
+          },
+          dropdownBuilder: (context, selectedItem) => Text(
+            selectedItem == null
+                ? lang.selectParentCategory
+                : isTM
+                    ? selectedItem.nameTM
+                    : selectedItem.nameRU,
+          ),
+          clearButtonProps: const ClearButtonProps(isVisible: true),
         ),
       ),
     );
