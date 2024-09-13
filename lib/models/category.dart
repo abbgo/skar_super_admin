@@ -6,7 +6,7 @@ class Category {
   final String? image;
   final String? parentCategoryID;
   final List<Category>? childCategories;
-  final DimensionGroup dimensionGroup;
+  final DimensionGroup? dimensionGroup;
 
   Category({
     required this.id,
@@ -26,7 +26,7 @@ class Category {
       image: '',
       parentCategoryID: null,
       childCategories: null,
-      dimensionGroup: DimensionGroup.defaultValue(),
+      dimensionGroup: null,
     );
   }
 
@@ -44,7 +44,9 @@ class Category {
                 (categoryJson) => Category.fromJson(categoryJson),
               ),
             ),
-      dimensionGroup: DimensionGroup.fromJson(json['dimension_group']),
+      dimensionGroup: json['dimension_group'] == null
+          ? null
+          : DimensionGroup.fromJson(json['dimension_group']),
     );
   }
 }

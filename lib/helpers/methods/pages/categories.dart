@@ -37,13 +37,13 @@ List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    e.dimensionGroup.name,
+                    e.dimensionGroup!.name,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: e.dimensionGroup.dimensions
+                    children: e.dimensionGroup!.dimensions
                         .map((e) => Text(' $e ,'))
                         .toList(),
                   ),
