@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/pages/parts/my_app_bar/parts/avatar.dart';
+import 'package:skar_super_admin/pages/parts/my_app_bar/parts/categories_page_app_bar.dart';
 import 'package:skar_super_admin/pages/parts/my_app_bar/parts/log_out_button.dart';
 import 'package:skar_super_admin/pages/parts/my_app_bar/parts/pages_app_bar.dart';
 import 'package:skar_super_admin/providers/api/product.dart';
@@ -42,6 +43,9 @@ AppBar myAppBar(String page) {
         pageProvider: productPageProvider,
         activeNextPageButtonProvider: activeProductNextButtonPageProvider,
       );
+      break;
+    case 'categories':
+      titlePage = const CategoriesPageAppBar();
       break;
     default:
   }
