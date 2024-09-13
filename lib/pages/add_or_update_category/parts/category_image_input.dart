@@ -15,7 +15,7 @@ class CategoryImageInput extends StatelessWidget {
           children: [
             Text(lang.addImageOfTheCategory),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
                   onPressed: () {

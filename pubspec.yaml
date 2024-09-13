@@ -47,6 +47,8 @@ dependencies:
     sdk: flutter
   fluttertoast: ^8.2.5
   dropdown_search: ^5.0.6
+  file_picker: ^8.1.2
+  image_cropper: ^8.0.2
 
 dev_dependencies:
   flutter_test:
