@@ -15,9 +15,10 @@ class CategoriesPage extends StatelessWidget {
       appBar: subcategories != null
           ? AppBar(
               leading: IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back),
-            ))
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.arrow_back),
+              ),
+            )
           : myAppBar('categories'),
       drawer: const DrawerPart(),
       body: ResultCategories(subcategories: subcategories),
