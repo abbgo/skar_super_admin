@@ -8,7 +8,7 @@ import 'package:skar_super_admin/services/api/category.dart';
 final categoryApiProvider =
     Provider<CategoryApiService>((ref) => CategoryApiService());
 
-var fetchCategoriesProvider =
+var fetchCategoriesWithChildProvider =
     FutureProvider.autoDispose.family<ResultCategory, DefaultParams>(
   (ref, arg) async {
     ResultCategory result = ResultCategory.defaultResult();
@@ -20,7 +20,7 @@ var fetchCategoriesProvider =
       bool isTM = ref.read(langProvider) == 'tr';
 
       ResultCategory resultCategory =
-          await ref.read(categoryApiProvider).fetchCategories(
+          await ref.read(categoryApiProvider).fetchCategoriesWithChild(
                 accessToken,
                 search,
                 categoryPage,

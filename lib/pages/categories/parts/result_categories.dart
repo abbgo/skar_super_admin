@@ -16,7 +16,7 @@ class ResultCategories extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     DefaultParams params = DefaultParams(isDeleted: false, context: context);
     final AsyncValue<ResultCategory> resultCategory =
-        ref.watch(fetchCategoriesProvider(params));
+        ref.watch(fetchCategoriesWithChildProvider(params));
 
     return resultCategory.when(
       data: (response) {

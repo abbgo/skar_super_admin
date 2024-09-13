@@ -6,13 +6,13 @@ import 'package:skar_super_admin/models/category.dart';
 
 class CategoryApiService {
   // fetch categroies --------------------------------------------
-  Future<ResultCategory> fetchCategories(
+  Future<ResultCategory> fetchCategoriesWithChild(
     String accessToken,
     String search,
     int page,
     String lang,
   ) async {
-    Uri uri = Uri.parse('$apiUrl/back/categories').replace(
+    Uri uri = Uri.parse('$apiUrl/back/categories/with-child').replace(
       queryParameters: {
         'limit': '100',
         'page': '$page',
