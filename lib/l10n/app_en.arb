@@ -50,5 +50,6 @@
     "areProductsThisStoreSoldAtHome":"Are the products of this store sold at home ?",
     "appropriateDimensions":"Appropriate dimensions",
     "subcategories":"Subcategories",
-    "edit":"Edit"
+    "edit":"Edit",
+    "addCategoryInformation":"Add category information"
 }

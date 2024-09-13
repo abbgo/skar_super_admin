@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/add_or_update_category_body.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddOrUpdateCategoryPage extends StatefulWidget {
   const AddOrUpdateCategoryPage({super.key});
@@ -24,12 +25,15 @@ class _AddOrUpdateCategoryPageState extends State<AddOrUpdateCategoryPage> {
 
   @override
   Widget build(BuildContext context) {
+    var lang = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back),
         ),
+        title: Text(lang.addCategoryInformation),
       ),
       body: addOrUpdateCategoryBody(),
     );

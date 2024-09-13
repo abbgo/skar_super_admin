@@ -51,5 +51,6 @@
     "areProductsThisStoreSoldAtHome":"Продаются ли товары этого магазина на дому ?",
     "appropriateDimensions":"Соответствующие размеры",
     "subcategories":"Подкатегории",
-    "edit":"Редактировать"
+    "edit":"Редактировать",
+    "addCategoryInformation":"Добавить информацию о категории"
 }
