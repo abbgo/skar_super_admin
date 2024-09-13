@@ -4,6 +4,7 @@ import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/helpers/methods/table.dart';
 import 'package:skar_super_admin/models/category.dart';
+import 'package:skar_super_admin/pages/categories/parts/categories_table_buttons.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
 
 List<Widget> categoryColumns(BuildContext context) {
@@ -49,7 +50,7 @@ List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
                 ],
               ),
             ),
-            const SizedBox(),
+            const CategoriesTableButtons(),
           ],
         ),
       )
