@@ -50,7 +50,7 @@ List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
                 ],
               ),
             ),
-            const CategoriesTableButtons(),
+            const TableCellWidget(child: CategoriesTableButtons()),
           ],
         ),
       )
