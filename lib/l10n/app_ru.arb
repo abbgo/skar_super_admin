@@ -49,5 +49,6 @@
     "reject":"Отклонять",
     "page":"Страница",
     "areProductsThisStoreSoldAtHome":"Продаются ли товары этого магазина на дому ?",
-    "appropriateDimensions":"Соответствующие размеры"
+    "appropriateDimensions":"Соответствующие размеры",
+    "subcategories":"Подкатегории"
 }

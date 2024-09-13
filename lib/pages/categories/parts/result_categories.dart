@@ -8,7 +8,9 @@ import 'package:skar_super_admin/providers/api/category.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
 class ResultCategories extends ConsumerWidget {
-  const ResultCategories({super.key});
+  const ResultCategories({super.key, this.subcategories});
+
+  final List<Category>? subcategories;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,7 +41,12 @@ class ResultCategories extends ConsumerWidget {
                 child: SingleChildScrollView(
                   child: Table(
                     border: TableBorder.all(),
-                    children: categoryRows(response.categories!, context),
+                    children: categoryRows(
+                      subcategories != null
+                          ? subcategories!
+                          : response.categories!,
+                      context,
+                    ),
                   ),
                 ),
               ),
