@@ -54,5 +54,6 @@
     "addCategoryInformation":"Add category information",
     "selectParentCategory":"Select parent category",
     "addImageOfTheCategory":"Add image of the category",
-    "noImage":"No image"
+    "noImage":"No image",
+    "selectCategoryDimensionGroup":"Select category dimension group"
 }

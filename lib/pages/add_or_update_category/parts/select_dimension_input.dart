@@ -1,11 +1,11 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skar_super_admin/models/category.dart';
+import 'package:skar_super_admin/models/dimension_group.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
-import 'package:skar_super_admin/services/api/category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skar_super_admin/services/api/dimension_group.dart';
 
 class SelectDimensionInput extends ConsumerWidget {
   const SelectDimensionInput({super.key});
@@ -14,27 +14,18 @@ class SelectDimensionInput extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var lang = AppLocalizations.of(context)!;
     String accessToken = ref.watch(accessTokenProvider);
-    bool isTM = ref.watch(langProvider) == 'tr';
 
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: DropdownSearch<Category>(
+        child: DropdownSearch<DimensionGroup>(
           asyncItems: (text) async {
-            ResultCategory resultCategory =
-                await CategoryApiService.fetchCategories(
-              accessToken,
-              text,
-              1,
-              isTM ? 'tm' : 'ru',
-            );
+            ResultDimensionGroup resultDimensionGroup =
+                await DimensionGroupApiService.fetchDimensionGroups(
+                    accessToken, 1);
 
-            return resultCategory.categories!;
+            return resultDimensionGroup.dimensionGroups!;
           },
-          itemAsString: (item) => isTM ? item.nameTM : item.nameRU,
-          popupProps: const PopupProps.menu(
-            showSearchBox: true,
-          ),
           onChanged: (value) {
             if (value == null) {
               ref.read(parentCategoryProvider.notifier).state = '';
@@ -42,13 +33,26 @@ class SelectDimensionInput extends ConsumerWidget {
               ref.read(parentCategoryProvider.notifier).state = value.id;
             }
           },
-          dropdownBuilder: (context, selectedItem) => Text(
-            selectedItem == null
-                ? lang.selectParentCategory
-                : isTM
-                    ? selectedItem.nameTM
-                    : selectedItem.nameRU,
+          popupProps: PopupProps.menu(
+            itemBuilder: (context, item, isSelected) => Card(
+              child: ListTile(
+                title: Text(item.name),
+                subtitle: Row(
+                  children: item.dimensions.map((e) => Text(' $e ,')).toList(),
+                ),
+              ),
+            ),
           ),
+          dropdownBuilder: (context, selectedItem) => selectedItem == null
+              ? Text(lang.selectCategoryDimensionGroup)
+              : ListTile(
+                  title: Text(selectedItem.name),
+                  subtitle: Row(
+                    children: selectedItem.dimensions
+                        .map((e) => Text(' $e ,'))
+                        .toList(),
+                  ),
+                ),
           clearButtonProps: const ClearButtonProps(isVisible: true),
         ),
       ),

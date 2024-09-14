@@ -9,11 +9,10 @@ class DimensionGroupApiService {
   static Future<ResultDimensionGroup> fetchDimensionGroups(
     String accessToken,
     int page,
-    String lang,
   ) async {
     Uri uri =
         Uri.parse('$apiUrl/back/dimension-groups/with-dimensions').replace(
-      queryParameters: {'limit': '100', 'page': '$page', 'lang': lang},
+      queryParameters: {'limit': '100', 'page': '$page'},
     );
 
     try {

@@ -54,5 +54,6 @@
     "addCategoryInformation":"Kategoriýanyň maglumatlaryny giriziň",
     "selectParentCategory":"Uly kategoriýa saýlaň",
     "addImageOfTheCategory":"Kategoriýanyň suratyny goşuň",
-    "noImage":"Surat ýok"
+    "noImage":"Surat ýok",
+    "selectCategoryDimensionGroup":"Kategoriýanyň ölçeg toparyny saýlaň"
 }
