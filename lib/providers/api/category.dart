@@ -1,9 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/functions/validation.dart';
+import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/default_param.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/category.dart';
 import 'package:skar_super_admin/services/api/category.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final categoryApiProvider =
     Provider<CategoryApiService>((ref) => CategoryApiService());
@@ -38,6 +41,36 @@ var fetchCategoriesWithChildProvider =
     } catch (e) {
       result = ResultCategory(error: e.toString());
     }
+    return result;
+  },
+);
+
+var createCategoryProvider =
+    FutureProvider.autoDispose.family<ResultCategory, CategoryParams>(
+  (ref, arg) async {
+    ResultCategory result = ResultCategory.defaultResult();
+
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultCategory resultCategory =
+          await ref.read(categoryApiProvider).createCategory(
+                accessToken: accessToken,
+                category: arg.category!,
+              );
+
+      await wrongToken(resultCategory.error, ref, arg.context);
+
+      if (resultCategory.error == 'some error') {
+        if (arg.context!.mounted) {
+          showToast(AppLocalizations.of(arg.context!)!.someErrorOccurred, true);
+        }
+      }
+
+      result = resultCategory;
+    } catch (e) {
+      result = ResultCategory(error: e.toString());
+    }
+
     return result;
   },
 );

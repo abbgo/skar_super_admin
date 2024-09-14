@@ -52,37 +52,40 @@ class Category {
     );
   }
 
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'id': id,
-  //     'name_tm': nameTM,
-  //     'name_ru': nameRU,
-  //     'latitude': latitude,
-  //     'longitude': longitude,
-  //     'address_tm': addressTM,
-  //     'address_ru': addressRU,
-  //     'phones': phones,
-  //     'shop_owner_id': shopOwnerID,
-  //     'has_shipping': hasShipping,
-  //     'image': image,
-  //     'parent_shop_id': parentShopID,
-  //     'created_status': createdStatus,
-  //     'at_home': atHome,
-  //   };
-  // }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name_tm': nameTM,
+      'name_ru': nameRU,
+      'image': image,
+      'parent_category_id': parentCategoryID,
+      'dimension_group_id': dimensionGroupID,
+    };
+  }
 }
 
 class ResultCategory extends Equatable {
   final List<Category>? categories;
   final int? pageCount;
+  final String? message;
   final String error;
 
-  const ResultCategory({this.categories, this.pageCount, required this.error});
+  const ResultCategory({
+    this.categories,
+    this.pageCount,
+    this.message,
+    required this.error,
+  });
 
   factory ResultCategory.defaultResult() {
-    return const ResultCategory(categories: null, pageCount: null, error: '');
+    return const ResultCategory(
+      categories: null,
+      pageCount: null,
+      message: null,
+      error: '',
+    );
   }
 
   @override
-  List<Object?> get props => [categories, pageCount, error];
+  List<Object?> get props => [categories, pageCount, message, error];
 }

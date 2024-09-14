@@ -32,14 +32,21 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
               CategoryParams? arg;
               ref.read(loadCreateCategoryProvider.notifier).state = true;
               String parentCategoryID = await ref.watch(parentCategoryProvider);
+              String dimensionGroupID = await ref.watch(dimensionGroupProvider);
 
-              final category = category_model.Category(
+              category_model.Category category = category_model.Category(
                 id: '',
                 nameTM: nameTMCtrl.text,
                 nameRU: nameRUCtrl.text,
                 dimensionGroup: null,
                 parentCategoryID: parentCategoryID,
+                dimensionGroupID: dimensionGroupID,
+                image: imagePath,
               );
+
+              if (context.mounted) {
+                arg = CategoryParams(category: category, context: context);
+              }
             }
           },
           child: const Text('Gos'),
