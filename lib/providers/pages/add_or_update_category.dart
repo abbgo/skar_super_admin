@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final parentCategoryProvider = StateProvider<String>((ref) => '');
+final dimensionGroupProvider = StateProvider<String>((ref) => '');
 final loadCreateCategoryProvider =
     StateProvider.autoDispose<bool>((ref) => false);

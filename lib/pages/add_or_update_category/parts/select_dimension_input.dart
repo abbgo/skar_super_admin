@@ -28,9 +28,9 @@ class SelectDimensionInput extends ConsumerWidget {
           },
           onChanged: (value) {
             if (value == null) {
-              ref.read(parentCategoryProvider.notifier).state = '';
+              ref.read(dimensionGroupProvider.notifier).state = '';
             } else {
-              ref.read(parentCategoryProvider.notifier).state = value.id;
+              ref.read(dimensionGroupProvider.notifier).state = value.id;
             }
           },
           popupProps: PopupProps.menu(

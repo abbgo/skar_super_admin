@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/providers/parts/file_upload.dart';
 import 'package:skar_super_admin/services/api/category.dart';
 
@@ -28,6 +30,9 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
             if (formKey.currentState?.validate() == true &&
                 imagePath.isNotEmpty) {
               CategoryParams? arg;
+              ref.read(loadCreateCategoryProvider.notifier).state = true;
+
+              final category = Category();
             }
           },
           child: const Text('Gos'),
