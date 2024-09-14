@@ -4,7 +4,7 @@ import 'package:skar_super_admin/models/dimension_group.dart';
 class Category {
   final String id, nameTM, nameRU;
   final String? image;
-  final String? parentCategoryID;
+  final String? parentCategoryID, dimensionGroupID;
   final List<Category>? childCategories;
   final DimensionGroup? dimensionGroup;
 
@@ -16,6 +16,7 @@ class Category {
     this.parentCategoryID,
     this.childCategories,
     required this.dimensionGroup,
+    this.dimensionGroupID,
   });
 
   factory Category.defaultCategory() {
@@ -27,6 +28,7 @@ class Category {
       parentCategoryID: null,
       childCategories: null,
       dimensionGroup: null,
+      dimensionGroupID: null,
     );
   }
 
@@ -49,6 +51,25 @@ class Category {
           : DimensionGroup.fromJson(json['dimension_group']),
     );
   }
+
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     'id': id,
+  //     'name_tm': nameTM,
+  //     'name_ru': nameRU,
+  //     'latitude': latitude,
+  //     'longitude': longitude,
+  //     'address_tm': addressTM,
+  //     'address_ru': addressRU,
+  //     'phones': phones,
+  //     'shop_owner_id': shopOwnerID,
+  //     'has_shipping': hasShipping,
+  //     'image': image,
+  //     'parent_shop_id': parentShopID,
+  //     'created_status': createdStatus,
+  //     'at_home': atHome,
+  //   };
+  // }
 }
 
 class ResultCategory extends Equatable {

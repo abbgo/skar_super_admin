@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/providers/parts/file_upload.dart';
 import 'package:skar_super_admin/services/api/category.dart';
+import 'package:skar_super_admin/models/category.dart' as category_model;
 
 class AddOrUpdateCategoryButton extends ConsumerWidget {
   const AddOrUpdateCategoryButton({
@@ -31,8 +31,15 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
                 imagePath.isNotEmpty) {
               CategoryParams? arg;
               ref.read(loadCreateCategoryProvider.notifier).state = true;
+              String parentCategoryID = await ref.watch(parentCategoryProvider);
 
-              final category = Category();
+              final category = category_model.Category(
+                id: '',
+                nameTM: nameTMCtrl.text,
+                nameRU: nameRUCtrl.text,
+                dimensionGroup: null,
+                parentCategoryID: parentCategoryID,
+              );
             }
           },
           child: const Text('Gos'),
