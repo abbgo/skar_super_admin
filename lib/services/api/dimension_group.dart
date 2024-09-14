@@ -1,18 +1,19 @@
+import 'dart:convert';
+
+import 'package:skar_super_admin/helpers/static_data.dart';
+import 'package:skar_super_admin/models/dimension_group.dart';
+import 'package:http/http.dart' as http;
+
 class DimensionGroupApiService {
-  // fetch categroies --------------------------------------------
-  static Future<ResultCategory> fetchCategories(
+  // fetch dimensionGroups --------------------------------------------
+  static Future<ResultDimensionGroup> fetchDimensionGroups(
     String accessToken,
-    String search,
     int page,
     String lang,
   ) async {
-    Uri uri = Uri.parse('$apiUrl/back/categories').replace(
-      queryParameters: {
-        'limit': '100',
-        'page': '$page',
-        'search': search,
-        'lang': lang
-      },
+    Uri uri =
+        Uri.parse('$apiUrl/back/dimension-groups/with-dimensions').replace(
+      queryParameters: {'limit': '100', 'page': '$page', 'lang': lang},
     );
 
     try {
@@ -23,24 +24,20 @@ class DimensionGroupApiService {
       var jsonData = json.decode(response.body);
 
       if (response.statusCode == 200 && jsonData['status']) {
-        if (jsonData['categories'] == null) {
-          return const ResultCategory(
-            categories: null,
-            pageCount: 0,
-            error: '',
-          );
+        if (jsonData['dimension_groups'] == null) {
+          return const ResultDimensionGroup(dimensionGroups: null, error: '');
         }
 
-        var categoriesList = jsonData['categories'] as List;
-        return ResultCategory(
-          categories: categoriesList
-              .map<Category>((propJson) => Category.fromJson(propJson))
+        var categoriesList = jsonData['dimension_groups'] as List;
+        return ResultDimensionGroup(
+          dimensionGroups: categoriesList
+              .map<DimensionGroup>(
+                  (propJson) => DimensionGroup.fromJson(propJson))
               .toList(),
-          pageCount: jsonData['page_count'],
           error: '',
         );
       }
-      return const ResultCategory(categories: null, pageCount: 0, error: '');
+      return const ResultDimensionGroup(dimensionGroups: null, error: '');
     } catch (e) {
       rethrow;
     }
