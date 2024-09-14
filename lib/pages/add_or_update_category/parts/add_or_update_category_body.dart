@@ -42,7 +42,11 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                 ),
                 const CategoryImageInput(),
                 const SizedBox(height: 50),
-                const AddOrUpdateCategoryButton(),
+                AddOrUpdateCategoryButton(
+                  categoryFormKey: categoryFormKey,
+                  nameTMCtrl: nameTMCtrl,
+                  nameRUCtrl: nameRUCtrl,
+                ),
               ],
             ),
           ),
