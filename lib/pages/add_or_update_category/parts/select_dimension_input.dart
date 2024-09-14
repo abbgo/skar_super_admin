@@ -44,7 +44,7 @@ class SelectDimensionInput extends ConsumerWidget {
             ),
           ),
           dropdownBuilder: (context, selectedItem) => selectedItem == null
-              ? Text(lang.selectCategoryDimensionGroup)
+              ? Text('${lang.selectCategoryDimensionGroup} *')
               : ListTile(
                   title: Text(selectedItem.name),
                   subtitle: Row(

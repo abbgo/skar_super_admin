@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:skar_super_admin/pages/add_or_update_category/parts/add_or_update_category_button.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_image_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_ru_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_tm_input.dart';
@@ -40,6 +41,8 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                   ],
                 ),
                 const CategoryImageInput(),
+                const SizedBox(height: 50),
+                const AddOrUpdateCategoryButton(),
               ],
             ),
           ),
