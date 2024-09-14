@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class DimensionGroup {
   final String id, name;
   final List<dynamic> dimensions;
@@ -16,4 +18,18 @@ class DimensionGroup {
   factory DimensionGroup.defaultValue() {
     return DimensionGroup(id: '', name: '', dimensions: []);
   }
+}
+
+class ResultDimensionGroup extends Equatable {
+  final List<DimensionGroup>? dimensionGroups;
+  final String error;
+
+  const ResultDimensionGroup({this.dimensionGroups, required this.error});
+
+  factory ResultDimensionGroup.defaultResult() {
+    return const ResultDimensionGroup(dimensionGroups: null, error: '');
+  }
+
+  @override
+  List<Object?> get props => [dimensionGroups, error];
 }
