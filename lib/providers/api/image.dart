@@ -21,7 +21,8 @@ var addOrUpdateImageProvider =
                 arg.imageType!,
                 arg.oldImage!,
                 accessToken,
-                arg.imageFile!,
+                arg.fileBytes,
+                arg.fileName,
               );
 
       if (arg.context.mounted) {

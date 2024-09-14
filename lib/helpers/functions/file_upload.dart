@@ -1,9 +1,8 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:skar_super_admin/models/image.dart';
 import 'package:skar_super_admin/providers/api/image.dart';
 import 'package:skar_super_admin/providers/parts/file_upload.dart';
@@ -11,9 +10,10 @@ import 'package:skar_super_admin/services/api/image.dart';
 
 Future<void> addOrUpdateImage(
   WidgetRef ref,
-  File file,
   BuildContext context,
   String imageType,
+  Uint8List fileBytes,
+  String fileName,
 ) async {
   ref.read(loadSendImageProvider.notifier).state = true;
   String oldShopImagePath = ref.read(imagePathProvider);
@@ -21,7 +21,8 @@ Future<void> addOrUpdateImage(
   ImageParams params = ImageParams(
     imageType: imageType,
     oldImage: oldShopImagePath,
-    imageFile: file,
+    fileBytes: fileBytes,
+    fileName: fileName,
     context: context,
   );
   ResultImage resultImage =
@@ -40,23 +41,14 @@ Future<void> getImageFromFolder(
   double ratioX,
   double ratioY,
 ) async {
-  FilePickerResult? pickedFile = await FilePicker.platform.pickFiles(
-    type: FileType.custom,
-    allowMultiple: false,
-    allowedExtensions: ['jpg'],
-  );
+  // Pick file from the browser
+  FilePickerResult? result = await FilePicker.platform.pickFiles();
+  if (result != null) {
+    Uint8List? fileBytes = result.files.first.bytes;
+    String fileName = result.files.first.name;
 
-  if (pickedFile != null) {
-    CroppedFile? croppedFile = await ImageCropper().cropImage(
-      sourcePath: pickedFile.files.single.path!,
-      aspectRatio: CropAspectRatio(ratioX: ratioX, ratioY: ratioY),
-    );
-
-    if (croppedFile != null) {
-      File file = File(croppedFile.path);
-      if (context.mounted) {
-        await addOrUpdateImage(ref, file, context, imageType);
-      }
+    if (context.mounted) {
+      await addOrUpdateImage(ref, context, imageType, fileBytes!, fileName);
     }
   }
 }

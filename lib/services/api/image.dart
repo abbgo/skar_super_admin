@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -13,19 +13,18 @@ class ImageApiService {
     String imageType,
     String oldImage,
     String accessToken,
-    File imageFile,
+    Uint8List fileBytes,
+    String fileName,
   ) async {
     Uri uri = Uri.parse('$apiUrl/back/image')
         .replace(queryParameters: {'image_type': imageType});
 
-    var request = http.MultipartRequest(
-      'POST',
-      uri,
-    );
+    var request = http.MultipartRequest('POST', uri);
     request.headers["Authorization"] = 'Bearer $accessToken';
     request.fields['old_path'] = oldImage;
-    request.files
-        .add(await http.MultipartFile.fromPath('image', imageFile.path));
+    request.files.add(
+      http.MultipartFile.fromBytes('image', fileBytes, filename: fileName),
+    );
 
     try {
       http.StreamedResponse response = await request.send();
@@ -53,16 +52,19 @@ class ImageApiService {
 class ImageParams extends Equatable {
   final String? imageType;
   final String? oldImage;
-  final File? imageFile;
+  final Uint8List fileBytes;
+  final String fileName;
   final BuildContext context;
 
   const ImageParams({
     this.imageType,
     this.oldImage,
-    this.imageFile,
+    required this.fileBytes,
+    required this.fileName,
     required this.context,
   });
 
   @override
-  List<Object?> get props => [imageType, oldImage, imageFile, context];
+  List<Object?> get props =>
+      [imageType, oldImage, fileBytes, fileName, context];
 }

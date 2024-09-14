@@ -25,16 +25,11 @@ class CategoryImageInput extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  // onPressed: () {
-                  //   // FocusManager.instance.primaryFocus!.unfocus();
-                  //   // showSelectedImageSheet(context, 'shop', 4, 3);
-                  // },
                   onPressed: () =>
                       getImageFromFolder(ref, 'category', context, 4, 3),
                   icon: const Icon(Icons.add_photo_alternate, size: 100),
                 ),
                 Expanded(
-                  // child: Text('surat gorunmeli'),
                   child: !loadSendImage
                       ? selectedImage.isEmpty
                           ? Text(lang.noImage, textAlign: TextAlign.center)
