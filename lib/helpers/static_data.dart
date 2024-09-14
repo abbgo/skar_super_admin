@@ -32,3 +32,10 @@ Image errImage = Image.asset("assets/images/back_logo.jpg", fit: BoxFit.cover);
 
 Widget loadWidget =
     Center(child: CircularProgressIndicator(color: elevatedButtonColor));
+
+Widget loadProcess = Container(
+  height: double.infinity,
+  width: double.infinity,
+  color: Colors.white.withOpacity(.5),
+  child: Center(child: CircularProgressIndicator(color: elevatedButtonColor)),
+);

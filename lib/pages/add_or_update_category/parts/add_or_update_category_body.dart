@@ -1,10 +1,13 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/add_or_update_category_button.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_image_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_ru_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/category_name_tm_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/select_dimension_input.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/select_parent_category_input.dart';
+import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 
 class AddOrUpdateCategoryBody extends StatelessWidget {
   const AddOrUpdateCategoryBody({
@@ -49,6 +52,12 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Consumer(
+            builder: (context, ref, child) {
+              bool loadCreateShop = ref.watch(loadCreateCategoryProvider);
+              return loadCreateShop ? loadProcess : const SizedBox();
+            },
           ),
         ],
       ),
