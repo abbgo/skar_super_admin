@@ -55,5 +55,8 @@
     "selectParentCategory":"Select parent category",
     "addImageOfTheCategory":"Add image of the category",
     "noImage":"No image",
-    "selectCategoryDimensionGroup":"Select category dimension group"
+    "selectCategoryDimensionGroup":"Select category dimension group",
+    "informationAddedSuccessfully":"Information addedd successfully",
+    "pleaseEnterInformationsCompletely":"Please enter the informations completely",
+    "add":"Add"
 }

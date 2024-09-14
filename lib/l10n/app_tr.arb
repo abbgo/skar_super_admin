@@ -55,5 +55,8 @@
     "selectParentCategory":"Uly kategoriýa saýlaň",
     "addImageOfTheCategory":"Kategoriýanyň suratyny goşuň",
     "noImage":"Surat ýok",
-    "selectCategoryDimensionGroup":"Kategoriýanyň ölçeg toparyny saýlaň"
+    "selectCategoryDimensionGroup":"Kategoriýanyň ölçeg toparyny saýlaň",
+    "informationAddedSuccessfully":"Maglumat üstünlikli goşuldy",
+    "pleaseEnterInformationsCompletely":"Maglumatlary doly girizmegiňizi haýyş edýäris",
+    "add":"Goş"
 }

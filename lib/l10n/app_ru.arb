@@ -56,5 +56,8 @@
     "selectParentCategory":"Выберите родительскую категорию",
     "addImageOfTheCategory":"Добавить изображение категории",
     "noImage":"Нет изображения",
-    "selectCategoryDimensionGroup":"Выберите категорию размерной группы"
+    "selectCategoryDimensionGroup":"Выберите категорию размерной группы",
+    "informationAddedSuccessfully":"Информация успешно добавлена",
+    "pleaseEnterInformationsCompletely":"Пожалуйста, введите информацию полностью",
+    "add":"Добавлять"
 }
