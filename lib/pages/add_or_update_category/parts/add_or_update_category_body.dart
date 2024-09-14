@@ -9,12 +9,12 @@ import 'package:skar_super_admin/pages/add_or_update_category/parts/select_paren
 class AddOrUpdateCategoryBody extends StatelessWidget {
   const AddOrUpdateCategoryBody({
     super.key,
-    required this.categoryFormKey,
+    required this.formKey,
     required this.nameTMCtrl,
     required this.nameRUCtrl,
   });
 
-  final GlobalKey<FormState> categoryFormKey;
+  final GlobalKey<FormState> formKey;
   final TextEditingController nameTMCtrl;
   final TextEditingController nameRUCtrl;
 
@@ -25,7 +25,7 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
       child: Stack(
         children: [
           Form(
-            key: categoryFormKey,
+            key: formKey,
             child: ListView(
               children: [
                 Row(
@@ -43,7 +43,7 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                 const CategoryImageInput(),
                 const SizedBox(height: 50),
                 AddOrUpdateCategoryButton(
-                  categoryFormKey: categoryFormKey,
+                  formKey: formKey,
                   nameTMCtrl: nameTMCtrl,
                   nameRUCtrl: nameRUCtrl,
                 ),

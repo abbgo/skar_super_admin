@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/category.dart';
@@ -98,4 +100,18 @@ class CategoryApiService {
       rethrow;
     }
   }
+}
+
+class CategoryParams extends Equatable {
+  final BuildContext? context;
+  final Category? category;
+
+  const CategoryParams({this.context, this.category});
+
+  factory CategoryParams.defaultValue() {
+    return const CategoryParams(context: null, category: null);
+  }
+
+  @override
+  List<Object?> get props => [context, category];
 }

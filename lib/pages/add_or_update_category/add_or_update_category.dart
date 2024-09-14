@@ -41,7 +41,7 @@ class _AddOrUpdateCategoryPageState extends State<AddOrUpdateCategoryPage> {
 
   AddOrUpdateCategoryBody addOrUpdateCategoryBody() {
     return AddOrUpdateCategoryBody(
-      categoryFormKey: categoryFormKey,
+      formKey: categoryFormKey,
       nameTMCtrl: nameTMCtrl,
       nameRUCtrl: nameRUCtrl,
     );
