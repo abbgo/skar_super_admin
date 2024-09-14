@@ -15,34 +15,38 @@ class CategoryImageInput extends ConsumerWidget {
     String selectedImage = ref.watch(imagePathProvider);
     bool loadSendImage = ref.watch(loadSendImageProvider);
 
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            Text(lang.addImageOfTheCategory),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      child: Column(
+        children: [
+          Text(
+            lang.addImageOfTheCategory,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: IconButton(
                   onPressed: () =>
                       getImageFromFolder(ref, 'category', context, 4, 3),
                   icon: const Icon(Icons.add_photo_alternate, size: 100),
                 ),
-                Expanded(
-                  child: !loadSendImage
-                      ? selectedImage.isEmpty
-                          ? Text(lang.noImage, textAlign: TextAlign.center)
-                          : AspectRatio(
-                              aspectRatio: 4 / 3,
-                              child: showCachImageMethod(selectedImage),
-                            )
-                      : loadWidget,
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              Expanded(
+                child: !loadSendImage
+                    ? selectedImage.isEmpty
+                        ? Text(lang.noImage, textAlign: TextAlign.center)
+                        : AspectRatio(
+                            aspectRatio: 4 / 3,
+                            child: showCachImageMethod(selectedImage),
+                          )
+                    : loadWidget,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
