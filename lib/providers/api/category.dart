@@ -110,3 +110,31 @@ var fetchCategoryProvider =
     return result;
   },
 );
+
+var updateCategoryProvider =
+    FutureProvider.autoDispose.family<ResultCategory, CategoryParams>(
+  (ref, arg) async {
+    ResultCategory result = ResultCategory.defaultResult();
+
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultCategory resultCategory = await ref
+          .read(categoryApiProvider)
+          .updateCategory(accessToken: accessToken, category: arg.category!);
+
+      await wrongToken(resultCategory.error, ref, arg.context);
+
+      if (resultCategory.error == 'some error') {
+        if (arg.context!.mounted) {
+          showToast(AppLocalizations.of(arg.context!)!.someErrorOccurred, true);
+        }
+      }
+
+      result = resultCategory;
+    } catch (e) {
+      result = ResultCategory(error: e.toString());
+    }
+
+    return result;
+  },
+);
