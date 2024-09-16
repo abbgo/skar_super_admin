@@ -36,7 +36,7 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
               CategoryParams? arg;
               ref.read(loadCreateCategoryProvider.notifier).state = true;
 
-              String parentCategoryID = await ref.watch(parentCategoryProvider);
+              Category parentCategory = await ref.watch(parentCategoryProvider);
               String dimensionGroupID = await ref.watch(dimensionGroupProvider);
               String imagePath = await ref.read(imagePathProvider);
 
@@ -45,7 +45,7 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
                 nameTM: nameTMCtrl.text,
                 nameRU: nameRUCtrl.text,
                 dimensionGroup: null,
-                parentCategoryID: parentCategoryID,
+                parentCategoryID: parentCategory.id,
                 dimensionGroupID: dimensionGroupID,
                 image: imagePath,
               );

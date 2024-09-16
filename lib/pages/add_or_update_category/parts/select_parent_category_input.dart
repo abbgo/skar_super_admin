@@ -37,9 +37,11 @@ class SelectParentCategoryInput extends ConsumerWidget {
           ),
           onChanged: (value) {
             if (value == null) {
-              ref.read(parentCategoryProvider.notifier).state = '';
+              ref.read(parentCategoryProvider.notifier).state =
+                  Category.defaultCategory();
             } else {
-              ref.read(parentCategoryProvider.notifier).state = value.id;
+              ref.read(parentCategoryProvider.notifier).state =
+                  Category(id: value.id, nameTM: '', nameRU: '');
             }
           },
           dropdownBuilder: (context, selectedItem) => Text(

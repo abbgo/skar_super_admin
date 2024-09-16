@@ -4,7 +4,6 @@ import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/default_param.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
-import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/providers/pages/category.dart';
 import 'package:skar_super_admin/providers/parts/file_upload.dart';
 import 'package:skar_super_admin/services/api/category.dart';
@@ -93,8 +92,8 @@ var fetchCategoryProvider =
         // ref.read(hasShippingProvider.notifier).state =
         //     resultShop.shop!.hasShipping!;
 
-        ref.read(parentCategoryProvider.notifier).state =
-            resultCategory.category!.parentCategoryID ?? '';
+        // ref.read(parentCategoryProvider.notifier).state =
+        //     resultCategory.category!.parentCategoryID ?? '';
 
         ref.read(imagePathProvider.notifier).state =
             resultCategory.category!.image!;
