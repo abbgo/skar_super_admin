@@ -14,6 +14,7 @@ class SelectDimensionInput extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var lang = AppLocalizations.of(context)!;
     String accessToken = ref.watch(accessTokenProvider);
+    DimensionGroup dimensionGroup = ref.watch(dimensionGroupProvider);
 
     return Expanded(
       child: Padding(
@@ -56,6 +57,7 @@ class SelectDimensionInput extends ConsumerWidget {
                   ),
                 ),
           clearButtonProps: const ClearButtonProps(isVisible: true),
+          selectedItem: dimensionGroup.id == "" ? null : dimensionGroup,
         ),
       ),
     );
