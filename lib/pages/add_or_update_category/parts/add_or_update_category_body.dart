@@ -51,6 +51,7 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                   formKey: formKey,
                   nameTMCtrl: nameTMCtrl,
                   nameRUCtrl: nameRUCtrl,
+                  categoryID: categoryID,
                 ),
                 const SizedBox(height: 50),
               ],

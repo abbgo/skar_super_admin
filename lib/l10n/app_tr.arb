@@ -57,6 +57,8 @@
     "noImage":"Surat ýok",
     "selectCategoryDimensionGroup":"Kategoriýanyň ölçeg toparyny saýlaň",
     "informationAddedSuccessfully":"Maglumat üstünlikli goşuldy",
+    "informationChangedSuccessfully":"Maglumat üstünlikli üýtgedildi",
+    "change":"Üýtget",
     "pleaseEnterInformationsCompletely":"Maglumatlary doly girizmegiňizi haýyş edýäris",
     "add":"Goş"
 }

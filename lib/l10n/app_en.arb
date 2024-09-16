@@ -57,6 +57,8 @@
     "noImage":"No image",
     "selectCategoryDimensionGroup":"Select category dimension group",
     "informationAddedSuccessfully":"Information addedd successfully",
+    "informationChangedSuccessfully":"Information changed successfully",
+    "change":"Change",
     "pleaseEnterInformationsCompletely":"Please enter the informations completely",
     "add":"Add"
 }

@@ -58,6 +58,8 @@
     "noImage":"Нет изображения",
     "selectCategoryDimensionGroup":"Выберите категорию размерной группы",
     "informationAddedSuccessfully":"Информация успешно добавлена",
+    "informationChangedSuccessfully":"Информация успешно изменена",
+    "change":"Изменить",
     "pleaseEnterInformationsCompletely":"Пожалуйста, введите информацию полностью",
     "add":"Добавлять"
 }
