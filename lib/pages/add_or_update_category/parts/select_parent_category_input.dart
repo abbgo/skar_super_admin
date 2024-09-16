@@ -15,6 +15,7 @@ class SelectParentCategoryInput extends ConsumerWidget {
     var lang = AppLocalizations.of(context)!;
     String accessToken = ref.watch(accessTokenProvider);
     bool isTM = ref.watch(langProvider) == 'tr';
+    Category parentCategory = ref.watch(parentCategoryProvider);
 
     return Expanded(
       child: Padding(
@@ -52,6 +53,7 @@ class SelectParentCategoryInput extends ConsumerWidget {
                     : selectedItem.nameRU,
           ),
           clearButtonProps: const ClearButtonProps(isVisible: true),
+          selectedItem: parentCategory.id == '' ? null : parentCategory,
         ),
       ),
     );
