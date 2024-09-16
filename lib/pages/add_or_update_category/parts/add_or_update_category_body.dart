@@ -15,11 +15,13 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
     required this.formKey,
     required this.nameTMCtrl,
     required this.nameRUCtrl,
+    this.categoryID,
   });
 
   final GlobalKey<FormState> formKey;
   final TextEditingController nameTMCtrl;
   final TextEditingController nameRUCtrl;
+  final String? categoryID;
 
   @override
   Widget build(BuildContext context) {
