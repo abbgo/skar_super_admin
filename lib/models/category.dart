@@ -66,12 +66,14 @@ class Category {
 
 class ResultCategory extends Equatable {
   final List<Category>? categories;
+  final Category? category;
   final int? pageCount;
   final String? message;
   final String error;
 
   const ResultCategory({
     this.categories,
+    this.category,
     this.pageCount,
     this.message,
     required this.error,
@@ -80,6 +82,7 @@ class ResultCategory extends Equatable {
   factory ResultCategory.defaultResult() {
     return const ResultCategory(
       categories: null,
+      category: null,
       pageCount: null,
       message: null,
       error: '',
@@ -87,5 +90,5 @@ class ResultCategory extends Equatable {
   }
 
   @override
-  List<Object?> get props => [categories, pageCount, message, error];
+  List<Object?> get props => [categories, category, pageCount, message, error];
 }

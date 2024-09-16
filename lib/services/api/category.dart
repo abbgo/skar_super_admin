@@ -54,6 +54,33 @@ class CategoryApiService {
     }
   }
 
+// fetch category -------------------------------------------------------
+  Future<ResultCategory> fetchCategory({
+    required String accessToken,
+    required String shopID,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/shops/$shopID');
+
+    try {
+      http.Response response = await http.get(
+        uri,
+        headers: tokenHeader(accessToken),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        if (jsonData['shop'] == null) {
+          return ResultShop(shop: Shop.defaultShop(), error: '');
+        }
+
+        return ResultShop(shop: Shop.fromJson(jsonData['shop']), error: '');
+      }
+      return ResultShop(shop: Shop.defaultShop(), error: 'auth error');
+    } catch (e) {
+      rethrow;
+    }
+  }
+
 // fetch categroies --------------------------------------------
   static Future<ResultCategory> fetchCategories(
     String accessToken,
