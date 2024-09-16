@@ -51,7 +51,10 @@ List<TableRow> categoryRows(List<Category> categories, BuildContext context) {
             ),
           ),
           TableCellWidget(
-            child: CategoriesTableButtons(subcategories: e.childCategories),
+            child: CategoriesTableButtons(
+              subcategories: e.childCategories,
+              categoryID: e.id,
+            ),
           ),
         ],
       );

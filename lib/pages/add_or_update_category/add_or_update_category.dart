@@ -3,7 +3,9 @@ import 'package:skar_super_admin/pages/add_or_update_category/parts/add_or_updat
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddOrUpdateCategoryPage extends StatefulWidget {
-  const AddOrUpdateCategoryPage({super.key});
+  const AddOrUpdateCategoryPage({super.key, required this.categoryID});
+
+  final String categoryID;
 
   @override
   State<AddOrUpdateCategoryPage> createState() =>

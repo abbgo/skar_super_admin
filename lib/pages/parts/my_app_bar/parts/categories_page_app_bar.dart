@@ -9,8 +9,8 @@ class CategoriesPageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-      onPressed: () =>
-          goToPage(context, const AddOrUpdateCategoryPage(), false),
+      onPressed: () => goToPage(
+          context, const AddOrUpdateCategoryPage(categoryID: ''), false),
       child: const Icon(Icons.add),
     );
   }
