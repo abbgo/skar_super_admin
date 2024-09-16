@@ -57,9 +57,9 @@ class CategoryApiService {
 // fetch category -------------------------------------------------------
   Future<ResultCategory> fetchCategory({
     required String accessToken,
-    required String shopID,
+    required String categoryID,
   }) async {
-    Uri uri = Uri.parse('$apiUrl/back/shops/$shopID');
+    Uri uri = Uri.parse('$apiUrl/back/categories/$categoryID');
 
     try {
       http.Response response = await http.get(
@@ -69,13 +69,22 @@ class CategoryApiService {
       var jsonData = json.decode(response.body);
 
       if (response.statusCode == 200 && jsonData['status']) {
-        if (jsonData['shop'] == null) {
-          return ResultShop(shop: Shop.defaultShop(), error: '');
+        if (jsonData['category'] == null) {
+          return ResultCategory(
+            category: Category.defaultCategory(),
+            error: '',
+          );
         }
 
-        return ResultShop(shop: Shop.fromJson(jsonData['shop']), error: '');
+        return ResultCategory(
+          category: Category.fromJson(jsonData['category']),
+          error: '',
+        );
       }
-      return ResultShop(shop: Shop.defaultShop(), error: 'auth error');
+      return ResultCategory(
+        category: Category.defaultCategory(),
+        error: 'auth error',
+      );
     } catch (e) {
       rethrow;
     }
