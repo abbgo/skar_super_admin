@@ -19,42 +19,42 @@ List<Widget> categoryColumns(BuildContext context) {
   ];
 }
 
-List<TableRow> categoryRows(List<Category> shops, BuildContext context) {
-  return shops
-      .map(
-        (e) => TableRow(
-          children: [
-            TableCellWidget(
-              child: GestureDetector(
-                onTap: () => showImageDialog(context, e.image!),
-                child: showCachImageMethod(e.image!),
-              ),
+List<TableRow> categoryRows(List<Category> categories, BuildContext context) {
+  return categories.map(
+    (e) {
+      String dimensionsText = '';
+      for (String dimension in e.dimensionGroup!.dimensions) {
+        dimensionsText += ' $dimension , ';
+      }
+
+      return TableRow(
+        children: [
+          TableCellWidget(
+            child: GestureDetector(
+              onTap: () => showImageDialog(context, e.image!),
+              child: showCachImageMethod(e.image!),
             ),
-            TableCellWidget(child: Text(e.nameTM, textAlign: TextAlign.center)),
-            TableCellWidget(child: Text(e.nameRU, textAlign: TextAlign.center)),
-            TableCellWidget(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    e.dimensionGroup!.name,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: e.dimensionGroup!.dimensions
-                        .map((e) => Text(' $e ,'))
-                        .toList(),
-                  ),
-                ],
-              ),
+          ),
+          TableCellWidget(child: Text(e.nameTM, textAlign: TextAlign.center)),
+          TableCellWidget(child: Text(e.nameRU, textAlign: TextAlign.center)),
+          TableCellWidget(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  e.dimensionGroup!.name,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(dimensionsText, textAlign: TextAlign.center),
+              ],
             ),
-            TableCellWidget(
-              child: CategoriesTableButtons(subcategories: e.childCategories),
-            ),
-          ],
-        ),
-      )
-      .toList();
+          ),
+          TableCellWidget(
+            child: CategoriesTableButtons(subcategories: e.childCategories),
+          ),
+        ],
+      );
+    },
+  ).toList();
 }
