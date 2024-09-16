@@ -3,20 +3,22 @@ import 'package:skar_super_admin/models/dimension_group.dart';
 
 class Category {
   final String id, nameTM, nameRU;
-  final String? image;
-  final String? parentCategoryID, dimensionGroupID;
+  final String? image, dimensionGroupID;
+  // final String? parentCategoryID, dimensionGroupID;
   final List<Category>? childCategories;
   final DimensionGroup? dimensionGroup;
+  final Category? parentCategory;
 
   Category({
     required this.id,
     required this.nameTM,
     required this.nameRU,
     this.image,
-    this.parentCategoryID,
+    // this.parentCategoryID,
     this.childCategories,
     required this.dimensionGroup,
     this.dimensionGroupID,
+    this.parentCategory,
   });
 
   factory Category.defaultCategory() {
@@ -25,10 +27,11 @@ class Category {
       nameTM: '',
       nameRU: '',
       image: '',
-      parentCategoryID: null,
+      // parentCategoryID: null,
       childCategories: null,
       dimensionGroup: null,
       dimensionGroupID: null,
+      parentCategory: null,
     );
   }
 
@@ -38,7 +41,7 @@ class Category {
       nameTM: json['name_tm'],
       nameRU: json['name_ru'],
       image: json['image'] ?? '',
-      parentCategoryID: json['parent_category_id'] ?? '',
+      // parentCategoryID: json['parent_category_id'] ?? '',
       childCategories: json['child_categories'] == null
           ? null
           : List<Category>.from(
@@ -49,6 +52,9 @@ class Category {
       dimensionGroup: json['dimension_group'] == null
           ? null
           : DimensionGroup.fromJson(json['dimension_group']),
+      parentCategory: json['parent_category'] == null
+          ? null
+          : Category.fromJson(json['parent_category']),
     );
   }
 
@@ -58,7 +64,7 @@ class Category {
       'name_tm': nameTM,
       'name_ru': nameRU,
       'image': image,
-      'parent_category_id': parentCategoryID,
+      'parent_category_id': parentCategory!.id,
       'dimension_group_id': dimensionGroupID,
     };
   }
