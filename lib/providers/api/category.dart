@@ -74,3 +74,36 @@ var createCategoryProvider =
     return result;
   },
 );
+
+var fetchCategoryProvider =
+    FutureProvider.autoDispose.family<ResultCategory, CategoryParams>(
+  (ref, arg) async {
+    ResultShop result = ResultShop.defaultResult();
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultShop resultShop = await ref
+          .read(shopApiProvider)
+          .fetchShop(accessToken: accessToken, shopID: arg.shopID!);
+
+      await wrongToken(resultShop.error, ref, arg.context);
+
+      if (resultShop.shop != null) {
+        ref.read(hasShippingProvider.notifier).state =
+            resultShop.shop!.hasShipping!;
+
+        ref.read(shopImagePathProvider.notifier).state =
+            resultShop.shop!.image!;
+
+        ref.read(selectedShoppincCenterProvider.notifier).state =
+            resultShop.shop!.parentShop!;
+
+        ref.read(atHomeShopProvider.notifier).state = resultShop.shop!.atHome!;
+      }
+
+      result = resultShop;
+    } catch (e) {
+      result = ResultShop(error: e.toString());
+    }
+    return result;
+  },
+);

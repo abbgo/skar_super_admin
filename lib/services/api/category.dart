@@ -174,13 +174,18 @@ class CategoryApiService {
 class CategoryParams extends Equatable {
   final BuildContext? context;
   final Category? category;
+  final String? categoryID;
 
-  const CategoryParams({this.context, this.category});
+  const CategoryParams({this.context, this.category, this.categoryID});
 
   factory CategoryParams.defaultValue() {
-    return const CategoryParams(context: null, category: null);
+    return const CategoryParams(
+      context: null,
+      category: null,
+      categoryID: null,
+    );
   }
 
   @override
-  List<Object?> get props => [context, category];
+  List<Object?> get props => [context, category, categoryID];
 }
