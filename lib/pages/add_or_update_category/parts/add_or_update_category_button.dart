@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/category.dart';
+import 'package:skar_super_admin/models/dimension_group.dart';
 import 'package:skar_super_admin/providers/api/category.dart';
 import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/providers/parts/file_upload.dart';
@@ -37,7 +38,8 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
               ref.read(loadCreateCategoryProvider.notifier).state = true;
 
               Category parentCategory = await ref.watch(parentCategoryProvider);
-              String dimensionGroupID = await ref.watch(dimensionGroupProvider);
+              DimensionGroup dimensionGroup =
+                  await ref.watch(dimensionGroupProvider);
               String imagePath = await ref.read(imagePathProvider);
 
               category_model.Category category = category_model.Category(
@@ -46,7 +48,7 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
                 nameRU: nameRUCtrl.text,
                 dimensionGroup: null,
                 parentCategoryID: parentCategory.id,
-                dimensionGroupID: dimensionGroupID,
+                dimensionGroupID: dimensionGroup.id,
                 image: imagePath,
               );
 

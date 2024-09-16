@@ -3,6 +3,7 @@ import 'package:skar_super_admin/helpers/functions/validation.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/default_param.dart';
+import 'package:skar_super_admin/models/dimension_group.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/add_or_update_category.dart';
 import 'package:skar_super_admin/providers/pages/category.dart';
@@ -93,6 +94,10 @@ var fetchCategoryProvider =
         ref.read(parentCategoryProvider.notifier).state =
             resultCategory.category!.parentCategory ??
                 Category.defaultCategory();
+
+        ref.read(dimensionGroupProvider.notifier).state =
+            resultCategory.category!.dimensionGroup ??
+                DimensionGroup.defaultValue();
 
         ref.read(imagePathProvider.notifier).state =
             resultCategory.category!.image!;
