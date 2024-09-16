@@ -5,6 +5,7 @@ import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/pages/add_or_update_category/parts/add_or_update_category_body.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skar_super_admin/providers/api/category.dart';
+import 'package:skar_super_admin/providers/parts/file_upload.dart';
 import 'package:skar_super_admin/services/api/category.dart';
 
 class AddOrUpdateCategoryPage extends StatefulWidget {
@@ -36,9 +37,14 @@ class _AddOrUpdateCategoryPageState extends State<AddOrUpdateCategoryPage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back),
+        leading: Consumer(
+          builder: (context, ref, child) => IconButton(
+            onPressed: () {
+              ref.read(imagePathProvider.notifier).state = '';
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
         ),
         title: Text(lang.addCategoryInformation),
       ),

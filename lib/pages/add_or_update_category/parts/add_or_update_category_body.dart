@@ -52,6 +52,7 @@ class AddOrUpdateCategoryBody extends StatelessWidget {
                   nameTMCtrl: nameTMCtrl,
                   nameRUCtrl: nameRUCtrl,
                 ),
+                const SizedBox(height: 50),
               ],
             ),
           ),

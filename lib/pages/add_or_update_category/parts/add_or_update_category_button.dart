@@ -68,6 +68,7 @@ class AddOrUpdateCategoryButton extends ConsumerWidget {
                   Navigator.pop(context);
                 }
               }
+              ref.read(imagePathProvider.notifier).state = '';
               return;
             }
             showToast(lang.pleaseEnterInformationsCompletely, true);
