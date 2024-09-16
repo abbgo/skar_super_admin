@@ -5,6 +5,7 @@ import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/models/default_param.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 import 'package:skar_super_admin/providers/pages/category.dart';
+import 'package:skar_super_admin/providers/parts/file_upload.dart';
 import 'package:skar_super_admin/services/api/category.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -78,31 +79,26 @@ var createCategoryProvider =
 var fetchCategoryProvider =
     FutureProvider.autoDispose.family<ResultCategory, CategoryParams>(
   (ref, arg) async {
-    ResultShop result = ResultShop.defaultResult();
+    ResultCategory result = ResultCategory.defaultResult();
     try {
       String accessToken = await ref.read(accessTokenProvider);
-      ResultShop resultShop = await ref
-          .read(shopApiProvider)
-          .fetchShop(accessToken: accessToken, shopID: arg.shopID!);
+      ResultCategory resultCategory = await ref
+          .read(categoryApiProvider)
+          .fetchCategory(accessToken: accessToken, categoryID: arg.categoryID!);
 
-      await wrongToken(resultShop.error, ref, arg.context);
+      await wrongToken(resultCategory.error, ref, arg.context);
 
-      if (resultShop.shop != null) {
-        ref.read(hasShippingProvider.notifier).state =
-            resultShop.shop!.hasShipping!;
+      if (resultCategory.category != null) {
+        // ref.read(hasShippingProvider.notifier).state =
+        //     resultShop.shop!.hasShipping!;
 
-        ref.read(shopImagePathProvider.notifier).state =
-            resultShop.shop!.image!;
-
-        ref.read(selectedShoppincCenterProvider.notifier).state =
-            resultShop.shop!.parentShop!;
-
-        ref.read(atHomeShopProvider.notifier).state = resultShop.shop!.atHome!;
+        ref.read(imagePathProvider.notifier).state =
+            resultCategory.category!.image!;
       }
 
-      result = resultShop;
+      result = resultCategory;
     } catch (e) {
-      result = ResultShop(error: e.toString());
+      result = ResultCategory(error: e.toString());
     }
     return result;
   },
