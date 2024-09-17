@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skar_super_admin/helpers/methods/pages/shopping_centers.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
@@ -32,7 +33,7 @@ class ResultShoppingCenters extends ConsumerWidget {
                 border: TableBorder.all(),
                 children: [
                   TableRow(
-                    children: shopColumns(context),
+                    children: shoppingCenterColumns(context),
                     decoration: BoxDecoration(color: elevatedButtonColor),
                   ),
                 ],
