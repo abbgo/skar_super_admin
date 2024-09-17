@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TrashGridview extends StatelessWidget {
   const TrashGridview({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> texts = ['Pozulan kategoriyalar', 'Pozulan Sowda Merkezleri'];
+    var lang = AppLocalizations.of(context)!;
+    List<String> texts = [lang.categoriesInTrash, lang.mallsInTrash];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),

@@ -66,5 +66,7 @@
     "informationDeletedSuccessfully":"Maglumat üstünlikli pozuldy",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Diňe harydy ýa-da kiçi kategoriýasy bolmadyk kategoriýany pozup bilersiňiz",
     "malls":"Söwda merkezleri",
-    "trash":"Zibil"
+    "trash":"Zibil",
+    "categoriesInTrash":"Zibildäki kategoriýalar",
+    "mallsInTrash":"Zibildäki söwda merkezleri"
 }
