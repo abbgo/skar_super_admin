@@ -61,5 +61,7 @@
     "change":"Üýtget",
     "pleaseEnterInformationsCompletely":"Maglumatlary doly girizmegiňizi haýyş edýäris",
     "moveToTrash":"Zibile sal",
-    "add":"Goş"
+    "youCantDeleteThisCategory":"Bu kategoriýany pozup bilmersiňiz",
+    "add":"Goş",
+    "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Diňe harydy ýa-da kiçi kategoriýasy bolmadyk kategoriýany pozup bilersiňiz"
 }

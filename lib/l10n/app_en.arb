@@ -61,5 +61,7 @@
     "change":"Change",
     "pleaseEnterInformationsCompletely":"Please enter the informations completely",
     "moveToTrash":"Move to trash",
-    "add":"Add"
+    "youCantDeleteThisCategory":"You can't delete this category",
+    "add":"Add",
+    "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"You can only delete a category that has no products or subcategories."
 }

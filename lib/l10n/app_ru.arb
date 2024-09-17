@@ -62,5 +62,7 @@
     "change":"Изменить",
     "pleaseEnterInformationsCompletely":"Пожалуйста, введите информацию полностью",
     "moveToTrash":"Переместить в корзину",
-    "add":"Добавлять"
+    "youCantDeleteThisCategory":"Вы не можете удалить эту категорию",
+    "add":"Добавлять",
+    "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Вы можете удалить только категорию, в которой нет продукта или подкатегории."
 }
