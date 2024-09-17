@@ -6,6 +6,7 @@ import 'package:skar_super_admin/pages/parts/my_app_bar/parts/pages_app_bar.dart
 import 'package:skar_super_admin/providers/api/product.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/providers/pages/products.dart';
+import 'package:skar_super_admin/providers/pages/shopping_centers.dart';
 import 'package:skar_super_admin/providers/pages/shops.dart';
 
 AppBar myAppBar(String page) {
@@ -46,6 +47,14 @@ AppBar myAppBar(String page) {
       break;
     case 'categories':
       titlePage = const CategoriesPageAppBar();
+      break;
+    case 'shopping_centers':
+      titlePage = PagesAppBar(
+        searchProvider: shoppingCenterSearchProvider,
+        fetchProvider: fetchShoppingCentersProvider,
+        pageProvider: shoppingCenterPageProvider,
+        activeNextPageButtonProvider: shoppingCenterNextButtonPageProvider,
+      );
       break;
     default:
   }
