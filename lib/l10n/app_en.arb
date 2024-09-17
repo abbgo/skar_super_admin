@@ -64,5 +64,6 @@
     "youCantDeleteThisCategory":"You can't delete this category",
     "add":"Add",
     "informationDeletedSuccessfully":"Information deleted successfully",
-    "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"You can only delete a category that has no products or subcategories."
+    "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"You can only delete a category that has no products or subcategories.",
+    "malls":"Malls"
 }
