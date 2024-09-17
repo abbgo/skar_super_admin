@@ -138,3 +138,25 @@ var updateCategoryProvider =
     return result;
   },
 );
+
+var checkCategoryForDeleteProvider =
+    FutureProvider.autoDispose.family<ResultCategory, CategoryParams>(
+  (ref, arg) async {
+    ResultCategory result = ResultCategory.defaultResult();
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultCategory resultCategory =
+          await ref.read(categoryApiProvider).checkCategoryForDelete(
+                accessToken: accessToken,
+                categoryID: arg.categoryID!,
+              );
+
+      await wrongToken(resultCategory.error, ref, arg.context);
+
+      result = resultCategory;
+    } catch (e) {
+      result = ResultCategory(error: e.toString());
+    }
+    return result;
+  },
+);
