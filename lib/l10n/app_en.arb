@@ -63,5 +63,6 @@
     "moveToTrash":"Move to trash",
     "youCantDeleteThisCategory":"You can't delete this category",
     "add":"Add",
+    "informationDeletedSuccessfully":"Information deleted successfully",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"You can only delete a category that has no products or subcategories."
 }

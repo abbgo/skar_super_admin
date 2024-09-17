@@ -63,5 +63,6 @@
     "moveToTrash":"Zibile sal",
     "youCantDeleteThisCategory":"Bu kategoriýany pozup bilmersiňiz",
     "add":"Goş",
+    "informationDeletedSuccessfully":"Maglumat üstünlikli pozuldy",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Diňe harydy ýa-da kiçi kategoriýasy bolmadyk kategoriýany pozup bilersiňiz"
 }

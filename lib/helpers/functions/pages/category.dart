@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
+import 'package:skar_super_admin/helpers/methods/toasts.dart';
 import 'package:skar_super_admin/models/category.dart';
+import 'package:skar_super_admin/pages/categories/categories.dart';
 import 'package:skar_super_admin/providers/api/category.dart';
 import 'package:skar_super_admin/providers/pages/category.dart';
+import 'package:skar_super_admin/providers/pages/drawer.dart';
 import 'package:skar_super_admin/services/api/category.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> shopMoveToTrash(
   BuildContext context,
@@ -24,22 +28,30 @@ Future<void> shopMoveToTrash(
     ref.read(loadDeleteCategoryProvider.notifier).state = false;
     return;
   }
+
+  CategoryParams categoryArg = CategoryParams.defaultValue();
+  if (context.mounted) {
+    categoryArg = CategoryParams(categoryID: categoryID, context: context);
+  }
+  ResultCategory resultDelCategory =
+      await ref.watch(deleteCategoryProvider(categoryArg).future);
+
   ref.read(loadDeleteCategoryProvider.notifier).state = false;
 
-  // ShopParams shopParams = ShopParams.defaultShopParams();
-  // if (context.mounted) {
-  //   shopParams = ShopParams(shopID: shopID, context: context);
-  // }
-  // ResultShop resultShop =
-  //     await ref.watch(deleteShopProvider(shopParams).future);
+  if (resultDelCategory.error == '') {
+    ref.invalidate(fetchCategoriesWithChildProvider);
 
-  // ref.read(loadDeleteShopProvider.notifier).state = false;
-
-  // if (resultShop.error == '') {
-  //   ref.invalidate(fetchShopsProvider);
-
-  //   if (context.mounted) {
-  //     showSuccess(context, lang.informationDeletedSuccessfully);
-  //   }
-  // }
+    if (context.mounted) {
+      ref.read(selectedDrawerButtonProvider.notifier).state = 5;
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const CategoriesPage(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+      showToast(
+          AppLocalizations.of(context)!.informationDeletedSuccessfully, false);
+    }
+  }
 }

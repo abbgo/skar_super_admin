@@ -64,5 +64,6 @@
     "moveToTrash":"Переместить в корзину",
     "youCantDeleteThisCategory":"Вы не можете удалить эту категорию",
     "add":"Добавлять",
+    "informationDeletedSuccessfully":"Информация успешно удалена",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Вы можете удалить только категорию, в которой нет продукта или подкатегории."
 }
