@@ -66,5 +66,6 @@
     "add":"Добавлять",
     "informationDeletedSuccessfully":"Информация успешно удалена",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Вы можете удалить только категорию, в которой нет продукта или подкатегории.",
-    "malls":"Торговые центры"
+    "malls":"Торговые центры",
+    "trash":"Корзина"
 }

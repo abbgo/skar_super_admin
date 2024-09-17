@@ -4,6 +4,7 @@ import 'package:skar_super_admin/pages/parts/drawer/parts/home_button.dart';
 import 'package:skar_super_admin/pages/parts/drawer/parts/products_button.dart';
 import 'package:skar_super_admin/pages/parts/drawer/parts/shopping_centers_button.dart';
 import 'package:skar_super_admin/pages/parts/drawer/parts/shops_button.dart';
+import 'package:skar_super_admin/pages/parts/drawer/parts/trash_button.dart';
 
 class DrawerPart extends StatelessWidget {
   const DrawerPart({super.key});
@@ -20,6 +21,7 @@ class DrawerPart extends StatelessWidget {
           const ProductsButton(),
           const CategoriesButton(),
           const ShoppingCentersButton(),
+          const TrashButton(),
         ],
       ),
     );

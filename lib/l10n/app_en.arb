@@ -65,5 +65,6 @@
     "add":"Add",
     "informationDeletedSuccessfully":"Information deleted successfully",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"You can only delete a category that has no products or subcategories.",
-    "malls":"Malls"
+    "malls":"Malls",
+    "trash":"Trash"
 }

@@ -65,5 +65,6 @@
     "add":"Goş",
     "informationDeletedSuccessfully":"Maglumat üstünlikli pozuldy",
     "youCanOnlyDeleteCategoryThatHasNoProductsOrSubcategories":"Diňe harydy ýa-da kiçi kategoriýasy bolmadyk kategoriýany pozup bilersiňiz",
-    "malls":"Söwda merkezleri"
+    "malls":"Söwda merkezleri",
+    "trash":"Zibil"
 }

@@ -6,8 +6,8 @@ import 'package:skar_super_admin/providers/pages/drawer.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ShoppingCentersButton extends ConsumerWidget {
-  const ShoppingCentersButton({super.key});
+class TrashButton extends ConsumerWidget {
+  const TrashButton({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,10 +15,10 @@ class ShoppingCentersButton extends ConsumerWidget {
     int selectedDrawerButton = ref.watch(selectedDrawerButtonProvider);
 
     return ListTile(
-      leading: Icon(Icons.add_business, color: logoColor),
+      leading: Icon(Icons.auto_delete, color: logoColor),
       tileColor: selectedDrawerButton == 6 ? elevatedButtonColor : null,
       title: Text(
-        lang.malls,
+        lang.trash,
         style: TextStyle(
           color: selectedDrawerButton == 6 ? Colors.white : elevatedButtonColor,
           fontWeight: FontWeight.bold,
