@@ -202,6 +202,42 @@ class CategoryApiService {
       rethrow;
     }
   }
+
+// check category for delete -------------------------------------------------------
+  Future<ResultCategory> checkCategoryForDelete({
+    required String accessToken,
+    required String categoryID,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/categories/$categoryID/check-for-delete');
+
+    try {
+      http.Response response = await http.get(
+        uri,
+        headers: tokenHeader(accessToken),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        if (jsonData['category'] == null) {
+          return ResultCategory(
+            category: Category.defaultCategory(),
+            error: '',
+          );
+        }
+
+        return ResultCategory(
+          category: Category.fromJson(jsonData['category']),
+          error: '',
+        );
+      }
+      return ResultCategory(
+        category: Category.defaultCategory(),
+        error: 'auth error',
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 class CategoryParams extends Equatable {

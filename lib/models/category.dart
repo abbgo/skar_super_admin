@@ -74,6 +74,7 @@ class ResultCategory extends Equatable {
   final Category? category;
   final int? pageCount;
   final String? message;
+  final bool? forDeletion;
   final String error;
 
   const ResultCategory({
@@ -81,6 +82,7 @@ class ResultCategory extends Equatable {
     this.category,
     this.pageCount,
     this.message,
+    this.forDeletion,
     required this.error,
   });
 
@@ -90,10 +92,18 @@ class ResultCategory extends Equatable {
       category: null,
       pageCount: null,
       message: null,
+      forDeletion: null,
       error: '',
     );
   }
 
   @override
-  List<Object?> get props => [categories, category, pageCount, message, error];
+  List<Object?> get props => [
+        categories,
+        category,
+        pageCount,
+        message,
+        forDeletion,
+        error,
+      ];
 }
