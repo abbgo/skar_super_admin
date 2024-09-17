@@ -228,6 +228,38 @@ class CategoryApiService {
       rethrow;
     }
   }
+
+// delete category -------------------------------------------------------
+  Future<ResultCategory> deleteCategory({
+    required String accessToken,
+    required String categoryID,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/categories/$categoryID');
+
+    try {
+      http.Response response = await http.delete(
+        uri,
+        headers: tokenHeader(accessToken),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        if (jsonData['message'] == null) {
+          return const ResultCategory(message: '', error: '');
+        }
+
+        return ResultCategory(message: jsonData['message'], error: '');
+      }
+
+      if (response.statusCode == 400) {
+        return const ResultCategory(error: 'some error');
+      }
+
+      return const ResultCategory(message: '', error: 'auth error');
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 class CategoryParams extends Equatable {
