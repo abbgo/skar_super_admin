@@ -218,22 +218,12 @@ class CategoryApiService {
       var jsonData = json.decode(response.body);
 
       if (response.statusCode == 200 && jsonData['status']) {
-        if (jsonData['category'] == null) {
-          return ResultCategory(
-            category: Category.defaultCategory(),
-            error: '',
-          );
-        }
-
         return ResultCategory(
-          category: Category.fromJson(jsonData['category']),
+          forDeletion: jsonData['for_deletion'] as bool,
           error: '',
         );
       }
-      return ResultCategory(
-        category: Category.defaultCategory(),
-        error: 'auth error',
-      );
+      return const ResultCategory(forDeletion: false, error: 'auth error');
     } catch (e) {
       rethrow;
     }
