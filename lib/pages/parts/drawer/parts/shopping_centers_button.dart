@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/navigators.dart';
-import 'package:skar_super_admin/pages/categories/categories.dart';
+import 'package:skar_super_admin/pages/shopping_centers/shopping_centers.dart';
 import 'package:skar_super_admin/providers/pages/drawer.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -15,7 +15,7 @@ class ShoppingCentersButton extends ConsumerWidget {
     int selectedDrawerButton = ref.watch(selectedDrawerButtonProvider);
 
     return ListTile(
-      leading: Icon(Icons.view_cozy_outlined, color: logoColor),
+      leading: Icon(Icons.add_business_outlined, color: logoColor),
       tileColor: selectedDrawerButton == 6 ? elevatedButtonColor : null,
       title: Text(
         lang.malls,
@@ -26,7 +26,7 @@ class ShoppingCentersButton extends ConsumerWidget {
       ),
       onTap: () {
         ref.read(selectedDrawerButtonProvider.notifier).state = 6;
-        goToPage(context, const CategoriesPage(), true);
+        goToPage(context, const ShoppingCentersPage(), true);
       },
     );
   }
