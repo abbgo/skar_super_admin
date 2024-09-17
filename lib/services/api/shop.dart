@@ -23,6 +23,7 @@ class ShopApiService {
         'limit': pageSize.toString(),
         'page': '$page',
         'is_deleted': '$isDeleted',
+        'is_shopping_center': isShoppingCenter.toString(),
         'search': search,
         'lang': lang,
         'crated_statuses': cratedStatuses,

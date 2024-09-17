@@ -38,14 +38,14 @@ class ResultShoppingCenters extends ConsumerWidget {
                   ),
                 ],
               ),
-              // Expanded(
-              //   child: SingleChildScrollView(
-              //     child: Table(
-              //       border: TableBorder.all(),
-              //       children: shopRows(response.shops!, context, cratedStatus),
-              //     ),
-              //   ),
-              // ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Table(
+                    border: TableBorder.all(),
+                    children: shoppingCenterRows(response.shops!, context),
+                  ),
+                ),
+              ),
             ],
           ),
         );
