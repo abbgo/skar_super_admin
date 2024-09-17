@@ -13,6 +13,7 @@ class ShopApiService {
     required String accessToken,
     required int page,
     required bool isDeleted,
+    required bool isShoppingCenter,
     required String search,
     required String lang,
     required List<String> cratedStatuses,
