@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 class TrashGridview extends StatelessWidget {
   const TrashGridview({super.key});
@@ -13,14 +14,23 @@ class TrashGridview extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+          crossAxisCount: 6,
           crossAxisSpacing: 2,
           mainAxisSpacing: 8,
-          mainAxisExtent: 310,
+          mainAxisExtent: 150,
         ),
         itemCount: texts.length,
         itemBuilder: (context, index) {
-          return Text(texts[index]);
+          return Card(
+            color: elevatedButtonColor,
+            elevation: 6,
+            child: Center(
+              child: Text(
+                texts[index],
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+          );
         },
       ),
     );
