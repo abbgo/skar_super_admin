@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skar_super_admin/pages/parts/drawer/drawer.dart';
 import 'package:skar_super_admin/pages/parts/my_app_bar/my_app_bar.dart';
+import 'package:skar_super_admin/pages/trash/parts/trash_gridview.dart';
 
 class Trashpage extends StatelessWidget {
   const Trashpage({super.key});
@@ -10,9 +11,7 @@ class Trashpage extends StatelessWidget {
     return Scaffold(
       appBar: myAppBar('trash'),
       drawer: const DrawerPart(),
-      body: const Center(
-        child: Text('Trash'),
-      ),
+      body: const TrashGridview(),
     );
   }
 }
