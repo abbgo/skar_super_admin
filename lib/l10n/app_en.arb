@@ -60,5 +60,6 @@
     "informationChangedSuccessfully":"Information changed successfully",
     "change":"Change",
     "pleaseEnterInformationsCompletely":"Please enter the informations completely",
+    "moveToTrash":"Move to trash",
     "add":"Add"
 }
