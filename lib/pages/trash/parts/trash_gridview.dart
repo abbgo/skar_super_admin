@@ -9,6 +9,7 @@ class TrashGridview extends StatelessWidget {
   Widget build(BuildContext context) {
     var lang = AppLocalizations.of(context)!;
     List<String> texts = [lang.categoriesInTrash, lang.mallsInTrash];
+    List<IconData> icons = [Icons.storefront, Icons.add_business];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),
@@ -24,11 +25,15 @@ class TrashGridview extends StatelessWidget {
           return Card(
             color: elevatedButtonColor,
             elevation: 6,
-            child: Center(
-              child: Text(
-                texts[index],
-                style: const TextStyle(color: Colors.white),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(icons[index], color: Colors.white, size: 50),
+                Text(
+                  texts[index],
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
             ),
           );
         },
