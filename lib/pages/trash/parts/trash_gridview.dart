@@ -13,7 +13,10 @@ class TrashGridview extends StatelessWidget {
     var lang = AppLocalizations.of(context)!;
     List<String> texts = [lang.categoriesInTrash, lang.mallsInTrash];
     List<IconData> icons = [Icons.storefront, Icons.add_business];
-    List<Widget> pages = const [CategoriesPage(), ShoppingCentersPage()];
+    List<Widget> pages = const [
+      CategoriesPage(isDeleted: true),
+      ShoppingCentersPage()
+    ];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 10),

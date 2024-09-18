@@ -9,13 +9,15 @@ import 'package:skar_super_admin/providers/pages/category.dart';
 import 'package:skar_super_admin/styles/colors.dart';
 
 class ResultCategories extends ConsumerWidget {
-  const ResultCategories({super.key, this.subcategories});
+  const ResultCategories({super.key, this.subcategories, this.isDeleted});
 
   final List<Category>? subcategories;
+  final bool? isDeleted;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    DefaultParams params = DefaultParams(isDeleted: false, context: context);
+    DefaultParams params =
+        DefaultParams(isDeleted: isDeleted ?? false, context: context);
     final AsyncValue<ResultCategory> resultCategory =
         ref.watch(fetchCategoriesWithChildProvider(params));
     bool loadDelete = ref.watch(loadDeleteCategoryProvider);
