@@ -74,6 +74,7 @@ List<Widget> categoryRowChildrens(
         subcategories: category.childCategories,
         categoryID: category.id,
         isDeleted: isDeleted,
+        hasParent: category.parentCategory != null,
       ),
     ),
   ];

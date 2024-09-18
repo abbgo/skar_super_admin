@@ -11,18 +11,23 @@ class CategoriesTableButtons extends StatelessWidget {
     this.subcategories,
     required this.categoryID,
     required this.isDeleted,
+    this.hasParent,
   });
 
   final List<Category>? subcategories;
   final String categoryID;
   final bool isDeleted;
+  final bool? hasParent;
 
   @override
   Widget build(BuildContext context) {
     return isDeleted
         ? Column(
             children: [
-              RestoreCategoryButton(categoryID: categoryID),
+              RestoreCategoryButton(
+                categoryID: categoryID,
+                hasParent: hasParent ?? false,
+              ),
             ],
           )
         : Column(
