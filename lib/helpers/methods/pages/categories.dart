@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/dialogs.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/helpers/methods/table.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/pages/categories/parts/categories_table_buttons.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
+import 'package:skar_super_admin/providers/local_storadge.dart';
 
 List<Widget> categoryColumns(BuildContext context, bool isDeleted) {
   var lang = AppLocalizations.of(context)!;
@@ -86,10 +88,17 @@ List<Widget> categoryRowChildrens(
           ? TableCellWidget(
               child: Column(
                 children: [
-                  Text(
-                    category.parentCategory!.nameTM,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  Consumer(
+                    builder: (context, ref, child) {
+                      bool isTM = ref.read(langProvider) == 'tr';
+                      return Text(
+                        isTM
+                            ? category.parentCategory!.nameTM
+                            : category.parentCategory!.nameRU,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      );
+                    },
                   ),
                   const SizedBox(height: 10),
                   const Text(
