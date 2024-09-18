@@ -14,7 +14,7 @@ class DeleteCategoryButton extends ConsumerWidget {
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-      onPressed: () => shopMoveToTrash(context, ref, categoryID),
+      onPressed: () => categoryMoveToTrash(context, ref, categoryID),
       child: Text(lang.moveToTrash),
     );
   }
