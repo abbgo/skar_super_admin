@@ -266,6 +266,32 @@ class CategoryApiService {
       rethrow;
     }
   }
+
+// fetch parent category -------------------------------------------------------
+  Future<ResultCategory> fetchParentCategory({
+    required String accessToken,
+    required String categoryID,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/categories/$categoryID/parent');
+
+    try {
+      http.Response response = await http.get(
+        uri,
+        headers: tokenHeader(accessToken),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        return ResultCategory(
+          category: Category.fromJson(jsonData['parent_category']),
+          error: '',
+        );
+      }
+      return const ResultCategory(error: 'auth error');
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 class CategoryParams extends Equatable {
