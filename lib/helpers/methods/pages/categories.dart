@@ -88,7 +88,12 @@ List<Widget> categoryRowChildrens(
                 textAlign: TextAlign.center,
               ),
             )
-          : Text(AppLocalizations.of(context)!.no, textAlign: TextAlign.center),
+          : TableCellWidget(
+              child: Text(
+                AppLocalizations.of(context)!.no,
+                textAlign: TextAlign.center,
+              ),
+            ),
     );
   }
 
