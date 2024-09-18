@@ -83,9 +83,19 @@ List<Widget> categoryRowChildrens(
       4,
       category.parentCategory != null
           ? TableCellWidget(
-              child: Text(
-                category.parentCategory!.nameTM,
-                textAlign: TextAlign.center,
+              child: Column(
+                children: [
+                  Text(
+                    category.parentCategory!.nameTM,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    textAlign: TextAlign.center,
+                    'Bu kategoriyany tazeden dikeltmek ucin ilki uly kategoriyasyny tazeden dikeldin',
+                  ),
+                ],
               ),
             )
           : TableCellWidget(
