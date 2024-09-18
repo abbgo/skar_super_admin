@@ -71,5 +71,6 @@
     "mallsInTrash":"Zibildäki söwda merkezleri",
     "restore":"Täzeden dikelt",
     "deletedParentCategory":"Pozulmadyk uly kategoriýa",
-    "informationRestoredSuccessfully":"Maglumat üstünlikli dikeldildi"
+    "informationRestoredSuccessfully":"Maglumat üstünlikli dikeldildi",
+    "toRestoreCategoryYouMustFirstRestoreParentCategory":"Bu kategoriýany dikeltmek üçin ilki bilen uly kategoriýany dikeltmeli"
 }

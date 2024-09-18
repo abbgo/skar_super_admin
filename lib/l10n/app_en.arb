@@ -71,5 +71,6 @@
     "mallsInTrash":"Malls in trash",
     "restore":"Restore",
     "deletedParentCategory":"Deleted parent category",
-    "informationRestoredSuccessfully":"Information restored successfully"
+    "informationRestoredSuccessfully":"Information restored successfully",
+    "toRestoreCategoryYouMustFirstRestoreParentCategory":"To restore this category, you must first restore the parent category"
 }

@@ -29,6 +29,8 @@ List<Widget> categoryColumns(BuildContext context, bool isDeleted) {
 
 List<TableRow> categoryRows(
     List<Category> categories, BuildContext context, bool isDeleted) {
+  var lang = AppLocalizations.of(context)!;
+
   return categories.map(
     (e) {
       String dimensionsText = '';
@@ -37,7 +39,8 @@ List<TableRow> categoryRows(
       }
 
       return TableRow(
-        children: categoryRowChildrens(e, context, isDeleted, dimensionsText),
+        children:
+            categoryRowChildrens(e, context, isDeleted, dimensionsText, lang),
       );
     },
   ).toList();
@@ -48,6 +51,7 @@ List<Widget> categoryRowChildrens(
   BuildContext context,
   bool isDeleted,
   String dimensionsText,
+  AppLocalizations lang,
 ) {
   List<Widget> childrens = [
     TableCellWidget(
@@ -101,16 +105,16 @@ List<Widget> categoryRowChildrens(
                     },
                   ),
                   const SizedBox(height: 10),
-                  const Text(
+                  Text(
                     textAlign: TextAlign.center,
-                    'Bu kategoriyany tazeden dikeltmek ucin ilki uly kategoriyasyny tazeden dikeldin',
+                    lang.toRestoreCategoryYouMustFirstRestoreParentCategory,
                   ),
                 ],
               ),
             )
           : TableCellWidget(
               child: Text(
-                AppLocalizations.of(context)!.no,
+                lang.no,
                 textAlign: TextAlign.center,
               ),
             ),
