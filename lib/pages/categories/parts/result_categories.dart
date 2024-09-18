@@ -38,7 +38,7 @@ class ResultCategories extends ConsumerWidget {
                     border: TableBorder.all(),
                     children: [
                       TableRow(
-                        children: categoryColumns(context),
+                        children: categoryColumns(context, isDeleted ?? false),
                         decoration: BoxDecoration(color: elevatedButtonColor),
                       ),
                     ],
