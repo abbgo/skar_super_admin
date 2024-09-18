@@ -70,5 +70,6 @@
     "categoriesInTrash":"Zibildäki kategoriýalar",
     "mallsInTrash":"Zibildäki söwda merkezleri",
     "restore":"Täzeden dikelt",
-    "deletedParentCategory":"Pozulmadyk uly kategoriýa"
+    "deletedParentCategory":"Pozulmadyk uly kategoriýa",
+    "informationRestoredSuccessfully":"Maglumat üstünlikli dikeldildi"
 }

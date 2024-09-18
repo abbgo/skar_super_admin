@@ -70,5 +70,6 @@
     "categoriesInTrash":"Categories in trash",
     "mallsInTrash":"Malls in trash",
     "restore":"Restore",
-    "deletedParentCategory":"Deleted parent category"
+    "deletedParentCategory":"Deleted parent category",
+    "informationRestoredSuccessfully":"Information restored successfully"
 }

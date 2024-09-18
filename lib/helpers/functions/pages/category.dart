@@ -63,24 +63,12 @@ Future<void> restoreCategory(
 ) async {
   ref.read(loadDeleteCategoryProvider.notifier).state = true;
 
-  CategoryParams arg = CategoryParams(categoryID: categoryID, context: context);
-  ResultCategory resultCategory =
-      await ref.watch(checkCategoryForDeleteProvider(arg).future);
-
-  if (!resultCategory.forDeletion!) {
-    if (context.mounted) {
-      await showDontDeleteDialog(context);
-    }
-    ref.read(loadDeleteCategoryProvider.notifier).state = false;
-    return;
-  }
-
   CategoryParams categoryArg = CategoryParams.defaultValue();
   if (context.mounted) {
     categoryArg = CategoryParams(categoryID: categoryID, context: context);
   }
   ResultCategory resultDelCategory =
-      await ref.watch(deleteCategoryProvider(categoryArg).future);
+      await ref.watch(restoreCategoryProvider(categoryArg).future);
 
   ref.read(loadDeleteCategoryProvider.notifier).state = false;
 
@@ -88,16 +76,8 @@ Future<void> restoreCategory(
     ref.invalidate(fetchCategoriesWithChildProvider);
 
     if (context.mounted) {
-      ref.read(selectedDrawerButtonProvider.notifier).state = 5;
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const CategoriesPage(),
-        ),
-        (Route<dynamic> route) => false,
-      );
       showToast(
-          AppLocalizations.of(context)!.informationDeletedSuccessfully, false);
+          AppLocalizations.of(context)!.informationRestoredSuccessfully, false);
     }
   }
 }
