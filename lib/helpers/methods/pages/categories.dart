@@ -19,7 +19,7 @@ List<Widget> categoryColumns(BuildContext context, bool isDeleted) {
   ];
 
   if (isDeleted) {
-    columns.insert(4, tableHeaderText(lang.appropriateDimensions));
+    columns.insert(4, tableHeaderText(lang.deletedParentCategory));
   }
 
   return columns;
@@ -81,13 +81,14 @@ List<Widget> categoryRowChildrens(
   if (isDeleted) {
     childrens.insert(
       4,
-      TableCellWidget(
-        child: CategoriesTableButtons(
-          subcategories: category.childCategories,
-          categoryID: category.id,
-          isDeleted: isDeleted,
-        ),
-      ),
+      category.parentCategory != null
+          ? TableCellWidget(
+              child: Text(
+                category.parentCategory!.nameTM,
+                textAlign: TextAlign.center,
+              ),
+            )
+          : Text(AppLocalizations.of(context)!.no, textAlign: TextAlign.center),
     );
   }
 

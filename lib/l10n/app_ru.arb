@@ -70,5 +70,6 @@
     "trash":"Корзина",
     "categoriesInTrash":"Категории в корзине",
     "mallsInTrash":"Торговые центры в мусоре",
-    "restore":"Восстановить"
+    "restore":"Восстановить",
+    "deletedParentCategory":"Pozulmadyk uly kategoriýa"
 }

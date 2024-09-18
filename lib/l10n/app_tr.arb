@@ -69,5 +69,6 @@
     "trash":"Zibil",
     "categoriesInTrash":"Zibildäki kategoriýalar",
     "mallsInTrash":"Zibildäki söwda merkezleri",
-    "restore":"Täzeden dikelt"
+    "restore":"Täzeden dikelt",
+    "deletedParentCategory":"Pozulmadyk uly kategoriýa"
 }
