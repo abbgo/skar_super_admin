@@ -13,13 +13,15 @@ class CategoryApiService {
     String search,
     int page,
     String lang,
+    bool isDeleted,
   ) async {
     Uri uri = Uri.parse('$apiUrl/back/categories/with-child').replace(
       queryParameters: {
         'limit': '100',
         'page': '$page',
         'search': search,
-        'lang': lang
+        'lang': lang,
+        'is_deleted': isDeleted.toString(),
       },
     );
 
