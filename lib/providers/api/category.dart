@@ -31,7 +31,6 @@ var fetchCategoriesWithChildProvider =
                 search,
                 categoryPage,
                 isTM ? 'tm' : 'ru',
-                arg.isDeleted!,
               );
 
       if (resultCategory.pageCount == categoryPage ||

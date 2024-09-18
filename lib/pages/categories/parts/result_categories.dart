@@ -16,8 +16,7 @@ class ResultCategories extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    DefaultParams params =
-        DefaultParams(isDeleted: isDeleted ?? false, context: context);
+    DefaultParams params = DefaultParams(context: context);
     final AsyncValue<ResultCategory> resultCategory =
         ref.watch(fetchCategoriesWithChildProvider(params));
     bool loadDelete = ref.watch(loadDeleteCategoryProvider);
