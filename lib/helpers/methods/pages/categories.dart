@@ -19,7 +19,8 @@ List<Widget> categoryColumns(BuildContext context) {
   ];
 }
 
-List<TableRow> categoryRows(List<Category> categories, BuildContext context) {
+List<TableRow> categoryRows(
+    List<Category> categories, BuildContext context, bool isDeleted) {
   return categories.map(
     (e) {
       String dimensionsText = '';
@@ -54,6 +55,7 @@ List<TableRow> categoryRows(List<Category> categories, BuildContext context) {
             child: CategoriesTableButtons(
               subcategories: e.childCategories,
               categoryID: e.id,
+              isDeleted: isDeleted,
             ),
           ),
         ],

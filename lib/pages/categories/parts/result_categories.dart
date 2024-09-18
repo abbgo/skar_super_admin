@@ -52,6 +52,7 @@ class ResultCategories extends ConsumerWidget {
                               ? subcategories!
                               : response.categories!,
                           context,
+                          isDeleted ?? false,
                         ),
                       ),
                     ),

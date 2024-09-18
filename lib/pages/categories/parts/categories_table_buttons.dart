@@ -9,21 +9,27 @@ class CategoriesTableButtons extends StatelessWidget {
     super.key,
     this.subcategories,
     required this.categoryID,
+    required this.isDeleted,
   });
 
   final List<Category>? subcategories;
   final String categoryID;
+  final bool isDeleted;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ChildCategoriesButton(subcategories: subcategories),
-        const SizedBox(height: 10),
-        EditCategoryButton(categoryID: categoryID),
-        const SizedBox(height: 10),
-        DeleteCategoryButton(categoryID: categoryID),
-      ],
-    );
+    return isDeleted
+        ? Column(
+            children: [Text('Kabir')],
+          )
+        : Column(
+            children: [
+              ChildCategoriesButton(subcategories: subcategories),
+              const SizedBox(height: 10),
+              EditCategoryButton(categoryID: categoryID),
+              const SizedBox(height: 10),
+              DeleteCategoryButton(categoryID: categoryID),
+            ],
+          );
   }
 }
