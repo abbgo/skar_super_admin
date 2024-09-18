@@ -68,5 +68,6 @@
     "malls":"Söwda merkezleri",
     "trash":"Zibil",
     "categoriesInTrash":"Zibildäki kategoriýalar",
-    "mallsInTrash":"Zibildäki söwda merkezleri"
+    "mallsInTrash":"Zibildäki söwda merkezleri",
+    "restore":"Täzeden dikelt"
 }

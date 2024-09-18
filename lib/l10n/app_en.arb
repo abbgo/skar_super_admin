@@ -68,5 +68,6 @@
     "malls":"Malls",
     "trash":"Trash",
     "categoriesInTrash":"Categories in trash",
-    "mallsInTrash":"Malls in trash"
+    "mallsInTrash":"Malls in trash",
+    "restore":"Restore"
 }
