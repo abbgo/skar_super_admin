@@ -217,3 +217,31 @@ var restoreCategoryProvider =
     return result;
   },
 );
+
+var deletePermanentlyCategoryProvider =
+    FutureProvider.autoDispose.family<ResultCategory, CategoryParams>(
+  (ref, arg) async {
+    ResultCategory result = ResultCategory.defaultResult();
+
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultCategory resultShop =
+          await ref.read(categoryApiProvider).deletePermanentlyCategory(
+                accessToken: accessToken,
+                categoryID: arg.categoryID!,
+              );
+
+      await wrongToken(resultShop.error, ref, arg.context);
+
+      if (resultShop.error == 'some error') {
+        showToast(AppLocalizations.of(arg.context!)!.someErrorOccurred, true);
+      }
+
+      result = resultShop;
+    } catch (e) {
+      result = ResultCategory(error: e.toString());
+    }
+
+    return result;
+  },
+);
