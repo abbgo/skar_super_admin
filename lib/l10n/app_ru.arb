@@ -74,5 +74,6 @@
     "deletedParentCategory":"Удалена родительская категория",
     "informationRestoredSuccessfully":"Информация успешно восстановлена",
     "toRestoreCategoryYouMustFirstRestoreParentCategory":"Чтобы восстановить эту категорию, необходимо сначала восстановить родительскую категорию.",
-    "permanentlyDelete":"Удалить навсегда"
+    "permanentlyDelete":"Удалить навсегда",
+    "shouldThisInformationDeletedCompletely":"Стоит ли полностью удалить эту информацию"
 }

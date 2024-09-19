@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/functions/screen.dart';
 import 'package:skar_super_admin/helpers/methods/image.dart';
 import 'package:skar_super_admin/models/product_color.dart';
@@ -60,6 +61,61 @@ Future<dynamic> showDontDeleteDialog(BuildContext context) {
               'OK',
               style: TextStyle(color: Colors.black, fontSize: 18),
             ),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<dynamic> showDeleteDialog(
+  BuildContext context,
+  WidgetRef ref,
+  String? categoryID,
+) {
+  var lang = AppLocalizations.of(context)!;
+
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('${lang.shouldThisInformationDeletedCompletely} ?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              lang.no,
+              style: const TextStyle(color: Colors.black, fontSize: 18),
+            ),
+          ),
+          Consumer(
+            builder: (context, ref, child) {
+              return TextButton(
+                onPressed: () async {
+                  // if (productID != null) {
+                  //   await deletePermanentlyProduct(
+                  //     context,
+                  //     ref,
+                  //     productID,
+                  //     lang,
+                  //   );
+                  // } else {
+                  //   await deletePermanentlyShop(
+                  //     context,
+                  //     ref,
+                  //     shopID!,
+                  //     lang,
+                  //   );
+                  // }
+
+                  if (context.mounted) Navigator.pop(context);
+                },
+                child: Text(
+                  lang.yes,
+                  style: const TextStyle(color: Colors.black, fontSize: 18),
+                ),
+              );
+            },
           ),
         ],
       );
