@@ -72,5 +72,6 @@
     "restore":"Restore",
     "deletedParentCategory":"Deleted parent category",
     "informationRestoredSuccessfully":"Information restored successfully",
-    "toRestoreCategoryYouMustFirstRestoreParentCategory":"To restore this category, you must first restore the parent category"
+    "toRestoreCategoryYouMustFirstRestoreParentCategory":"To restore this category, you must first restore the parent category",
+    "permanentlyDelete":"Permanently delete"
 }

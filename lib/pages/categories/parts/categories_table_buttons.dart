@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:skar_super_admin/models/category.dart';
 import 'package:skar_super_admin/pages/categories/parts/child_categories_button.dart';
+import 'package:skar_super_admin/pages/categories/parts/delete_category_button.dart';
 import 'package:skar_super_admin/pages/categories/parts/move_to_trash_category_button.dart';
 import 'package:skar_super_admin/pages/categories/parts/edit_category_button.dart';
 import 'package:skar_super_admin/pages/categories/parts/restore_category_button.dart';
@@ -28,6 +29,8 @@ class CategoriesTableButtons extends StatelessWidget {
                 categoryID: categoryID,
                 hasParent: hasParent ?? false,
               ),
+              const SizedBox(height: 10),
+              DeleteCategoryButton(categoryID: categoryID),
             ],
           )
         : Column(

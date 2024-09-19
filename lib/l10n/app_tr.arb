@@ -72,5 +72,6 @@
     "restore":"Täzeden dikelt",
     "deletedParentCategory":"Pozulmadyk uly kategoriýa",
     "informationRestoredSuccessfully":"Maglumat üstünlikli dikeldildi",
-    "toRestoreCategoryYouMustFirstRestoreParentCategory":"Bu kategoriýany dikeltmek üçin ilki bilen uly kategoriýany dikeltmeli"
+    "toRestoreCategoryYouMustFirstRestoreParentCategory":"Bu kategoriýany dikeltmek üçin ilki bilen uly kategoriýany dikeltmeli",
+    "permanentlyDelete":"Hemişelik poz"
 }

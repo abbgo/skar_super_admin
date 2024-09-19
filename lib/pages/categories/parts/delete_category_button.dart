@@ -13,10 +13,10 @@ class DeleteCategoryButton extends StatelessWidget {
     var lang = AppLocalizations.of(context)!;
 
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
       onPressed: () => goToPage(
           context, AddOrUpdateCategoryPage(categoryID: categoryID), false),
-      child: Text(lang.edit),
+      child: Text(lang.permanentlyDelete),
     );
   }
 }
