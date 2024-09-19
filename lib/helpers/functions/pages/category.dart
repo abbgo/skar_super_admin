@@ -91,17 +91,13 @@ Future<void> deletePermanentlyCategory(
   ref.read(loadDeleteCategoryProvider.notifier).state = true;
 
   CategoryParams arg = CategoryParams(categoryID: categoryID, context: context);
-  ResultProduct resultProduct =
-      await ref.watch(deletePermanentlyProductProvider(params).future);
+  ResultCategory resultCategory =
+      await ref.watch(deletePermanentlyCategoryProvider(arg).future);
 
   ref.read(loadDeleteCategoryProvider.notifier).state = false;
 
-  if (resultProduct.error == '') {
-    ref.invalidate(fetchProductsProvider);
-    ref.invalidate(fetchCountOfProductsProvider);
-
-    if (context.mounted) {
-      showSuccess(context, lang.informationCompletelyDeleted);
-    }
+  if (resultCategory.error == '') {
+    ref.invalidate(fetchCategoriesWithChildProvider);
+    showToast(lang.informationCompletelyDeleted, false);
   }
 }
