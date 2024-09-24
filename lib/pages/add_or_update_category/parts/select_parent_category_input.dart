@@ -21,11 +21,22 @@ class SelectParentCategoryInput extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: DropdownSearch<Category>(
-          asyncItems: (text) async {
+          // asyncItems: (text) async {
+          //   ResultCategory resultCategory =
+          //       await CategoryApiService.fetchCategories(
+          //     accessToken,
+          //     text,
+          //     1,
+          //     isTM ? 'tm' : 'ru',
+          //   );
+
+          //   return resultCategory.categories!;
+          // },
+          items: (filter, loadProps) async {
             ResultCategory resultCategory =
                 await CategoryApiService.fetchCategories(
               accessToken,
-              text,
+              filter,
               1,
               isTM ? 'tm' : 'ru',
             );
@@ -52,7 +63,7 @@ class SelectParentCategoryInput extends ConsumerWidget {
                     ? selectedItem.nameTM
                     : selectedItem.nameRU,
           ),
-          clearButtonProps: const ClearButtonProps(isVisible: true),
+          // clearButtonProps: const ClearButtonProps(isVisible: true),
           selectedItem: parentCategory.id == '' ? null : parentCategory,
         ),
       ),

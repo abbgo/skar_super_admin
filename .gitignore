@@ -44,4 +44,4 @@ app.*.map.json
 
 # My private folders and files
 .env
-assets/*
+assets/* 

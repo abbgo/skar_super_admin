@@ -20,7 +20,15 @@ class SelectDimensionInput extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: DropdownSearch<DimensionGroup>(
-          asyncItems: (text) async {
+          // asyncItems: (text) async {
+          //   ResultDimensionGroup resultDimensionGroup =
+          //       await DimensionGroupApiService.fetchDimensionGroups(
+          //           accessToken, 1);
+
+          //   return resultDimensionGroup.dimensionGroups!;
+          // },
+
+          items: (filter, loadProps) async {
             ResultDimensionGroup resultDimensionGroup =
                 await DimensionGroupApiService.fetchDimensionGroups(
                     accessToken, 1);
@@ -37,7 +45,15 @@ class SelectDimensionInput extends ConsumerWidget {
             }
           },
           popupProps: PopupProps.menu(
-            itemBuilder: (context, item, isSelected) => Card(
+            // itemBuilder: (context, item, isSelected) => Card(
+            //   child: ListTile(
+            //     title: Text(item.name),
+            //     subtitle: Row(
+            //       children: item.dimensions.map((e) => Text(' $e ,')).toList(),
+            //     ),
+            //   ),
+            // ),
+            itemBuilder: (context, item, isDisabled, isSelected) => Card(
               child: ListTile(
                 title: Text(item.name),
                 subtitle: Row(
@@ -56,7 +72,7 @@ class SelectDimensionInput extends ConsumerWidget {
                         .toList(),
                   ),
                 ),
-          clearButtonProps: const ClearButtonProps(isVisible: true),
+          // clearButtonProps: const ClearButtonProps(isVisible: true),
           selectedItem: dimensionGroup.id == "" ? null : dimensionGroup,
         ),
       ),
