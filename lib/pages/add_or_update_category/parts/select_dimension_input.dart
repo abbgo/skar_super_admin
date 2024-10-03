@@ -32,8 +32,11 @@ class SelectDimensionInput extends ConsumerWidget {
               ref.read(dimensionGroupProvider.notifier).state =
                   DimensionGroup.defaultValue();
             } else {
-              ref.read(dimensionGroupProvider.notifier).state =
-                  DimensionGroup(id: value.id, name: '', dimensions: []);
+              ref.read(dimensionGroupProvider.notifier).state = DimensionGroup(
+                id: value.id,
+                name: value.name,
+                dimensions: value.dimensions,
+              );
             }
           },
           popupProps: PopupProps.menu(
@@ -46,20 +49,19 @@ class SelectDimensionInput extends ConsumerWidget {
               ),
             ),
           ),
-          dropdownBuilder: (context, selectedItem) => selectedItem == null
+          dropdownBuilder: (context, selectedItem) => dimensionGroup.id == ''
               ? Text('${lang.selectCategoryDimensionGroup} *')
               : ListTile(
-                  title: Text(selectedItem.name),
+                  title: Text(dimensionGroup.name),
                   subtitle: Row(
-                    children: selectedItem.dimensions
+                    children: dimensionGroup.dimensions
                         .map((e) => Text(' $e ,'))
                         .toList(),
                   ),
                 ),
           selectedItem: dimensionGroup.id == "" ? null : dimensionGroup,
-          compareFn: (DimensionGroup item1, DimensionGroup item2) {
-            return item1.id == item2.id;
-          },
+          compareFn: (DimensionGroup item1, DimensionGroup item2) =>
+              item1.id == item2.id,
         ),
       ),
     );
