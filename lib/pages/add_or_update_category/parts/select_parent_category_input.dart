@@ -21,17 +21,6 @@ class SelectParentCategoryInput extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: DropdownSearch<Category>(
-          // asyncItems: (text) async {
-          //   ResultCategory resultCategory =
-          //       await CategoryApiService.fetchCategories(
-          //     accessToken,
-          //     text,
-          //     1,
-          //     isTM ? 'tm' : 'ru',
-          //   );
-
-          //   return resultCategory.categories!;
-          // },
           items: (filter, loadProps) async {
             ResultCategory resultCategory =
                 await CategoryApiService.fetchCategories(
@@ -44,27 +33,39 @@ class SelectParentCategoryInput extends ConsumerWidget {
             return resultCategory.categories!;
           },
           itemAsString: (item) => isTM ? item.nameTM : item.nameRU,
-          popupProps: const PopupProps.menu(
-            showSearchBox: true,
-          ),
+          popupProps: const PopupProps.menu(showSearchBox: true),
           onChanged: (value) {
             if (value == null) {
               ref.read(parentCategoryProvider.notifier).state =
                   Category.defaultCategory();
             } else {
-              ref.read(parentCategoryProvider.notifier).state =
-                  Category(id: value.id, nameTM: '', nameRU: '');
+              ref.read(parentCategoryProvider.notifier).state = Category(
+                  id: value.id, nameTM: value.nameTM, nameRU: value.nameRU);
             }
           },
-          dropdownBuilder: (context, selectedItem) => Text(
-            selectedItem == null
-                ? lang.selectParentCategory
-                : isTM
-                    ? selectedItem.nameTM
-                    : selectedItem.nameRU,
+          dropdownBuilder: (context, selectedItem) => Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                parentCategory.id == ''
+                    ? lang.selectParentCategory
+                    : isTM
+                        ? parentCategory.nameTM
+                        : parentCategory.nameRU,
+              ),
+              parentCategory.id != ''
+                  ? IconButton(
+                      onPressed: () => ref
+                          .read(parentCategoryProvider.notifier)
+                          .state = Category.defaultCategory(),
+                      icon: const Icon(Icons.close),
+                    )
+                  : const SizedBox.shrink(),
+            ],
           ),
-          // clearButtonProps: const ClearButtonProps(isVisible: true),
           selectedItem: parentCategory.id == '' ? null : parentCategory,
+          compareFn: (Category? item1, Category? item2) =>
+              item1?.id == item2?.id,
         ),
       ),
     );
