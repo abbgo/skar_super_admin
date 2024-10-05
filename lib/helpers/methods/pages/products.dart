@@ -15,7 +15,6 @@ List<Widget> productColumns(BuildContext context) {
   return [
     tableHeaderText('${lang.name} (tm)'),
     tableHeaderText('${lang.name} (ru)'),
-    tableHeaderText(lang.picture),
     tableHeaderText(lang.price),
     tableHeaderText(lang.oldPrice),
     tableHeaderText(lang.brend),
