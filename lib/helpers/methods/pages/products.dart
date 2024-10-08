@@ -21,6 +21,7 @@ List<Widget> productColumns(BuildContext context) {
     tableHeaderText(lang.shop),
     tableHeaderText('${lang.isVisible} ?'),
     tableHeaderText(lang.categories),
+    tableHeaderText(lang.gender),
     tableHeaderText(lang.colorsOfProduct),
     const SizedBox(),
   ];
@@ -79,6 +80,9 @@ List<TableRow> productRows(
                   );
                 },
               ),
+            ),
+            const TableCellWidget(
+              child: SizedBox(),
             ),
             TableCellWidget(
               child: ResultTableColorRow(productColors: e.productColors!),

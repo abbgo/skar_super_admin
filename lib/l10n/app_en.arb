@@ -75,5 +75,9 @@
     "toRestoreCategoryYouMustFirstRestoreParentCategory":"To restore this category, you must first restore the parent category",
     "permanentlyDelete":"Permanently delete",
     "shouldThisInformationDeletedCompletely":"Should this information be deleted completely",
-    "informationCompletelyDeleted":"Information completely deleted"
+    "informationCompletelyDeleted":"Information completely deleted",
+    "male":"Male",
+    "child":"Child",
+    "female":"Female",
+    "gender":"Gender"
 }

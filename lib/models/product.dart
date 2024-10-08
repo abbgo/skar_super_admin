@@ -14,6 +14,7 @@ class Product {
   final Brend? brend;
   final List<Category>? categories;
   final Shop? shop;
+  final List<dynamic>? genders;
 
   Product({
     required this.id,
@@ -28,6 +29,7 @@ class Product {
     this.brend,
     this.categories,
     this.shop,
+    this.genders,
   });
 
   factory Product.defaultProduct() {
@@ -44,6 +46,7 @@ class Product {
       brend: null,
       categories: null,
       shop: null,
+      genders: null,
     );
   }
 
@@ -72,6 +75,7 @@ class Product {
               ),
             ),
       shop: json['shop'] == null ? null : Shop.fromJson(json['shop']),
+      genders: json['genders'] ?? [],
     );
   }
 

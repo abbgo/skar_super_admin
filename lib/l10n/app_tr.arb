@@ -75,5 +75,9 @@
     "toRestoreCategoryYouMustFirstRestoreParentCategory":"Bu kategoriýany dikeltmek üçin ilki bilen uly kategoriýany dikeltmeli",
     "permanentlyDelete":"Hemişelik poz",
     "shouldThisInformationDeletedCompletely":"Bu maglumat doly pozulsynmy",
-    "informationCompletelyDeleted":"Maglumat doly pozuldy"
+    "informationCompletelyDeleted":"Maglumat doly pozuldy",
+    "male":"Erkek",
+    "child":"Çaga & Bäbek",
+    "female":"Gyz-Gelin",
+    "gender":"Jynsy"
 }
