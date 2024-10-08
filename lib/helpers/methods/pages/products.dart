@@ -74,7 +74,7 @@ List<TableRow> productRows(
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: e.categories!
-                        .map((e) => Text(isTM ? e.nameTM : e.nameRU))
+                        .map((e) => Text('${isTM ? e.nameTM : e.nameRU} , '))
                         .toList(),
                   );
                 },
