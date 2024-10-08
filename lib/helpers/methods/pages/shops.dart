@@ -58,7 +58,7 @@ List<TableRow> shopRows(
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(e.latitude.toString()),
+                        Text('${e.latitude} , '),
                         Text(e.longitude.toString()),
                         const SizedBox(height: 10),
                         ElevatedButton(
@@ -95,7 +95,7 @@ List<TableRow> shopRows(
             TableCellWidget(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: e.phones!.map((e) => Text(e)).toList(),
+                children: e.phones!.map((e) => Text('$e , ')).toList(),
               ),
             ),
             TableCellWidget(
