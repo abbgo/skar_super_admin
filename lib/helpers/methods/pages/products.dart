@@ -5,6 +5,7 @@ import 'package:skar_super_admin/helpers/methods/table.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/product.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
+import 'package:skar_super_admin/pages/waiting_products/parts/product_genders_row.dart';
 import 'package:skar_super_admin/pages/waiting_products/parts/products_table_buttons.dart';
 import 'package:skar_super_admin/pages/waiting_products/parts/result_table_color_row.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
@@ -81,9 +82,7 @@ List<TableRow> productRows(
                 },
               ),
             ),
-            const TableCellWidget(
-              child: SizedBox(),
-            ),
+            TableCellWidget(child: ProductGendersRow(genders: e.genders!)),
             TableCellWidget(
               child: ResultTableColorRow(productColors: e.productColors!),
             ),
