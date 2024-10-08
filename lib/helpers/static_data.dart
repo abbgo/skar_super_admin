@@ -22,6 +22,14 @@ class CreatedStatuses {
   static const int success = 2;
 }
 
+class Genders {
+  Genders._();
+
+  static const int male = 0;
+  static const int female = 1;
+  static const int child = 2;
+}
+
 Center errorMethod(Object error) {
   return Center(
     child: Text(error.toString(), textAlign: TextAlign.center),
