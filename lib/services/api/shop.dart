@@ -130,12 +130,14 @@ class ShopParams extends Equatable {
   final BuildContext? context;
   final List<String>? cratedStatuses;
   final ShopCreatedStatus? shopCreatedStatus;
+  final ShopBrandStatus? shopBrandStatus;
 
   const ShopParams({
     this.isDeleted,
     this.context,
     this.cratedStatuses,
     this.shopCreatedStatus,
+    this.shopBrandStatus,
   });
 
   factory ShopParams.defaultShopParams() {
@@ -144,10 +146,11 @@ class ShopParams extends Equatable {
       context: null,
       cratedStatuses: [],
       shopCreatedStatus: null,
+      shopBrandStatus: null,
     );
   }
 
   @override
   List<Object?> get props =>
-      [isDeleted, context, cratedStatuses, shopCreatedStatus];
+      [isDeleted, context, cratedStatuses, shopCreatedStatus, shopBrandStatus];
 }

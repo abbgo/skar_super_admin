@@ -74,6 +74,34 @@ var updateShopCreatedStatusProvider =
   },
 );
 
+var updateShopBrandStatusProvider =
+    FutureProvider.autoDispose.family<ResultShop, ShopParams>(
+  (ref, arg) async {
+    ResultShop result = ResultShop.defaultResult();
+
+    try {
+      String accessToken = await ref.read(accessTokenProvider);
+      ResultShop resultShop =
+          await ref.read(shopApiProvider).updateShopBrandStatus(
+                accessToken: accessToken,
+                shop: arg.shopBrandStatus!,
+              );
+
+      await wrongToken(resultShop.error, ref, arg.context);
+
+      if (resultShop.error == 'some error') {
+        showToast('Käbir ýalňyşlyk ýüze çykdy !', true);
+      }
+
+      result = resultShop;
+    } catch (e) {
+      result = ResultShop(error: e.toString());
+    }
+
+    return result;
+  },
+);
+
 var fetchShoppingCentersProvider =
     FutureProvider.autoDispose.family<ResultShop, ShopParams>(
   (ref, arg) async {
