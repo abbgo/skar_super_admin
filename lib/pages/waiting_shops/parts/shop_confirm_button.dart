@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skar_super_admin/helpers/methods/toasts.dart';
+import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
@@ -22,9 +23,12 @@ class ShopConfirmButton extends ConsumerWidget {
           context: context,
           shopCreatedStatus: ShopCreatedStatus(id: shopID, createdStatus: 2),
         );
-        await ref.watch(updateShopCreatedStatusProvider(params).future);
-        showToast(lang.shopConfirmed, false);
-        ref.invalidate(fetchShopsProvider);
+        ResultShop resultShop =
+            await ref.watch(updateShopCreatedStatusProvider(params).future);
+        if (resultShop.error.isEmpty) {
+          showToast(lang.shopConfirmed, false);
+          ref.invalidate(fetchShopsProvider);
+        }
       },
       child: Text(
         lang.confirm,
