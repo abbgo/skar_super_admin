@@ -8,10 +8,11 @@ import 'package:skar_super_admin/helpers/methods/table.dart';
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/pages/parts/table_cell_widget.dart';
+import 'package:skar_super_admin/pages/waiting_shops/parts/shop_change_brand_status_button.dart';
 import 'package:skar_super_admin/pages/waiting_shops/parts/shops_table_buttons.dart';
 import 'package:skar_super_admin/providers/local_storadge.dart';
 
-List<Widget> shopColumns(BuildContext context) {
+List<Widget> shopColumns(BuildContext context, int cratedStatus) {
   var lang = AppLocalizations.of(context)!;
 
   return [
@@ -26,7 +27,11 @@ List<Widget> shopColumns(BuildContext context) {
     tableHeaderText(lang.phoneNumbers),
     tableHeaderText(lang.headOfShop),
     tableHeaderText(lang.mall),
-    tableHeaderText(lang.functions),
+    tableHeaderText(
+      cratedStatus == CreatedStatuses.wait
+          ? lang.functions
+          : lang.isItAnOfficialStore,
+    ),
   ];
 }
 
@@ -127,7 +132,7 @@ List<TableRow> shopRows(
             ),
             cratedStatus == CreatedStatuses.wait
                 ? TableCellWidget(child: ShopsTableButtons(shopID: e.id!))
-                : const SizedBox(),
+                : const TableCellWidget(child: ShopChangeBrandStatusButton()),
           ],
         ),
       )

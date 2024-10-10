@@ -9,7 +9,7 @@ class ShopChangeBrandStatusButton extends StatelessWidget {
     var lang = AppLocalizations.of(context)!;
 
     return CheckboxListTile(
-      title: Text('${lang.isItAnOfficialStore} ?'),
+      // title: Text('${lang.isItAnOfficialStore} ?'),
       value: true,
       onChanged: (value) {},
     );

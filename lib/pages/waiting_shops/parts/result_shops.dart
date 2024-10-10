@@ -36,7 +36,7 @@ class ResultShops extends ConsumerWidget {
                 border: TableBorder.all(),
                 children: [
                   TableRow(
-                    children: shopColumns(context),
+                    children: shopColumns(context, cratedStatus),
                     decoration: BoxDecoration(color: elevatedButtonColor),
                   ),
                 ],
