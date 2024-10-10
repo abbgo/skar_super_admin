@@ -26,7 +26,7 @@ List<Widget> shopColumns(BuildContext context) {
     tableHeaderText(lang.phoneNumbers),
     tableHeaderText(lang.headOfShop),
     tableHeaderText(lang.mall),
-    const SizedBox(),
+    tableHeaderText(lang.functions),
   ];
 }
 

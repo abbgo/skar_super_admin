@@ -79,5 +79,6 @@
     "male":"Male",
     "child":"Child",
     "female":"Female",
-    "gender":"Gender"
+    "gender":"Gender",
+    "functions":"Functions"
 }
