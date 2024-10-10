@@ -81,5 +81,6 @@
     "child":"Ребенок",
     "female":"Женский",
     "gender":"Пол",
-    "functions":"Функции"
+    "functions":"Функции",
+    "isItAnOfficialStore":"Это официальный магазин"
 }

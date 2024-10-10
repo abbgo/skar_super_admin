@@ -80,5 +80,6 @@
     "child":"Child",
     "female":"Female",
     "gender":"Gender",
-    "functions":"Functions"
+    "functions":"Functions",
+    "isItAnOfficialStore":"Is it an official store"
 }
