@@ -12,7 +12,7 @@ class Shop extends Equatable {
   final String? parentShopID;
   final int? createdStatus;
   final ShopOwner? shopOwner;
-  final bool? atHome;
+  final bool? atHome, isBrand;
 
   const Shop({
     this.id,
@@ -31,6 +31,7 @@ class Shop extends Equatable {
     this.createdStatus,
     this.shopOwner,
     this.atHome,
+    this.isBrand,
   });
 
   factory Shop.defaultShop() {
@@ -51,6 +52,7 @@ class Shop extends Equatable {
       createdStatus: null,
       shopOwner: null,
       atHome: null,
+      isBrand: null,
     );
   }
 
@@ -75,6 +77,7 @@ class Shop extends Equatable {
           ? ShopOwner.defaultShopOwner()
           : ShopOwner.fromJson(json['shop_owner']),
       atHome: json['at_home'] ?? false,
+      isBrand: json['is_brand'] ?? false,
     );
   }
 
