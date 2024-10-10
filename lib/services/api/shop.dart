@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:skar_super_admin/helpers/static_data.dart';
 import 'package:skar_super_admin/models/shop.dart';
+import 'package:skar_super_admin/models/shop_brand_status.dart';
 import 'package:skar_super_admin/models/shop_created_status.dart';
 
 class ShopApiService {
@@ -93,9 +94,9 @@ class ShopApiService {
   // update shop brand status ------------------------------------------------
   Future<ResultShop> updateShopBrandStatus({
     required String accessToken,
-    required ShopCreatedStatus shop,
+    required ShopBrandStatus shop,
   }) async {
-    Uri uri = Uri.parse('$apiUrl/back/shops/admin/created-status');
+    Uri uri = Uri.parse('$apiUrl/back/shops/admin/brand-status');
 
     try {
       http.Response response = await http.put(
