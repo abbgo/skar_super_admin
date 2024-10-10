@@ -89,6 +89,39 @@ class ShopApiService {
       rethrow;
     }
   }
+
+  // update shop brand status ------------------------------------------------
+  Future<ResultShop> updateShopBrandStatus({
+    required String accessToken,
+    required ShopCreatedStatus shop,
+  }) async {
+    Uri uri = Uri.parse('$apiUrl/back/shops/admin/created-status');
+
+    try {
+      http.Response response = await http.put(
+        uri,
+        headers: tokenHeader(accessToken),
+        body: json.encode(shop.toJson()),
+      );
+      var jsonData = json.decode(response.body);
+
+      if (response.statusCode == 200 && jsonData['status']) {
+        if (jsonData['message'] == null) {
+          return const ResultShop(message: '', error: '');
+        }
+
+        return ResultShop(message: jsonData['message'], error: '');
+      }
+
+      if (response.statusCode == 400) {
+        return const ResultShop(error: 'some error');
+      }
+
+      return const ResultShop(message: '', error: 'auth error');
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 class ShopParams extends Equatable {
