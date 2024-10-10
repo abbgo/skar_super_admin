@@ -6,6 +6,7 @@ import 'package:skar_super_admin/models/shop.dart';
 import 'package:skar_super_admin/models/shop_brand_status.dart';
 import 'package:skar_super_admin/providers/api/shop.dart';
 import 'package:skar_super_admin/services/api/shop.dart';
+import 'package:skar_super_admin/styles/colors.dart';
 
 class ShopChangeBrandStatusButton extends ConsumerWidget {
   const ShopChangeBrandStatusButton({
@@ -25,6 +26,7 @@ class ShopChangeBrandStatusButton extends ConsumerWidget {
       children: [
         Text(isBrandShop ? lang.yes : lang.no),
         Checkbox(
+          activeColor: elevatedButtonColor,
           value: isBrandShop,
           onChanged: (value) async {
             ShopParams params = ShopParams(
