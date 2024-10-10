@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ShopChangeBrandStatusButton extends StatelessWidget {
-  const ShopChangeBrandStatusButton({super.key});
+  const ShopChangeBrandStatusButton({super.key, required this.isBrandShop});
+
+  final bool isBrandShop;
 
   @override
   Widget build(BuildContext context) {
     var lang = AppLocalizations.of(context)!;
 
-    return CheckboxListTile(
-      // title: Text('${lang.isItAnOfficialStore} ?'),
-      value: true,
-      onChanged: (value) {},
+    return Column(
+      children: [
+        Text(isBrandShop ? lang.yes : lang.no),
+        Checkbox(
+          value: isBrandShop,
+          onChanged: (value) {},
+        ),
+      ],
     );
 
     // return ElevatedButton(

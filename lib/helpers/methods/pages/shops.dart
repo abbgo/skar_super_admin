@@ -132,7 +132,9 @@ List<TableRow> shopRows(
             ),
             cratedStatus == CreatedStatuses.wait
                 ? TableCellWidget(child: ShopsTableButtons(shopID: e.id!))
-                : const TableCellWidget(child: ShopChangeBrandStatusButton()),
+                : TableCellWidget(
+                    child: ShopChangeBrandStatusButton(isBrandShop: e.isBrand!),
+                  ),
           ],
         ),
       )
